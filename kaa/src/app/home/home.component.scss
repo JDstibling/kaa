@@ -1,0 +1,179 @@
+@import "src/fonts.scss";
+
+.home{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "kaa", sans-serif;
+    background: url(../../assets/images/fond/blue-wall-texture-slate-background.jpg);
+    color: aliceblue;
+    .title{
+        text-align: center;
+        padding: 2em;
+        
+
+        h1{
+            font-family: "kaa", sans-serif;
+            font-size: 3.2em;
+        }
+
+        p{
+            font-size: 2.1em;
+            margin: 2em 3em 0 3em;
+            line-height: 1.5em;
+        }
+
+    }
+    .nav{
+        width: 85%;
+        display: flex;
+        justify-content:space-around;
+        margin: 3em 0 0 0;
+        color: aliceblue;
+        //margin: 0 0 2em 0;
+        //border: solid red;
+        //height: 8em;
+
+        .nav-item{
+            position: relative; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            //padding: 1.4rem 4.2rem;
+            //padding-right: 3.1rem;
+            font-size: 1rem;
+            //color: var(--inv);
+            //letter-spacing: 1.1rem;
+            text-transform: uppercase;
+            //transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);  
+            cursor: pointer;
+            //user-select: none;
+            border: solid rgb(146, 146, 146);
+            height: 15em;
+            //background: rgb(168, 27, 27);
+            width: 10em;
+
+             h6{
+                margin: 1em .7em .7em .7em;
+                font-size: 1.2em;
+                font-family: "kaa", sans-serif;
+                text-align: center;
+            }
+
+
+
+            .img0 {
+                background:url("http://img.xooimage.com/files42/2/c/0/perceval-72f7f2.jpg");
+                background-size: cover;
+                //height: 0em;
+                width: 100%;
+
+
+            }
+            .img1 {
+                background:url("http://www.onenagros.org/wordpress/wp-content/uploads/persos/DameS%C3%A9li.jpg");
+                height: 0em;
+                width: 100%;
+                background-size: cover;
+            }
+            .img2 {
+                background:url("https://www.jokeme.fr/images/Karadoc.jpg");
+                height: 0em;
+                width: 100%;
+                background-size: cover;
+            }
+            .img3 {
+                background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzoy-XoO-pXk6IPUBxtDOblT1fQR2tsE00qg&usqp=CAU");
+                height: 0em;
+                width: 100%;
+                background-size: cover;
+            }
+        }
+
+        .nav-item:hover{
+            //border: solid blue;
+            //border-color: rgb(168, 27, 27);
+            //transform: rotate(1080deg);
+            border-radius: 10%;
+            /* transition quand la souris survole */
+            //transition: all 30s;
+            position: relative;
+            //top: 0;
+            box-shadow: 0 0 65px aliceblue inset, 0 0 20px #BEAE8C inset, 0 0 2px #816F47;
+            //transition: all 0.3s ease-in;
+            //color: rgb(23, 22, 85);
+
+            .img0 {
+                animation-name: appears;
+                animation-duration: 4s;
+                animation-fill-mode:both;
+                border-radius: 0 0 10% 10%;
+                animation-direction: alternate;
+                @keyframes appears {
+                    0%    { opacity:0; height: 0em;}
+                    100%   { opacity:1; height: 8em;}
+                }
+            }
+            .img1 {
+                animation-name: appears;
+                animation-duration: 4s;
+                animation-fill-mode: forwards;
+                border-radius: 0 0 10% 10%;
+                animation-direction: alternate-reverse;
+                @keyframes appears {
+                    0%    { opacity:0; height: 0em;}
+                    100%   { opacity:1; height: 15em;}
+                }
+            }
+            .img2 {
+                animation-name: appears;
+                animation-duration: 4s;
+                animation-fill-mode: forwards;
+                border-radius: 0 0 10% 10%;
+                animation-direction: alternate-reverse;
+                @keyframes appears {
+                    0%    { opacity:0; height: 0em;}
+                    100%   { opacity:1; height: 15em;}
+                }
+            }
+            .img3 {
+                animation-name: appears;
+                animation-duration: 4s;
+                animation-fill-mode: forwards;
+                border-radius: 0 0 10% 10%;
+                animation-direction: alternate-reverse;
+                @keyframes appears {
+                    0%    { opacity:0; height: 0em;}
+                    100%   { opacity:1; height: 15em;}
+                }
+            }
+         }
+
+
+        
+    }
+    .contain{
+        //border: solid pink;
+        position: relative;
+        width: 85%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        background: red;
+        //left: 4%;
+        //top: 65%;
+        height: 15em;
+
+
+            .contain-explain {
+                //border: solid;  
+                position: relative; 
+                transition: 2s;
+
+            }
+      }
+}
