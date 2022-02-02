@@ -9,11 +9,16 @@ import { CitationService } from '../services/citation.service';
 })
 export class PersoComponent implements OnInit {
 
-  constructor(public CitationService: CitationService) { }
+  constructor(private _CitationService: CitationService) { }
 
+  public citations: any = [];
+  public casting: any = [];
+  
   ngOnInit(): void {
-    this.CitationService.get();
-    //console.log('etst');
+    this.citations = this._CitationService.getCitations();
+    console.log(this.citations);
+    this.casting = this._CitationService.getCasting();
+    console.log(this.casting);
     
   }
 }
