@@ -21,5 +21,7 @@ export class PersoComponent implements OnInit {
     console.log(this.casting);
     
   }
+
+  
 }
   
