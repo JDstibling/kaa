@@ -44,16 +44,16 @@ export class HomeComponent {
   functiontest(item: any) {
     homeNav.forEach(item => {
       item.selected = false;
-      console.log(item);
+      //console.log(item);
       
     });
     item.selected = true;
-    console.log(homeNav);
+    //console.log(homeNav);
     
   }
 
   test() {
-    console.log('testok');
+    //console.log('testok');
     
   }
 
