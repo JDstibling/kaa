@@ -1,7 +1,14 @@
 <div class="main">
-    <div class="cards" *ngFor="let item of casting">
-        <div class="cards-perso">
-            <h6>{{item.personnage}}</h6>
+    <div class="list">
+        <div class="cards" *ngFor="let item of casting | paginate: { 
+            itemsPerPage: 10,
+            currentPage: page,
+            totalItems:totalLength 
+        }">
+            <div class="cards-perso">
+                <h6>{{item.personnage}}</h6>
+            </div>
         </div>
     </div>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
 </div>

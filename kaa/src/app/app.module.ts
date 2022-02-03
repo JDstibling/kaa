@@ -15,6 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 const appRoutes : Routes = [
   
   {path: 'home', component: HomeComponent},
@@ -29,11 +31,12 @@ const appRoutes : Routes = [
     AppComponent,
     HomeComponent,
     PersoComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxPaginationModule,
     RouterModule.forRoot(appRoutes),
     MatButtonModule,
     MatToolbarModule,
