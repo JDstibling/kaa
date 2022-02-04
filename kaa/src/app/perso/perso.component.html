@@ -1,6 +1,6 @@
 <div class="main">
     <div class="list">
-        <div class="cards" (click)="onViewFiche(i)" *ngFor="let item of casting | paginate: { 
+        <div class="cards" (click)="onViewFiche(i, item)" *ngFor="let item of casting | paginate: { 
             itemsPerPage:maxItems,
             currentPage: page,
             totalItems:totalLength 

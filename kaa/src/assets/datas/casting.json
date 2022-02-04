@@ -1,218 +1,272 @@
 [
     {
         "acteur": "Vanessa Guedj",
-        "personnage": "Gueni\u00e8vre"
+        "personnage": "Guenièvre",
+        "id": 0
     },
     {
         "acteur": "Anouk Grinberg",
-        "personnage": "Anna"
+        "personnage": "Anna",
+        "id": 1
     },
     {
         "acteur": "Emmanuel Meirieu",
-        "personnage": "Appius Manilius"
+        "personnage": "Appius Manilius",
+        "id": 2
     },
     {
         "acteur": "Alexandre Astier",
-        "personnage": "Arthur"
+        "personnage": "Arthur",
+        "id": 3
     },
     {
         "acteur": "Lan Truong",
-        "personnage": "Attila"
+        "personnage": "Attila",
+        "id": 4
     },
     {
-        "acteur": "Fran\u00e7ois Morel",
-        "personnage": "Belt"
+        "acteur": "François Morel",
+        "personnage": "Belt",
+        "id": 5
     },
     {
         "acteur": "Jean-Robert Lombard",
-        "personnage": "P\u00e8re Blaise"
+        "personnage": "Père Blaise",
+        "id": 6
     },
     {
         "acteur": "Nicolas Gabion",
-        "personnage": "Bohort"
+        "personnage": "Bohort",
+        "id": 7
     },
     {
         "acteur": "Yvan le Bolloc'h",
-        "personnage": "Breccan"
+        "personnage": "Breccan",
+        "id": 8
     },
     {
         "acteur": "Guillaume Briat",
-        "personnage": "Le Roi Burgonde"
+        "personnage": "Le Roi Burgonde",
+        "id": 9
     },
     {
         "acteur": "Bruno Salomone",
-        "personnage": "Caius Camillus"
+        "personnage": "Caius Camillus",
+        "id": 10
     },
     {
-        "acteur": "St\u00e9phane Margot",
-        "personnage": "Calogrenant"
+        "acteur": "Stéphane Margot",
+        "personnage": "Calogrenant",
+        "id": 11
     },
     {
-        "acteur": "Fran\u00e7ois Levantal",
-        "personnage": "Capito"
+        "acteur": "François Levantal",
+        "personnage": "Capito",
+        "id": 12
     },
     {
         "acteur": "Pierre Mondy",
-        "personnage": "C\u00e9sar"
+        "personnage": "César",
+        "id": 13
     },
     {
         "acteur": "Claire Nadeau",
-        "personnage": "Cryda de Tintagel"
+        "personnage": "Cryda de Tintagel",
+        "id": 14
     },
     {
         "acteur": "Antoine de Caunes",
-        "personnage": "Dagonet"
+        "personnage": "Dagonet",
+        "id": 15
     },
     {
         "acteur": "Audrey Fleurot",
-        "personnage": "La Dame du Lac"
+        "personnage": "La Dame Du Lac",
+        "id": 16
     },
     {
         "acteur": "Caroline Pascal",
-        "personnage": "Demetra"
+        "personnage": "Demetra",
+        "id": 17
     },
     {
         "acteur": "Anne Beno\u00eet",
-        "personnage": "Drusilla"
+        "personnage": "Drusilla",
+        "id": 18
     },
     {
         "acteur": "Alain Chabat",
-        "personnage": "Le Duc d'Aquitaine"
+        "personnage": "Le Duc d'Aquitaine",
+        "id": 19
     },
     {
         "acteur": "\u00c9milie Dequenne",
-        "personnage": "Edern"
+        "personnage": "Edern",
+        "id": 20
     },
     {
         "acteur": "Bruno Fontaine",
-        "personnage": "Elias de Kelliwic'h"
+        "personnage": "Elias de Kelliwik'h",
+        "id": 21
     },
     {
         "acteur": "Alexis H\u00e9non",
-        "personnage": "Galessin"
+        "personnage": "Galessin",
+        "id": 22
     },
     {
         "acteur": "Aur\u00e9lien Portehaut",
-        "personnage": "Gauvain"
+        "personnage": "Gauvain",
+        "id": 23
     },
     {
         "acteur": "Philippe Nahon",
-        "personnage": "Goustan"
+        "personnage": "Goustan",
+        "id": 24
     },
     {
         "acteur": "Thibault Roux",
-        "personnage": "Gr\u00fcd\u00fc"
+        "personnage": "Grüdü",
+        "id": 25
     },
     {
         "acteur": "Serge Papagalli",
-        "personnage": "Guethenoc"
+        "personnage": "Guethenoc",
+        "id": 26
     },
     {
         "acteur": "Tony Saba",
-        "personnage": "Herv\u00e9 de Rinel"
+        "personnage": "Herv\u00e9 de Rinel",
+        "id": 27
     },
     {
         "acteur": "Lor\u00e1nt Deutsch",
-        "personnage": "L'interpr\u00e8te burgonde"
+        "personnage": "L'interpr\u00e8te burgonde",
+        "id": 28
     },
     {
         "acteur": "Georges Beller",
-        "personnage": "Le Seigneur Jacca"
+        "personnage": "Le Seigneur Jacca",
+        "id": 29
     },
     {
         "acteur": "Alexandra Saadoun et Magali Saadoun",
-        "personnage": "Les Jumelles du p\u00eacheur"
+        "personnage": "Les jumelles du pêcheur",
+        "id": 30
     },
     {
         "acteur": "Christian Clavier",
-        "personnage": "Le Jurisconsulte"
+        "personnage": "Le Jurisconsulte",
+        "id": 31
     },
     {
         "acteur": "Brice Fournier",
-        "personnage": "Kadoc"
+        "personnage": "Kadoc",
+        "id": 32
     },
     {
         "acteur": "Jean-Christophe Hembert",
-        "personnage": "Karadoc"
+        "personnage": "Karadoc",
+        "id": 33
     },
     {
         "acteur": "Thomas Cousseau",
-        "personnage": "Lancelot"
+        "personnage": "Lancelot",
+        "id": 34
     },
     {
         "acteur": "Lionnel Astier",
-        "personnage": "L\u00e9odagan"
+        "personnage": "L\u00e9odagan",
+        "id": 35
     },
     {
         "acteur": "Fran\u00e7ois Rollin",
-        "personnage": "Loth"
+        "personnage": "Loth",
+        "id": 36
     },
     {
         "acteur": "Christian Bujeau",
-        "personnage": "Le Ma\u00eetre d'Armes"
+        "personnage": "Le Ma\u00eetre d'Armes",
+        "id": 37
     },
     {
         "acteur": "Carlo Brandt",
-        "personnage": "M\u00e9l\u00e9agant"
+        "personnage": "M\u00e9l\u00e9agant",
+        "id": 38
     },
     {
         "acteur": "Tcheky Karyo",
-        "personnage": "Manius Macrinus Firmus"
+        "personnage": "Manius Macrinus Firmus",
+        "id": 39
     },
     {
         "acteur": "Jacques Chambon",
-        "personnage": "Merlin"
+        "personnage": "Merlin",
+        "id": 40
     },
     {
         "acteur": "Caroline Ferrus",
-        "personnage": "Mevanwi"
+        "personnage": "Mevanwi",
+        "id": 41
     },
     {
         "acteur": "Franck Pitiot",
-        "personnage": "Perceval"
+        "personnage": "Perceval",
+        "id": 42
     },
     {
         "acteur": "Gilles Graveleau",
-        "personnage": "Roparzh"
+        "personnage": "Roparzh",
+        "id": 43
     },
     {
         "acteur": "Patrick Chesnais",
-        "personnage": "Lucius Sillius Sallustius"
+        "personnage": "Lucius Sillius Sallustius",
+        "id": 44
     },
     {
         "acteur": "Axelle Laffont",
-        "personnage": "S\u00e9friane d'Aquitaine"
+        "personnage": "S\u00e9friane d'Aquitaine",
+        "id": 45
     },
     {
         "acteur": "Jo\u00eblle Sevilla",
-        "personnage": "S\u00e9li"
+        "personnage": "S\u00e9li",
+        "id": 46
     },
     {
         "acteur": "Pascal Demolon",
-        "personnage": "Spurius Cordius Frontinius"
+        "personnage": "Spurius Cordius Frontinius",
+        "id": 47
     },
     {
         "acteur": "Alain Chapuis",
-        "personnage": "Le Tavernier"
+        "personnage": "Le Tavernier",
+        "id": 48
     },
     {
         "acteur": "Pascal Vincent",
-        "personnage": "Urgan"
+        "personnage": "Urgan",
+        "id": 49
     },
     {
         "acteur": "Manu Payet",
-        "personnage": "V\u00e9rinus"
+        "personnage": "V\u00e9rinus",
+        "id": 50
     },
     {
         "acteur": "Lo\u00efc Varraut",
-        "personnage": "Venec"
+        "personnage": "Venec",
+        "id": 51
     },
     {
         "acteur": "Jos\u00e9e Drevon",
-        "personnage": "Ygerne"
+        "personnage": "Ygerne",
+        "id": 52
     },
     {
         "acteur": "Simon Astier",
-        "personnage": "Yvain"
+        "personnage": "Yvain",
+        "id": 53
     }
 ]

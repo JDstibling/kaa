@@ -1,5 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 import Citations from '../../assets/datas/citations.json';
 import Casting from '../../assets/datas/casting.json';
@@ -7,13 +6,10 @@ import Casting from '../../assets/datas/casting.json';
 @Injectable({
   providedIn: 'root'
 })
-export class CitationService implements OnInit{
+export class CitationService{
 
-  constructor(private http: HttpClient) {
+  constructor() {
    }
-
-  ngOnInit() {      
-}
 
   getCitations() {
      return Citations;

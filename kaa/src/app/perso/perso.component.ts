@@ -23,19 +23,22 @@ export class PersoComponent implements OnInit {
   
   ngOnInit(): void {
     this.citations = this._CitationService.getCitations();
-    console.log(this.citations);
+    //console.log(this.citations);
     
     this.casting = this._CitationService.getCasting();
-    console.log(this.casting);
+    //console.log(this.casting);
     this.totalLength = this.casting.length;
-    console.log(this.totalLength);
+    //console.log(this.totalLength);
     
   }
 
-  onViewFiche(id : number) {
-    console.log(id);
+  onViewFiche(id : number, item:any) {
+
+    // redirection
+    this.Router.navigate(['/perso',item.id]);
+    console.log(item.id);
+
     
-    this.Router.navigate(['/perso',id]);
   }
 
   
