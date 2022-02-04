@@ -1,14 +1,16 @@
 <div class="main">
     <div class="list">
-        <div class="cards" *ngFor="let item of casting | paginate: { 
-            itemsPerPage: 10,
+        <div class="cards" (click)="onViewFiche(i)" *ngFor="let item of casting | paginate: { 
+            itemsPerPage:maxItems,
             currentPage: page,
             totalItems:totalLength 
-        }">
+        }; let i = index;">
             <div class="cards-perso">
                 <h6>{{item.personnage}}</h6>
             </div>
         </div>
     </div>
-    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    <div class="nav">
+        <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
+    </div>
 </div>

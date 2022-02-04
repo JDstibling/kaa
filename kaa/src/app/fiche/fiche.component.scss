@@ -1,0 +1,16 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: cornsilk;
+    height: 100vh;
+
+    .focus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: cornflowerblue;
+        height: 50%;
+        width: 60%;
+    }
+}

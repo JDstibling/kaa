@@ -16,11 +16,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FicheComponent } from './fiche/fiche.component';
 
 const appRoutes : Routes = [
   
   {path: 'home', component: HomeComponent},
   {path: 'perso', component: PersoComponent},
+  {path: 'perso/:id', component: FicheComponent},
   {path: '', redirectTo:'home', pathMatch:'full'},
   {path: '**', redirectTo:'home'},
   
@@ -32,6 +34,7 @@ const appRoutes : Routes = [
     HomeComponent,
     PersoComponent,
     NavbarComponent,
+    FicheComponent,
   ],
   imports: [
     BrowserModule,

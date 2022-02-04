@@ -1,38 +1,108 @@
+// voir pour créer une animation complexe sur chaque card personnage
+// afin de faire en sorte qu'au hover on a le nom de l'acteur, 
+// dans quel livre il apparait,
+// le nom du personnage
+
 .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     //border: solid red;
-    //margin: 2em 3em;
-    background: url(../../assets/images/fond/bg_st.jpg);
+    background-image: linear-gradient(
+        179.72deg,
+        rgba(33, 37, 41, 0.8) 25.29%,
+        rgba(123, 126, 130, 0.32) 99.7%,
+        rgba(126, 129, 132, 0.64) 99.71%
+      ),
+    url("../../assets/images/fond/bg_st.jpg");
+    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    //border: solid 3px whitesmoke;
-    height: 100vh;
+    height: 100%;
 
     .list {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        border: solid 1px orange;
-        width: 100%;
-        height: 100%;
+        width: 80%;
+
+        :hover {
+            .cards-perso {
+                //border: solid red;
+                transition: .15s;
+                -moz-transform: scale(1.1);
+                -webkit-transform: scale(1.1);
+                -o-transform: scale(1.1);
+                -ms-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+        }
 
         .cards {  
         //display: flex;
         //border: solid blue 4px;  
        
             .cards-perso {
-                Border: solid grey;
-                width: 6em;
-                height: 6em;
-                background: black;
-                margin: 0.8em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //Border: solid grey;
+                //background: #FFFFFF;
+                width: 16em;
+                height: 9em;
+                -webkit-box-shadow: inset -1px 3px 8px 5px #4f83be, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0.56); 
+                box-shadow: inset -1px 3px 8px 5px #496381, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0.56);
+                margin: 1em;
+                background: #0c0c0c9d;
                 h6 {
-                    font-size: 1.3em;
+                    font-size: 2em;
                     text-align: center;
-                    color: white;
+                    //color: white;
+                    font-family: "medieval", sans-serif;
+
+                    color: #FFFFFF;
+                    //background: #0c0c0c9d;
+                    text-shadow: #474747 3px 5px 2px;
+                    margin: 0 1em;
+                    
                 }
             }
         }
+    }
+
+    .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        font-family: "medieval", sans-serif;
+        //border: solid red;
+        height: 4em;
+        //color: rgb(236, 236, 243);
+
+    }
+
+    .pagination ::ng-deep .ngx-pagination .current {
+        background: #0B325E;
+    }
+    .pagination ::ng-deep .ngx-pagination {
+        //background: #0c0c0c9d;
+    }
+
+
+    .paginator ::ng-deep .ngx-pagination a:hover, .ngx-pagination button:hover {
+        background: #d4d4d4;
+        border-radius: 3px;
+        padding-left: 9px;
+        padding-right: 9px;
+        text-decoration: none;
+    }
+    
+    .paginator ::ng-deep .ngx-pagination a:focus, .ngx-pagination button:focus {
+        outline: none;
+        background: #d4d4d4;
     }
 
 }

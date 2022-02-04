@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 import { CitationService } from '../services/citation.service';
@@ -10,13 +11,14 @@ import { CitationService } from '../services/citation.service';
 })
 export class PersoComponent implements OnInit {
 
-  constructor(private _CitationService: CitationService) { }
+  constructor(private _CitationService: CitationService, private Router: Router) { }
 
   public citations: any = [];
   public casting: any = [];
 
   totalLength:any;
   page:number = 1;
+  maxItems:number = 18;
 
   
   ngOnInit(): void {
@@ -28,6 +30,12 @@ export class PersoComponent implements OnInit {
     this.totalLength = this.casting.length;
     console.log(this.totalLength);
     
+  }
+
+  onViewFiche(id : number) {
+    console.log(id);
+    
+    this.Router.navigate(['/perso',id]);
   }
 
   
