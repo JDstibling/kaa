@@ -28,13 +28,25 @@ main {
         //background: cornflowerblue;
         height: 50%;
         width: 60%;
-        border: solid;
+        //border: solid;
 
         .up {
-            border: solid 2px grey;
+            //border: solid 2px grey;
+            -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(63,53,183,0); 
+            box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(63,53,183,0);
             position: relative;
             border-radius: 25% 10%;
-            left: -8em;
+            //left: -8em;
+            //anim
+            animation-name: goLeft;
+            animation-duration: 3s;
+            animation-fill-mode:both;
+            animation-direction: alternate;
+        }
+
+        @keyframes goLeft {
+            0%    {left: 3em;}
+            100%  {left: -8em;}
         }
 
         .slide {
@@ -47,6 +59,15 @@ main {
                 color: red;
             }
 
+        }
+
+        #back {
+            position: absolute;
+            color: rgb(221, 220, 220);
+            border: solid;
+            background: rgb(24, 23, 23);
+            width: 8em;
+            top: 24em;
         }
     }
 }

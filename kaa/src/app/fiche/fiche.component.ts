@@ -24,22 +24,6 @@ import { CitationService } from '../services/citation.service';
       ),
       transition('false => true', animate('250ms ease-in-out')),
     ]),
-    trigger('fadeText2', [
-      transition(':enter', [
-        style({ opacity: 0, width: 0 }),
-        animate(
-          '250ms ease-in-out',
-          keyframes([style({ width: '*' }), style({ opacity: 1 })])
-        ),
-      ]),
-      transition(':leave', [
-        style({ opacity: 1, width: '*' }),
-        animate(
-          '250ms ease-in-out',
-          keyframes([style({ opacity: 0 }), style({ width: 0 })])
-        ),
-      ]),
-    ]),
     trigger('fadeTextSlide', [
       state(
         'false',
@@ -55,7 +39,7 @@ import { CitationService } from '../services/citation.service';
           transform: 'translateY(0)',
         })
       ),
-      transition('false => true', animate('300ms ease-in-out')),
+      transition('false => true', animate('3000ms ease-in-out')),
     ]),
   ],
   encapsulation: ViewEncapsulation.None,
