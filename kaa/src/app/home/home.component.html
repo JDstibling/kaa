@@ -4,9 +4,9 @@
         <p>{{ randomCitation }}</p>
     </div>
     <div class="nav">
-        <div  class="nav-item" *ngFor="let item of homeNav; let i = index" (mouseover)="item.mouseOn = true" (mouseout)="item.mouseOn = false">
-            <h6>{{item.name}}</h6>
-            <div class="img{{ i }}"></div>
+        <div  class="nav-item" (click)="redir(i)" *ngFor="let item of homeNav; let i = index" (mouseover)="item.mouseOn = true" (mouseout)="item.mouseOn = false">
+                <h6>{{item.name}}</h6>
+                <div class="img{{ i }}"></div>          
         </div>
     </div>
 </div>

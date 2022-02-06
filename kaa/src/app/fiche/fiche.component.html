@@ -1,8 +1,13 @@
 <main>
+    <h1 [@fadeText]="animationTiming[0]" id="title">{{persoSelected}}</h1>
     <div class="focus">
-        <div class="up">
-            <img src="{{image}}" alt="">
+        <img class="up" src="{{image}}" alt="">
+        <div class="slides">
+            <div [@fadeText]="animationTiming[0]" class="slide num1"><h5>Acteur :<span>blablabla</span></h5></div>
+            <div [@fadeText]="animationTiming[1]" class="slide num2"><h5>Bibliographie :<span>blablabla</span></h5></div>
+            <div [@fadeText]="animationTiming[2]" class="slide num3"><h5>Présence dans les livres :<span>blablabla</span></h5></div>
+            <div [@fadeText]="animationTiming[3]" class="slide num4"><h5>Répliques disponibles sur le site :<span>blablabla</span></h5></div>
         </div>
-        <div class="down"></div>
+
     </div>
 </main>

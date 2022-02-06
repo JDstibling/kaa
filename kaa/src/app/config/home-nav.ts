@@ -1,6 +1,6 @@
 export const homeNav: Array<homeNavInterface> = [
     {
-        name: 'Acteurs',
+        name: 'Personnages',
         image: 'http://img.xooimage.com/files42/2/c/0/perceval-72f7f2.jpg',
         description: 'personnage ...',
         mouseOn: false,
