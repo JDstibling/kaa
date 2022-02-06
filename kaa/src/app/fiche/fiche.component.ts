@@ -51,6 +51,7 @@ export class FicheComponent implements OnInit, OnDestroy, AfterContentInit {
   casting: any = [];
   persoSelected!: string;
   animationTiming!: Array<Boolean>;
+  linkWiki!: string;
 
   constructor(private route: ActivatedRoute, private _CitationService: CitationService) { }
 
@@ -64,6 +65,7 @@ export class FicheComponent implements OnInit, OnDestroy, AfterContentInit {
 
     });
     this.getImgPerso();
+    this.getWikiActor();
   }
 
   ngOnDestroy(): void {
@@ -93,6 +95,10 @@ export class FicheComponent implements OnInit, OnDestroy, AfterContentInit {
         }, 350);
       }, 350);
     }, 500);
+  }
+
+  getWikiActor() {
+    this.linkWiki = 'https://fr.wikipedia.org/wiki/' + this.casting[this.castingId].acteur.replace(/ /g, '_'); 
   }
 
 }
