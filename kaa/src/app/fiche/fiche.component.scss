@@ -20,6 +20,20 @@ main {
         color: white;
         font-family: "medieval", sans-serif;
     }
+
+    p {
+        color: white;
+        font-family: "medieval", sans-serif;
+        width: 50%;
+        margin: 0 5em 0 5em;
+        font-size: 1.4em ;
+        text-align: center;
+    }
+
+    span {
+        font-style: italic;
+        color: white;
+    }
     .focus {
         display: flex;
         position: relative;
@@ -27,7 +41,7 @@ main {
         align-items: center;
         //background: cornflowerblue;
         height: 50%;
-        width: 60%;
+        width: 70%;
         //border: solid;
 
         .up {
@@ -51,12 +65,16 @@ main {
 
         .slide {
             margin: 0 0 2em 0;
+            
             h5 {
                 color: white;
                 font-size: 2em;
+                font-family: "medieval", sans-serif;
             }
             span {
                 color: red;
+                margin: 0 0 0 1em;
+                font-family: "medieval", sans-serif;
             }
 
         }
