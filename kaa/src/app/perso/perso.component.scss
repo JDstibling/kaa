@@ -2,9 +2,11 @@
 // afin de faire en sorte qu'au hover on a le nom de l'acteur, 
 // dans quel livre il apparait,
 // le nom du personnage
+@import "src/fonts.scss";
 
 .main {
     display: flex;
+    font-family: "medieval", sans-serif;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -41,15 +43,11 @@
         }
 
         .cards {  
-        //display: flex;
-        //border: solid blue 4px;  
        
             .cards-perso {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                //Border: solid grey;
-                //background: #FFFFFF;
                 width: 16em;
                 height: 9em;
                 -webkit-box-shadow: inset -1px 3px 8px 5px #4f83be, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0.56); 
@@ -77,7 +75,7 @@
         justify-content: center;
         align-items: center;
         font-size: 2em;
-        font-family: "medieval", sans-serif;
+        //font-family: "medieval", sans-serif;
         //border: solid red;
         height: 4em;
         //color: rgb(236, 236, 243);

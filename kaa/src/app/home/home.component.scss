@@ -22,7 +22,7 @@
 
         p{
             font-size: 2.1em;
-            font-family: "medieval", sans-serif;
+            //font-family: "medieval", sans-serif;
             margin: 2em 3em 0 3em;
             line-height: 1.5em;
         }
@@ -34,9 +34,15 @@
         justify-content:space-around;
         margin: 3em 0 0 0;
         color: aliceblue;
-        height: 15em;
+        //height: 15em;
 
         .nav-item{
+            @media screen and (max-width: 770px) {
+                height: 6.5em;
+                border: solid yellow;
+                margin: 1em;
+                width: 60%;
+            }
             position: relative; 
             display: flex;
             flex-direction: column;
@@ -55,8 +61,7 @@
                 text-align: center;
             }
 
-            .img0 {
-                background:url("http://img.xooimage.com/files42/2/c/0/perceval-72f7f2.jpg");
+            .img0 , .img1, .img2, .img3{
                 background-size: cover;
                 height: 0em;
                 width: 100%;
@@ -64,68 +69,35 @@
                 animation-duration: 1s;
                 animation-fill-mode:both;
                 animation-direction: alternate;
+            }
+            .img0 {
+                background:url("../../assets/images/persos/Yvain.jpg");
             }
             .img1 {
-                background:url("http://www.onenagros.org/wordpress/wp-content/uploads/persos/DameS%C3%A9li.jpg");
-                height: 0em;
-                width: 100%;
-                background-size: cover;
-                animation-name: out;
-                animation-duration: 1s;
-                animation-fill-mode:both;
-                animation-direction: alternate;
+                background:url("../../assets/images/persos/Loth.jpg");
             }
             .img2 {
-                background:url("https://www.jokeme.fr/images/Karadoc.jpg");
-                height: 0em;
-                width: 100%;
-                background-size: cover;
-                animation-name: out;
-                animation-duration: 1s;
-                animation-fill-mode:both;
-                animation-direction: alternate;
+                background:url("../../assets/images/persos/Arthur.jpg");
             }
             .img3 {
-                background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzoy-XoO-pXk6IPUBxtDOblT1fQR2tsE00qg&usqp=CAU");
-                height: 0em;
-                width: 100%;
-                background-size: cover;
-                animation-name: out;
-                animation-duration: 1s;
-                animation-fill-mode:both;
-                animation-direction: alternate;
+                background:url("../../assets/images/persos/Perceval.jpg");
             }
         }
 
         .nav-item:hover{
-            border-radius: 10%;
             position: relative;
             box-shadow: 0 0 65px aliceblue inset, 0 0 20px #BEAE8C inset, 0 0 2px #816F47;
 
-            .img0 {
+            @media screen and (min-width: 770px) {
+             border-radius: 10%;   
+            .img0, .img1, .img2, .img3 {
                 animation-name: in;
                 animation-duration: .45s;
                 animation-fill-mode:both;
                 animation-direction: alternate;
             }
-            .img1 {
-                animation-name: in;
-                animation-duration: .45s;
-                animation-fill-mode: both;
-                animation-direction: alternate;
             }
-            .img2 {
-                animation-name: in;
-                animation-duration: .45s;
-                animation-fill-mode: both;
-                animation-direction: alternate;
-            }
-            .img3 {
-                animation-name: in;
-                animation-duration: .45s;
-                animation-fill-mode: both;
-                animation-direction: alternate;
-            }
+
          }
 
     @keyframes in {

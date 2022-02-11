@@ -77,6 +77,7 @@ export class FicheComponent implements OnInit, OnDestroy, AfterContentInit {
 
   ngOnDestroy(): void {
     this.animationTiming = [];
+    this.routeSub.unsubscribe();
   }
 
   ngAfterContentInit(): void {
@@ -131,9 +132,12 @@ export class FicheComponent implements OnInit, OnDestroy, AfterContentInit {
 
   findInfoCitation() {
     // récupération des infos de la réplique sélectionné en random
-    const findInfos = this.citation.find( (citation: { citation: string; }) => citation.citation === this.randomReplique);
-    this.saison = findInfos.infos.saison;
-    this.episode = findInfos.infos.episode;
+    if (this.randomReplique){
+      const findInfos = this.citation.find( (citation: { citation: string; }) => citation.citation === this.randomReplique);
+      this.saison = findInfos.infos.saison;
+      this.episode = findInfos.infos.episode;
+    }
+
   }
 
 

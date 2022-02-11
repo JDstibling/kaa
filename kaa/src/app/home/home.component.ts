@@ -29,15 +29,15 @@ export class HomeComponent implements OnInit{
   }
 
   redir(i:any) {
-    console.log(i);
+    //console.log(i);
     if (i === 0){
       this.Router.navigate(['/perso'])
     }else if (i === 1){
-      console.log('citation');
+      //console.log('citation');
     }else if (i === 2){
-     console.log('réunion');
+     //console.log('réunion');
     }else if (i === 3){
-      console.log('concours');
+      //console.log('concours');
       
     }
     

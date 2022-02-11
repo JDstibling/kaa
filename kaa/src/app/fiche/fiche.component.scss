@@ -44,7 +44,7 @@ main {
         width: 70%;
         //border: solid;
 
-        .up {
+        .face {
             //border: solid 2px grey;
             -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(63,53,183,0); 
             box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(63,53,183,0);
@@ -58,26 +58,44 @@ main {
             animation-direction: alternate;
         }
 
+            $Leftvalue: -2em;
+
         @keyframes goLeft {
             0%    {left: 3em;}
-            100%  {left: -8em;}
+            100%  {left: $Leftvalue;}
         }
 
-        .slide {
-            margin: 0 0 2em 0;
-            
-            h5 {
-                color: white;
-                font-size: 2em;
-                font-family: "medieval", sans-serif;
-            }
-            span {
-                color: red;
-                margin: 0 0 0 1em;
-                font-family: "medieval", sans-serif;
-            }
+        .slides {
+            //border: solid;
+            outline: 7px double #A49EA3;
+            outline-offset: 0px;
+            padding: 2em;
+            //width: 100%;
+            background:rgba(170, 167, 167, 0.486);
+            .slide {
+                margin: 0 0 2em 0;
+                
+                h5 {
+                    color: white;
+                    font-size: 2.8em;
+                    font-family: "medieval", sans-serif;
+                }
+                span {
+                    color: white;
+                    margin: 0 0 0 1em;
+                    font-family: "medieval", sans-serif;
+                    font-size: .8em;
+                }
+                a {
+                    text-decoration: none;
+                    text-decoration-line: underline;
+                    color: white;
+                    font-size: .8em;
+                }
 
+            }            
         }
+
 
         #back {
             position: absolute;

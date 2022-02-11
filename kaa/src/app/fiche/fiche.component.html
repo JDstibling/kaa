@@ -1,16 +1,17 @@
 <main>
     <h1 [@fadeText]="animationTiming[0]" id="title">{{persoSelected}}</h1>
-    <p [@fadeText]="animationTiming[1]">"{{randomReplique}}"</p>
-    <span [@fadeText]="animationTiming[1]">Saison: {{saison}}</span>
-    <span [@fadeText]="animationTiming[1]">Episode: {{episode}} </span>
+    <p *ngIf="randomReplique" [@fadeText]="animationTiming[1]">"{{randomReplique}}"</p>
+    <span *ngIf="randomReplique" [@fadeText]="animationTiming[1]">Saison: {{saison}}</span>
+    <span *ngIf="randomReplique" [@fadeText]="animationTiming[1]">Episode: {{episode}} </span>
     <div class="focus">
-        <img class="up" src="{{image}}" alt="{{persoSelected}}">
+        <img class="face" src="{{image}}" alt="{{persoSelected}}">
         <div class="slides">
             <div [@fadeTextSlide]="animationTiming[0]" class="slide num1"><h5>Acteur :<span>{{actorSelected}}</span></h5></div>
-            <div [@fadeTextSlide]="animationTiming[1]" class="slide num2"><h5>Bibliographie :<span><a href="{{linkWiki}}" target="_blank">Lien</a></span></h5></div>
-            <div [@fadeTextSlide]="animationTiming[3]" class="slide num4"><h5>Répliques disponibles sur le site :<span>{{totalRepliqueByActor}}</span></h5></div>
+            <div [@fadeTextSlide]="animationTiming[1]" class="slide num2"><h5>Répliques disponibles :<span>{{totalRepliqueByActor}}</span></h5></div>
+            <div [@fadeTextSlide]="animationTiming[2]" class="slide num3"><h5><span><a href="{{linkWiki}}" target="_blank">Lien vers sa biographie</a></span></h5></div>
+            
         </div>
-        <a [@fadeTextSlide]="animationTiming[4]" mat-button routerLink="/perso" id="back">Retour</a>
+        <a [@fadeTextSlide]="animationTiming[3]" mat-button routerLink="/perso" id="back">Retour</a>
 
     </div>
 </main>
