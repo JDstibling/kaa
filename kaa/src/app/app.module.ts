@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,15 +18,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FicheComponent } from './fiche/fiche.component';
 
-const appRoutes : Routes = [
-  
-  {path: 'home', component: HomeComponent},
-  {path: 'perso', component: PersoComponent},
-  {path: 'perso/:id', component: FicheComponent},
-  {path: '', redirectTo:'home', pathMatch:'full'},
-  {path: '**', redirectTo:'home'},
-  
-];
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { CitationsComponent } from './citations/citations.component';
+
 
 @NgModule({
   declarations: [
@@ -35,17 +29,19 @@ const appRoutes : Routes = [
     PersoComponent,
     NavbarComponent,
     FicheComponent,
+    CitationsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxPaginationModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     MatButtonModule,
     MatToolbarModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
