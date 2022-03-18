@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CitationPerBookComponent } from './citation-per-book/citation-per-book.component';
 import { CitationsComponent } from './citations/citations.component';
 import { FicheComponent } from './fiche/fiche.component';
 import { HomeComponent } from './home/home.component';
@@ -10,9 +11,9 @@ const routes: Routes = [
   {path: 'perso', component: PersoComponent},
   {path: 'perso/:id', component: FicheComponent},
   {path: 'citations', component: CitationsComponent},
-  // {path: 'cication/:id', component: FicheComponent},
-  {path: '', redirectTo:'home', pathMatch:'full'},
-  {path: '**', redirectTo:'home'},
+  {path: 'citations/:id', component: CitationPerBookComponent},
+  //{path: '', redirectTo:'home', pathMatch:'full'},
+  //{path: '**', redirectTo:'home'},
 ];
 
 

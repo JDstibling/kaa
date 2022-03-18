@@ -56,13 +56,9 @@ export class PersoComponent implements OnInit {
     }
   }
 
-  onViewFiche(id : number, item:any) {
-
+  onViewFiche(item:any): void{
     // redirection
     this.Router.navigate(['/perso',item.id]);
-    //console.log(item.id);
-
-    
   }
 
   

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +19,7 @@ import { FicheComponent } from './fiche/fiche.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CitationsComponent } from './citations/citations.component';
+import { CitationPerBookComponent } from './citation-per-book/citation-per-book.component';
 
 
 @NgModule({
@@ -30,6 +30,7 @@ import { CitationsComponent } from './citations/citations.component';
     NavbarComponent,
     FicheComponent,
     CitationsComponent,
+    CitationPerBookComponent,
   ],
   imports: [
     BrowserModule,

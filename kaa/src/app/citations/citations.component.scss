@@ -8,7 +8,7 @@
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
-    border: solid red;
+    //border: solid red;
     background-image: linear-gradient(
         179.72deg,
         rgba(33, 37, 41, 0.8) 25.29%,
@@ -28,8 +28,8 @@
         flex-wrap: wrap;
         width: 80%;
         height: 80%;
-        border: red 2px;
-        background-color: #4f83be;
+        //border: red 2px;
+        //background-color: #4f83be;
 
         :hover {
             .cards-perso {
@@ -70,9 +70,15 @@
                     //font-size: 1.3em;
                     text-align: center;
                     font-family: "medieval", sans-serif;
-                    color: #4d4646;
+                    color: #e43d3d;
                     //background: #0c0c0c9d;
-                    margin: 1em; 
+                    margin: 1em;
+
+                    span {
+                        //background-color: #1dcf26;
+                        //border-radius: 20%;
+                        //width: 12em;
+                    }
                 }
             }
         }

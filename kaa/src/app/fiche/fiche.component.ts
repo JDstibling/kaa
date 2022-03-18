@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { AfterContentInit, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { CitationService } from '../services/citation.service';
@@ -44,7 +44,7 @@ import { CitationService } from '../services/citation.service';
   ],
   encapsulation: ViewEncapsulation.None,
 })
-export class FicheComponent implements OnInit, OnDestroy, AfterContentInit {
+export class FicheComponent implements OnInit, AfterContentInit {
   routeSub: any;
   castingId!: number;
   image: string = "";
@@ -62,30 +62,40 @@ export class FicheComponent implements OnInit, OnDestroy, AfterContentInit {
   arrayActorInBook!: string[];
 
 
-  constructor(private router: ActivatedRoute, private _CitationService: CitationService) { }
+  constructor(private router: ActivatedRoute, private CitationService: CitationService) { }
 
   ngOnInit(): void {
     this.animationTiming = [false, false, false, false, false];
-    this.routeSub = this.router.params.subscribe(params => {
-      this.castingId = params['id'];
-    });
+
+    // pour récupérer le paramètre id de l'url, 2 solutions. 
+    // soit via une souscription : 
+
+    //  this.routeSub = this.router.params.subscribe(params => {
+    //    this.castingId = params['id'];
+    //  });
+
+    //soit via snapshot (un snapshot est un aperçu instantané d'une valeur qui change au cours du temps)
+    this.routeSub = +this.router.snapshot.params['id'];
+    this.castingId = this.routeSub;
+    // Ajouter le  +  au début de l'expression permet de cast (changer le type d'une variable) une string  de nombres en  number. 
+
     this.getImgPerso();
     this.getWikiActor();
     this.getInfoPerPerso();
     this.findInfoCitation();
   }
 
-  ngOnDestroy(): void {
-    this.animationTiming = [];
-    this.routeSub.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   //this.animationTiming = [];
+  //   //this.routeSub.unsubscribe();   // dans le cas d'une souscription
+  // }
 
   ngAfterContentInit(): void {
     this.onAppear();
   }
 
   getImgPerso() {
-    this.casting = this._CitationService.getCasting();
+    this.casting = this.CitationService.getCasting();
     //console.log(this.casting);
     
     this.image = '../../assets/images/persos/' + this.casting[this.castingId].personnage + '.jpg';
@@ -115,7 +125,7 @@ export class FicheComponent implements OnInit, OnDestroy, AfterContentInit {
   }
 
   getInfoPerPerso() {
-    this.citation = this._CitationService.getCitations();
+    this.citation = this.CitationService.getCitations();
     let arr: any[] = [];
     this.citation.forEach((element: any) => {
       // compilation des répliques du personnage
@@ -133,7 +143,8 @@ export class FicheComponent implements OnInit, OnDestroy, AfterContentInit {
   findInfoCitation() {
     // récupération des infos de la réplique sélectionné en random
     if (this.randomReplique){
-      const findInfos = this.citation.find( (citation: { citation: string; }) => citation.citation === this.randomReplique);
+      const findInfos = this.citation.find( 
+        (citation: { citation: string; }) => citation.citation === this.randomReplique);
       this.saison = findInfos.infos.saison;
       this.episode = findInfos.infos.episode;
     }

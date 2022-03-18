@@ -1,10 +1,10 @@
 <div class="main">
     <div class="list">
-        <div class="cards" (click)="onViewFiche(i, item)" *ngFor="let item of casting | paginate: { 
+        <div class="cards" (click)="onViewFiche(item)" *ngFor="let item of casting | paginate: { 
             itemsPerPage:maxItems,
             currentPage: page,
             totalItems:totalLength 
-        }; let i = index;">
+        };">
             <div class="cards-perso">
                 <h6>{{item.personnage}}</h6>
             </div>
