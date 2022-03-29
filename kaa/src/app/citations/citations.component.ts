@@ -13,12 +13,6 @@ export class CitationsComponent implements OnInit {
   citationByBook: citationByBook[] = []
   citation: any = [];
   
-  citationLivre1: number = 0;
-  citationLivre2: number = 0;
-  citationLivre3: number = 0;
-  citationLivre4: number = 0;
-  citationLivre5: number = 0;
-  citationLivre6: number = 0;
 
   constructor(private citationService: CitationService, private Router: Router) { }
 
@@ -26,6 +20,9 @@ export class CitationsComponent implements OnInit {
     this.citationByBook = this.citationService.getCitationByBook();
     this.citation = this.citationService.getCitations();
 
+    this.citationByBook.forEach((element: any) => {
+      element.citations = 0;
+    })
     this.citation.forEach((element: any) => {
       if (element.infos.saison === 'Livre I'){
         this.citationByBook[0].citations++;
@@ -41,11 +38,21 @@ export class CitationsComponent implements OnInit {
         this.citationByBook[5].citations++;
       }
     });
+   // this.countCitation(this.citation);
   }
 
   onViewCitationByBook(item: any) :void{
     // redirection
     this.Router.navigate(['citations/', item.id]);
-    //console.log(this.Router.navigate(['test/', item.id]));
   }
+
+  // countCitation(arr: any[]) {
+  //   let result = {};
+  //   arr.forEach(function(element: string | any){
+  //     if (element in result){
+  //       result[element] = ++result[element];
+  //     }
+  //   }
+
+  // }
 }

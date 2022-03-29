@@ -12,8 +12,8 @@ const routes: Routes = [
   {path: 'perso/:id', component: FicheComponent},
   {path: 'citations', component: CitationsComponent},
   {path: 'citations/:id', component: CitationPerBookComponent},
-  //{path: '', redirectTo:'home', pathMatch:'full'},
-  //{path: '**', redirectTo:'home'},
+  {path: '', redirectTo:'home', pathMatch:'full'},
+  {path: '**', redirectTo:'home'},
 ];
 
 

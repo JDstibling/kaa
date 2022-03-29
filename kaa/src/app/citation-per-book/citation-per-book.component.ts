@@ -28,9 +28,18 @@ export class CitationPerBookComponent implements OnInit {
     // donc un truc du genre if (this.bookId == 0 && this.citations.infos.saison === 'Livre I) ... push ...
 
     this.citations.forEach((element: any) => {
-      if (this.bookId === 0 && element.infos.saison === 'Livre VI'){
+      if (this.bookId === 1 && element.infos.saison === 'Livre I'){
         this.citation.push(element);
-        
+      }else if (this.bookId === 2 && element.infos.saison === 'Livre II'){
+        this.citation.push(element);
+      }else if (this.bookId === 3 && element.infos.saison === 'Livre III'){
+        this.citation.push(element);
+      }else if (this.bookId === 4 && element.infos.saison === 'Livre IV'){
+        this.citation.push(element);
+      }else if (this.bookId === 5 && element.infos.saison === 'Livre V'){
+        this.citation.push(element);
+      }else if (this.bookId === 6 && element.infos.saison === 'Livre VI'){
+        this.citation.push(element);
       }
     });
     //récupération des citations en fonction du book selectionné

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import Citations from '../../assets/datas/citations.json';
 import Casting from '../../assets/datas/casting.json';
 import { citationByBook } from '../models/citationByBook.model';
+import { citation } from '../models/citation.model';
 
 @Injectable({
   providedIn: 'root'
@@ -49,15 +50,17 @@ export class CitationService{
 
   ]
 
-  citationString: string = 'citationLivre';
+  citations : citation[] = [];
 
-  citationLivre: number = 0;
-  citationLivre1: number = 0;
-  citationLivre2: number = 0;
-  citationLivre3: number = 0;
-  citationLivre4: number = 0;
-  citationLivre5: number = 0;
-  citationLivre6: number = 0;
+  //citationString: string = 'citationLivre';
+
+  // citationLivre: number = 0;
+  // citationLivre1: number = 0;
+  // citationLivre2: number = 0;
+  // citationLivre3: number = 0;
+  // citationLivre4: number = 0;
+  // citationLivre5: number = 0;
+  // citationLivre6: number = 0;
 
   getCitations() {
      return Citations;
