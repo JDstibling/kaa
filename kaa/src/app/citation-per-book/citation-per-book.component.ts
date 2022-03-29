@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { CitationService } from '../services/citation.service';
 
+
 @Component({
   selector: 'app-citation-per-book',
   templateUrl: './citation-per-book.component.html',
@@ -13,6 +14,11 @@ export class CitationPerBookComponent implements OnInit {
   bookId!: number;
   citations: any = [];
   citation: any= [];
+  bookSelected!: string;
+
+  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
+  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
+  originally bred for hunting.`;
 
   constructor(private router: ActivatedRoute, private CitationService: CitationService) { }
 
@@ -27,26 +33,31 @@ export class CitationPerBookComponent implements OnInit {
     // donc si id = 1 , alors prendre tous les citations avec 'saison = Livre I' ...
     // donc un truc du genre if (this.bookId == 0 && this.citations.infos.saison === 'Livre I) ... push ...
 
+    
+
     this.citations.forEach((element: any) => {
       if (this.bookId === 1 && element.infos.saison === 'Livre I'){
+        this.bookSelected = element.infos.saison;
         this.citation.push(element);
       }else if (this.bookId === 2 && element.infos.saison === 'Livre II'){
         this.citation.push(element);
+        this.bookSelected = element.infos.saison;
       }else if (this.bookId === 3 && element.infos.saison === 'Livre III'){
         this.citation.push(element);
+        this.bookSelected = element.infos.saison;
       }else if (this.bookId === 4 && element.infos.saison === 'Livre IV'){
         this.citation.push(element);
+        this.bookSelected = element.infos.saison;
       }else if (this.bookId === 5 && element.infos.saison === 'Livre V'){
         this.citation.push(element);
+        this.bookSelected = element.infos.saison;
       }else if (this.bookId === 6 && element.infos.saison === 'Livre VI'){
         this.citation.push(element);
+        this.bookSelected = element.infos.saison;
       }
     });
     //récupération des citations en fonction du book selectionné
     console.log(this.citation);
-    
-    
-    
   }
 
 }

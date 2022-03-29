@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FicheComponent } from './fiche/fiche.component';
@@ -42,7 +44,8 @@ import { CitationPerBookComponent } from './citation-per-book/citation-per-book.
     BrowserAnimationsModule,
     MatSliderModule,
     HttpClientModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

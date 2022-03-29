@@ -38,7 +38,6 @@ export class CitationsComponent implements OnInit {
         this.citationByBook[5].citations++;
       }
     });
-   // this.countCitation(this.citation);
   }
 
   onViewCitationByBook(item: any) :void{
@@ -46,13 +45,4 @@ export class CitationsComponent implements OnInit {
     this.Router.navigate(['citations/', item.id]);
   }
 
-  // countCitation(arr: any[]) {
-  //   let result = {};
-  //   arr.forEach(function(element: string | any){
-  //     if (element in result){
-  //       result[element] = ++result[element];
-  //     }
-  //   }
-
-  // }
 }

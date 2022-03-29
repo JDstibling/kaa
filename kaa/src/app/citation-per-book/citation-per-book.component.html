@@ -1,2 +1,23 @@
+<div class="main">
+    <div class="head">
+        <h1>Les meilleures citations du {{bookSelected}}</h1>
+    </div>
+</div>
 
-<h2>test!</h2>
+<mat-card class="citation-card">
+    <mat-card-title>citation exemple</mat-card-title>
+    <mat-card-subtitle>Start</mat-card-subtitle>
+    <img  mat-card-avatar class="perso" src = "../../assets/images/persos/Arthur.jpg"  alt= "Photo d'un Shiba Inu"> 
+    <!-- <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions> -->
+    <mat-card-content>blablabla</mat-card-content>
+  </mat-card>
+
+  <div class="citation-card" *ngFor="let citation of citation">
+    
+    <mat-card>
+        <mat-card-content>{{citation.citation}}</mat-card-content>
+    </mat-card>
+  </div>
