@@ -22,6 +22,7 @@ import { FicheComponent } from './fiche/fiche.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CitationsComponent } from './citations/citations.component';
 import { CitationPerBookComponent } from './citation-per-book/citation-per-book.component';
+import { SingleCitationComponent } from './single-citation/single-citation.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { CitationPerBookComponent } from './citation-per-book/citation-per-book.
     FicheComponent,
     CitationsComponent,
     CitationPerBookComponent,
+    SingleCitationComponent,
   ],
   imports: [
     BrowserModule,
