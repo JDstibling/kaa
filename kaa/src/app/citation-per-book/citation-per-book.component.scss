@@ -1,8 +1,31 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  //align-items: center;
+  padding: 0;
+  margin: 0;
 
+  .nav {
+    display: flex;
+    border: solid blue;
+    justify-content: space-around;
+  }
+}
 
  .perso {
     //background-image: url('../../assets/images/fond/blue-wall-texture-slate-background.jpg');
     //background-size: cover;
     height: 80px;
     width: 80px;
+  }
+
+
+  .group {
+    display: flex;
+    //width: 80%;
+    flex-wrap: wrap;
+    margin: 0 4em;
+    border: solid red;
+    
   }

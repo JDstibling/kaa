@@ -85,10 +85,6 @@
     .pagination ::ng-deep .ngx-pagination .current {
         background: #0B325E;
     }
-    .pagination ::ng-deep .ngx-pagination {
-        //background: #0c0c0c9d;
-    }
-
 
     .paginator ::ng-deep .ngx-pagination a:hover, .ngx-pagination button:hover {
         background: #d4d4d4;
@@ -103,4 +99,13 @@
         background: #d4d4d4;
     }
 
+}
+
+#back {
+    //position: absolute;
+    color: rgb(221, 220, 220);
+    border: solid;
+    background: rgb(24, 23, 23);
+    width: 8em;
+    //top: 24em;
 }

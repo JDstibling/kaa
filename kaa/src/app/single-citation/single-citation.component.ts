@@ -11,6 +11,7 @@ export class SingleCitationComponent implements OnInit {
   @Input() citation!: any;
   @Input() episode!: any;
   @Input() saison!: any;
+  @Input() perso!: any;
 
   text: string = "";
 

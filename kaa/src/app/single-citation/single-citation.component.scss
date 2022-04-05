@@ -1,4 +1,15 @@
-.citation-card {
-    max-width : 400px ;
-    
- }
+.main {
+
+    .citation-card {
+        width : 400px ;
+        margin: 2em;
+        height: 180px;
+
+        .content {
+        display: flex;
+        justify-content: space-around;
+    }
+    }    
+}
+
+

@@ -2,12 +2,22 @@
     <div class="head">
         <h1>Les meilleures citations du {{bookSelected}}</h1>
     </div>
+    <div class="nav">
+      <div *ngFor="let character of characterList | slice:0:4" class="item">
+        <a href="">{{character}}</a>
+      </div>
+    </div>
+    <div class="group">
+      <app-single-citation 
+      *ngFor="let citation of citationPerBook"
+        [citation]="citation.citation"
+        [episode]="citation.infos.episode"
+        [saison]="citation.infos.saison"
+        [perso]="citation.infos.personnage"
+      ></app-single-citation>
+    </div>
 </div>
 
-<app-single-citation *ngFor="let citation of citation"
-                      [citation]="citation.citation"
-                      [episode]="citation.infos.episode"
-                      [saison]="citation.infos.saison"
-></app-single-citation>
+
 
   
