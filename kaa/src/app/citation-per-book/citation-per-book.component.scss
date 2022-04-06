@@ -1,3 +1,5 @@
+
+
 .main {
   display: flex;
   flex-direction: column;
@@ -8,8 +10,40 @@
 
   .nav {
     display: flex;
-    border: solid blue;
-    justify-content: space-around;
+    flex-direction: column;
+    //border: solid rgb(146, 157, 46);
+    justify-content: center;
+    align-items: center;
+
+    span {
+      //border: 9px groove #5D1751;
+    }
+    .nav-cards {
+      display: flex;
+      border: solid blue;
+      width: 70%;
+  
+      .nav-card {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        //border: solid red;
+        //border: 9px groove #5D1751;
+        border: 3px solid rgba(0,0,111,0.47);
+        border-radius: 13px 13px 13px 13px;
+        width: 110px;
+        height: 250px;
+
+
+        #character-Avatar {
+          border-radius: 50px;
+          width: 108px;
+          height: 145px;
+        }
+      }
+    }
+
   }
 }
 
@@ -29,3 +63,4 @@
     border: solid red;
     
   }
+

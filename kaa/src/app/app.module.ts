@@ -24,6 +24,8 @@ import { CitationsComponent } from './citations/citations.component';
 import { CitationPerBookComponent } from './citation-per-book/citation-per-book.component';
 import { SingleCitationComponent } from './single-citation/single-citation.component';
 
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { SingleCitationComponent } from './single-citation/single-citation.compo
     MatSliderModule,
     HttpClientModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

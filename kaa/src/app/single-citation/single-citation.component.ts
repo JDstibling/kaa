@@ -18,7 +18,7 @@ export class SingleCitationComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.citation[0].citation);
+    //console.log(this.citation[0].citation);
     this.text = this.citation[0].citation;
   
   }

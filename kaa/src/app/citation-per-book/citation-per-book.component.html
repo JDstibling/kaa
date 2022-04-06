@@ -3,13 +3,32 @@
         <h1>Les meilleures citations du {{bookSelected}}</h1>
     </div>
     <div class="nav">
-      <div *ngFor="let character of characterList | slice:0:4" class="item">
-        <a href="">{{character}}</a>
-      </div>
+      <span *ngIf="filterOn" (click)="filterOn = false">Tout voir</span>
+      <owl-carousel-o [options]="customOptions" class="nav-cards">
+        <ng-container *ngFor="let card of characterListFiltered; let i = index">
+          <ng-template carouselSlide>
+            <div class="nav-card" (click)="myId(i)">
+              <h6 >
+                {{ card }}
+              </h6>
+              <img id="character-Avatar" src="../../assets/images/persos/{{card}}.jpg" alt="card">
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
     </div>
-    <div class="group">
+    <div class="group" *ngIf="!filterOn">
       <app-single-citation 
       *ngFor="let citation of citationPerBook"
+        [citation]="citation.citation"
+        [episode]="citation.infos.episode"
+        [saison]="citation.infos.saison"
+        [perso]="citation.infos.personnage"
+      ></app-single-citation>
+    </div>
+    <div class="group" *ngIf="filterOn">
+      <app-single-citation 
+      *ngFor="let citation of citationPerBookFiltered"
         [citation]="citation.citation"
         [episode]="citation.infos.episode"
         [saison]="citation.infos.saison"

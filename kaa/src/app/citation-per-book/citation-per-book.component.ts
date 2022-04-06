@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { CitationService } from '../services/citation.service';
 
+import { OwlOptions } from 'ngx-owl-carousel-o';
+
 @Component({
   selector: 'app-citation-per-book',
   templateUrl: './citation-per-book.component.html',
@@ -10,11 +12,47 @@ import { CitationService } from '../services/citation.service';
 })
 export class CitationPerBookComponent implements OnInit {
 
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,  
+    touchDrag: true,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 1100,
+    autoplaySpeed: 800,
+    autoplayTimeout: 2000,
+    autoWidth: true,
+    autoplay: true,
+    autoplayHoverPause: true,
+    autoplayMouseleaveTimeout: 100,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      380: {
+        items: 2,
+      },
+      575: {
+        items: 3,
+      },
+      876: {
+        items: 6,
+      },
+      1176: {
+        items: 6,
+      },
+    },
+    nav: false,
+  };
+  
+  filterOn: Boolean = false;
   bookId!: number;
   citations: any = [];
   citationPerBook: any= [];
+  citationPerBookFiltered: any= [];
   bookSelected!: string;
   characterList: any=[];
+  characterListFiltered: any=[];
   character: string = "Arthur";
 
 
@@ -31,8 +69,18 @@ export class CitationPerBookComponent implements OnInit {
     // donc si id = 1 , alors prendre tous les citations avec 'saison = Livre I' ...
     // donc un truc du genre if (this.bookId == 0 && this.citations.infos.saison === 'Livre I) ... push ...
 
-    
+    this.showCitationPerBook();
+  
+    this.citationPerBook.forEach((element: any) => {
+      //console.log(element);
+      
+    })
+    //récupération des citations en fonction du book selectionné
+    this.characterListFiltered = this.characterList.filter((a: String)=>a);
+    console.log(this.characterListFiltered);
+  }
 
+  showCitationPerBook() :void{
     this.citations.forEach((element: any) => {
       if (this.bookId === 1 && element.infos.saison === 'Livre I'){
         this.bookSelected = element.infos.saison;
@@ -43,28 +91,63 @@ export class CitationPerBookComponent implements OnInit {
       }else if (this.bookId === 2 && element.infos.saison === 'Livre II'){
         this.citationPerBook.push(element);
         this.bookSelected = element.infos.saison;
-        this.characterList.push(element.infos.personnage);
-      }else if (this.bookId === 3 && element.infos.saison === 'Livre III' && element.infos.personnage === this.character){
+        if (!this.characterList.includes(element.infos.personnage)){
+          this.characterList.push(element.infos.personnage);
+        }
+
+      }else if (this.bookId === 3 && element.infos.saison === 'Livre III'){
         this.citationPerBook.push(element);
         this.bookSelected = element.infos.saison;
-        this.characterList.push(element.infos.personnage);
-      }else if (this.bookId === 4 && element.infos.saison === 'Livre IV' && element.infos.personnage === this.character){
+        if (!this.characterList.includes(element.infos.personnage)){
+          this.characterList.push(element.infos.personnage);
+        }
+
+      }else if (this.bookId === 4 && element.infos.saison === 'Livre IV'){
         this.citationPerBook.push(element);
         this.bookSelected = element.infos.saison;
-        this.characterList.push(element.infos.personnage);
-      }else if (this.bookId === 5 && element.infos.saison === 'Livre V' && element.infos.personnage === this.character){
+        if (!this.characterList.includes(element.infos.personnage)){
+          this.characterList.push(element.infos.personnage);
+        }
+
+      }else if (this.bookId === 5 && element.infos.saison === 'Livre V'){
         this.citationPerBook.push(element);
         this.bookSelected = element.infos.saison;
-        this.characterList.push(element.infos.personnage);
-      }else if (this.bookId === 6 && element.infos.saison === 'Livre VI' && element.infos.personnage === this.character){
+        if (!this.characterList.includes(element.infos.personnage)){
+          this.characterList.push(element.infos.personnage);
+        }
+
+      }else if (this.bookId === 6 && element.infos.saison === 'Livre VI'){
         this.citationPerBook.push(element);
         this.bookSelected = element.infos.saison;
-        this.characterList.push(element.infos.personnage);
+        if (!this.characterList.includes(element.infos.personnage)){
+          this.characterList.push(element.infos.personnage);
+        }
       }
     });
-    //récupération des citations en fonction du book selectionné
-    console.log(this.citationPerBook);
-    console.log(this.characterList);
+  }
+
+  myId(item: any) {
+    this.filterOn = true;
+    this.showCitationPerBook();
+    this.citationPerBookFiltered = [];
+    
+    //console.log(this.characterListFiltered[item]);
+    this.character= this.characterListFiltered[item];
+
+    this.citationPerBook.forEach((element: any) => {
+      //console.log(element);
+      if (element.infos.personnage === this.character){
+        console.log(element.infos.personnage + " = " + this.character);
+        
+        if (!this.citationPerBookFiltered.includes(element)){
+          
+          this.citationPerBookFiltered.push(element);
+          
+        }
+      }
+
+    });
+    console.log(this.citationPerBookFiltered);
     
   }
 
