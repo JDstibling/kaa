@@ -42,7 +42,7 @@ export class CitationPerBookComponent implements OnInit {
         items: 6,
       },
     },
-    nav: false,
+    nav: true,
   };
   
   filterOn: Boolean = false;

@@ -27,7 +27,7 @@
       ></app-single-citation>
     </div>
     <div class="group" *ngIf="filterOn">
-      <app-single-citation 
+      <app-single-citation  
       *ngFor="let citation of citationPerBookFiltered"
         [citation]="citation.citation"
         [episode]="citation.infos.episode"
