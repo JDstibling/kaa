@@ -28,22 +28,13 @@ export class HomeComponent implements OnInit{
     this.randomCitation = this.citations[numRandom].citation;
   }
 
-  redir(i:any): void {
-    //console.log(i);
+  redir(i:Number): void {
     if (i === 0){
       this.Router.navigate(['/perso'])
     }else if (i === 1){
       this.Router.navigate(['/citations']);
     }else if (i === 2){
-     //console.log('réunion');
     }else if (i === 3){
-      //console.log('concours');
-      
     }
-    
   }
-
-  
-
-
 }

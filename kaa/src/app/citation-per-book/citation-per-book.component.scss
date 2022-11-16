@@ -5,26 +5,19 @@
   flex-direction: column;
   text-align: center;
   background: url(../../assets/images/fond/blue-wall-texture-slate-background.jpg);
-  //align-items: center;
   padding: 0;
   margin: 0;
 
   .nav {
     display: flex;
     flex-direction: column;
-    //border: solid rgb(146, 157, 46);
     justify-content: center;
     align-items: center;
 
-    span {
-      //border: 9px groove #5D1751;
-    }
     .nav-cards {
       display: flex;
-      //border: solid blue;
       width: 85%;
       height: 13em;
-      //background-color: rgb(35, 34, 34);
       border-radius: 10px;
       margin: 0 0 5em 0 ;
       padding: 1em 0 0em 0;
@@ -34,12 +27,8 @@
         flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
-        //border: solid red;
-        //border: 9px groove #5D1751;
-        //border: 3px solid rgba(0,0,111,0.47);
-        //border-radius: 13px 13px 13px 13px;
         width: 210px;
-        //height: 250px;
+
         h6 {
           color: red;
           font-weight: bold;
@@ -58,23 +47,15 @@
 }
 
  .perso {
-    //background-image: url('../../assets/images/fond/blue-wall-texture-slate-background.jpg');
-    //background-size: cover;
     height: 80px;
-    //width: 80px;
   }
 
 
   .group {
     display: flex;
     justify-content: center;
-    //width: 80%;
-    //background-color: rgb(42, 194, 90);
     flex-wrap: wrap;
     margin: 0 4em;
-    //border: solid red;
     border-radius: 10px;
-
-    
   }
 

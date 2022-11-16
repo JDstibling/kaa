@@ -71,10 +71,6 @@ export class CitationPerBookComponent implements OnInit {
 
     this.showCitationPerBook();
   
-    this.citationPerBook.forEach((element: any) => {
-      //console.log(element);
-      
-    })
     //récupération des citations en fonction du book selectionné
     this.characterListFiltered = this.characterList.filter((a: String)=>a);
     console.log(this.characterListFiltered);
@@ -131,11 +127,9 @@ export class CitationPerBookComponent implements OnInit {
     this.showCitationPerBook();
     this.citationPerBookFiltered = [];
     
-    //console.log(this.characterListFiltered[item]);
     this.character= this.characterListFiltered[item];
 
     this.citationPerBook.forEach((element: any) => {
-      //console.log(element);
       if (element.infos.personnage === this.character){
         console.log(element.infos.personnage + " = " + this.character);
         

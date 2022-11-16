@@ -22,7 +22,6 @@
       *ngFor="let citation of citationPerBook"
         [citation]="citation.citation"
         [episode]="citation.infos.episode"
-        [saison]="citation.infos.saison"
         [perso]="citation.infos.personnage"
       ></app-single-citation>
     </div>
@@ -31,8 +30,6 @@
       *ngFor="let citation of citationPerBookFiltered"
         [citation]="citation.citation"
         [episode]="citation.infos.episode"
-        [saison]="citation.infos.saison"
-        [perso]="citation.infos.personnage"
       ></app-single-citation>
     </div>
 </div>

@@ -39,19 +39,15 @@ main {
         position: relative;
         justify-content: center;
         align-items: center;
-        //background: cornflowerblue;
         height: 50%;
         width: 70%;
-        //border: solid;
 
         .face {
-            //border: solid 2px grey;
             -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(63,53,183,0); 
             box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(63,53,183,0);
             position: relative;
             border-radius: 25% 10%;
-            //left: -8em;
-            //anim
+            //animation
             animation-name: goLeft;
             animation-duration: 3s;
             animation-fill-mode:both;
@@ -66,11 +62,9 @@ main {
         }
 
         .slides {
-            //border: solid;
             outline: 7px double #5d1751;
             outline-offset: 0px;
             padding: 2em;
-            //width: 100%;
             background:rgba(170, 167, 167, 0.486);
             .slide {
                 margin: 0 0 2em 0;

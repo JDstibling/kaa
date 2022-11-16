@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { citation } from '../models/citation.model';
+//import { citation } from '../models/citation.model';
 
 @Component({
   selector: 'app-single-citation',
@@ -18,7 +18,6 @@ export class SingleCitationComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    //console.log(this.citation[0].citation);
     this.text = this.citation[0].citation;
   
   }

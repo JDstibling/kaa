@@ -1,9 +1,8 @@
 <div class="home">
-    <div class="title">
-        <h1>KAaMELOTt WiKi</h1>
-    </div>
+    <h1>KAaMELOTt Fan</h1>
+    <p>  {{randomCitation}} </p>
     <div class="nav">
-        <div  class="nav-item" (click)="redir(i)" *ngFor="let item of homeNav; let i = index" (mouseover)="item.mouseOn = true" (mouseout)="item.mouseOn = false">
+        <div  class="nav-item" (click)="redir(i)" *ngFor="let item of homeNav; let i = index">
                 <h6>{{item.name}}</h6>
                 <div class="img{{ i }}"></div>          
         </div>

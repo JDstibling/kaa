@@ -68,8 +68,8 @@ export class FicheComponent implements OnInit, AfterContentInit {
     this.animationTiming = [false, false, false, false, false];
 
     // pour récupérer le paramètre id de l'url, 2 solutions. 
-    // soit via une souscription : 
 
+    // soit via une souscription : 
     //  this.routeSub = this.router.params.subscribe(params => {
     //    this.castingId = params['id'];
     //  });
@@ -85,19 +85,12 @@ export class FicheComponent implements OnInit, AfterContentInit {
     this.findInfoCitation();
   }
 
-  // ngOnDestroy(): void {
-  //   //this.animationTiming = [];
-  //   //this.routeSub.unsubscribe();   // dans le cas d'une souscription
-  // }
-
   ngAfterContentInit(): void {
     this.onAppear();
   }
 
   getImgPerso() {
     this.casting = this.CitationService.getCasting();
-    //console.log(this.casting);
-    
     this.image = '../../assets/images/persos/' + this.casting[this.castingId].personnage + '.jpg';
     this.persoSelected = this.casting[this.castingId].personnage;
   }

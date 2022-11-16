@@ -10,7 +10,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    //border: solid red;
     background-image: linear-gradient(
         179.72deg,
         rgba(33, 37, 41, 0.8) 25.29%,
@@ -32,7 +31,6 @@
 
         :hover {
             .cards-perso {
-                //border: solid red;
                 transition: .15s;
                 -moz-transform: scale(1.1);
                 -webkit-transform: scale(1.1);
@@ -57,14 +55,11 @@
                 h6 {
                     font-size: 2em;
                     text-align: center;
-                    //color: white;
                     font-family: "medieval", sans-serif;
 
                     color: #FFFFFF;
-                    //background: #0c0c0c9d;
                     text-shadow: #474747 3px 5px 2px;
                     margin: 0 1em;
-                    
                 }
             }
         }
@@ -75,11 +70,7 @@
         justify-content: center;
         align-items: center;
         font-size: 2em;
-        //font-family: "medieval", sans-serif;
-        //border: solid red;
         height: 4em;
-        //color: rgb(236, 236, 243);
-
     }
 
     .pagination ::ng-deep .ngx-pagination .current {
@@ -102,10 +93,8 @@
 }
 
 #back {
-    //position: absolute;
     color: rgb(221, 220, 220);
     border: solid;
     background: rgb(24, 23, 23);
     width: 8em;
-    //top: 24em;
 }
