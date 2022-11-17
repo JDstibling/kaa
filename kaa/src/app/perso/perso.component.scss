@@ -66,11 +66,12 @@
     }
 
     .nav {
-        display: flex;
+        //display: flex;
         justify-content: center;
         align-items: center;
         font-size: 2em;
-        height: 4em;
+        //height: 4em;
+        background-color: #496381;
     }
 
     .pagination ::ng-deep .ngx-pagination .current {
