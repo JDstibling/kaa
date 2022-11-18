@@ -1,13 +1,10 @@
 <div class="main">
-    <div class="head">
-        <h1>Les meilleures citations du {{bookSelected}}</h1>
-    </div>
-    <div class="nav">
-      <span *ngIf="filterOn" (click)="filterOn = false">Tout voir</span>
+    <h1>Les meilleures citations du {{bookSelected}} </h1>
+    <div class="nav"> 
       <owl-carousel-o [options]="customOptions" class="nav-cards">
         <ng-container *ngFor="let card of characterListFiltered; let i = index">
           <ng-template carouselSlide>
-            <div class="nav-card" (click)="myId(i)">
+            <div class="nav-card" (click)="showCitationPerCharacter(i)">
               <h6 >
                 {{ card }}
               </h6>
@@ -26,6 +23,9 @@
       ></app-single-citation>
     </div>
     <div class="group" *ngIf="filterOn">
+      <div class="filter" *ngIf="filterOn" (click)="filterOn = false">
+        <a>Filtre : {{character}}  - Cliquez pour annuler</a>
+      </div>
       <app-single-citation  
       *ngFor="let citation of citationPerBookFiltered"
         [citation]="citation.citation"

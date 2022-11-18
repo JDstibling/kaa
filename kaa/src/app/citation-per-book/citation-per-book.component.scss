@@ -7,6 +7,14 @@
   background: url(../../assets/images/fond/blue-wall-texture-slate-background.jpg);
   padding: 0;
   margin: 0;
+  min-height: 100vh;
+
+  h1 {
+    font-family: "kaa", sans-serif;
+    font-size: 3.2em;
+    color: aliceblue; 
+    padding-top: 1em; 
+  }
 
   .nav {
     display: flex;
@@ -57,5 +65,16 @@
     flex-wrap: wrap;
     margin: 0 4em;
     border-radius: 10px;
+
+    .filter {
+      width: 100%;
+      color : whitesmoke;
+      a {
+        -webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 3px 5px rgba(0,0,0,0); 
+        box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 3px 5px rgba(0,0,0,0);
+      }
+    }
   }
+
+
 

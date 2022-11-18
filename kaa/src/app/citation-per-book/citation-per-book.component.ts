@@ -122,7 +122,7 @@ export class CitationPerBookComponent implements OnInit {
     });
   }
 
-  myId(item: any) {
+  showCitationPerCharacter(item: any) {
     this.filterOn = true;
     this.showCitationPerBook();
     this.citationPerBookFiltered = [];

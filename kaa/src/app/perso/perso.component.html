@@ -1,4 +1,7 @@
 <div class="main">
+    <div class="nav">
+        <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls> 
+    </div>
     <div class="list">
         <div class="cards" (click)="onViewFiche(item)" *ngFor="let item of casting | paginate: { 
             itemsPerPage:maxItems,

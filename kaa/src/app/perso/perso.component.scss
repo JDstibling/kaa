@@ -20,14 +20,13 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100%;
 
     .list {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        width: 80%;
+        //width: 80%;
 
         :hover {
             .cards-perso {
