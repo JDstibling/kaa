@@ -35,7 +35,6 @@
         flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
-        width: 210px;
 
         h6 {
           color: red;
@@ -45,6 +44,7 @@
 
         #character-Avatar {
           border-radius: 50px;
+          border: 5px double #1C6EA4;
           width: 108px;
           height: 145px;
         }
@@ -63,6 +63,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    //background-color: #1F87FF;
     margin: 0 4em;
     border-radius: 10px;
 
@@ -70,9 +71,12 @@
       width: 100%;
       color : whitesmoke;
       a {
+        padding: 1em;
         -webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 3px 5px rgba(0,0,0,0); 
         box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 3px 5px rgba(0,0,0,0);
+        cursor: pointer;
       }
+
     }
   }
 

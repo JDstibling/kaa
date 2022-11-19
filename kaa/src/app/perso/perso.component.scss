@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100%;
     background-image: linear-gradient(
         179.72deg,
         rgba(33, 37, 41, 0.8) 25.29%,
@@ -70,11 +71,11 @@
         align-items: center;
         font-size: 2em;
         //height: 4em;
-        background-color: #496381;
+        //background-color: #496381;
     }
 
     .pagination ::ng-deep .ngx-pagination .current {
-        background: #0B325E;
+        background: transparent;
     }
 
     .paginator ::ng-deep .ngx-pagination a:hover, .ngx-pagination button:hover {

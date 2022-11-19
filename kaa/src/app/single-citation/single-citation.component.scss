@@ -1,10 +1,13 @@
 .main {
     width: 20em;
+    
     .citation-card {
         margin: 2em;
-
+        -webkit-box-shadow: 5px 4px 34px 8px rgba(255,64,64,0.53); 
+        box-shadow: 5px 4px 34px 8px rgba(255,64,64,0.53);
         .content {
-        display: flex;
+            //display: flex;
+            background-color: red;
     }
     }    
 }
