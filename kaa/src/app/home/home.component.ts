@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit{
 
   citations:any = [];
   randomCitation = "";
+  filterCitations:any = [];
   
   homeNav = homeNav;
   
@@ -24,8 +25,17 @@ export class HomeComponent implements OnInit{
   }
 
   getRandomCitation() {
-    const numRandom = Math.floor(Math.random() * this.citations.length);
-    this.randomCitation = this.citations[numRandom].citation;
+    //trier dans les citations, et supprimer celles qui ont plus de 50 caractères.
+    this.citations.forEach((element: { citation: { length: number; id: any; }; }) => {
+      
+      if (element.citation.length < 50){
+        this.filterCitations.push(element.citation)
+      }
+    });
+    const numRandom = Math.floor(Math.random() * this.filterCitations.length);
+    this.randomCitation = this.filterCitations[numRandom];
+    console.log(this.filterCitations.length);
+    
   }
 
   redir(i:Number): void {

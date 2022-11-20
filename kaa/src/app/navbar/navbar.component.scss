@@ -1,7 +1,15 @@
 @import "src/fonts.scss";
 
+img {
+  width: 150px;
+}
+
 #nav {
-    font-family: "kaa", sans-serif;
+  background-color: transparent;
+  position: fixed;
+  top: 0em;
+  
+  cursor: pointer;
 }
 
 #item {

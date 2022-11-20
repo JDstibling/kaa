@@ -1,7 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-// import { Observable } from 'rxjs';
-// import { environment } from '../../environments/environment';
-// import { checkURLService } from '../services/checkURL.service';
+import { Observable } from 'rxjs/internal/Observable';
+import { environment } from 'src/environments/environment';
+//import { Observable } from 'rxjs';
+//import { environment } from '../../environments/environment';
+import { checkURLService } from '../services/checkURL.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,50 +16,51 @@ export class NavbarComponent {
 
   @HostListener("window:resize", ["$event"])
   onResize(event: { target: { innerWidth: any; }; }) {
-    this.checkWidth(event.target.innerWidth);
+    //this.checkWidth(event.target.innerWidth);
   }
 
 
-  checkWidth(innerWidth: any) {
+  // checkWidth(innerWidth: any) {
     
-  }
+  // }
 
-  //currentUrl!:string;
+  currentUrl!:string;
   displayNavBar:boolean = true;
 
 
-  // constructor(private checkURLService: checkURLService) {
-  //   this.displayNavbar();
-  //   //console.log(this.checkURLService);
+  constructor(private checkURLService: checkURLService) {
+    this.displayNavbar();
+    //console.log(this.checkURLService);
     
-  // }
+  }
 
-  // ngOnInit(): void {      
-  //   // si la route est sur la home, masquer la navbar
-  //   this.checkCurrentUrl();
+  ngOnInit(): void {      
+    // si la route est sur la home, masquer la navbar
+    this.checkCurrentUrl();
     
-  // }
+  }
 
-  // ngAfterContentInit(): void {
-  //   this.checkCurrentUrl();
-  // }
+  ngAfterContentInit(): void {
+    this.checkCurrentUrl();
+  } 
 
-  // checkCurrentUrl(): Observable<any> | string {
-  //   // if(this.currentUrl == environment.API_URL + 'home'){
-  //   //   this.displayNavBar = false;
-  //   // }else {
-  //   //   this.displayNavBar = true;
-  //   // }
-  //   let currentUrl = window.location.href
-  //   return currentUrl;
-  // }
+  checkCurrentUrl(): Observable<any> | string {
+    //console.log("toto" + this.currentUrl);
+    if(this.currentUrl == environment.API_URL + 'home'){
+      this.displayNavBar = false;
+    }else {
+      this.displayNavBar = true;
+    }
+    let currentUrl = window.location.href
+    return currentUrl;
+  }
 
-  // displayNavbar() {
-  //   let test = this.checkURLService.getCurrentURL();
-  //   //console.log(test);
+  displayNavbar() {
+    let test = this.checkURLService.getCurrentURL();
+    console.log(test);
     
     
-  // }
+  }
 
   
 
