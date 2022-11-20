@@ -1,4 +1,4 @@
-
+@import "src/variables.scss";
 
 .main {
   display: flex;
@@ -12,7 +12,7 @@
   h1 {
     font-family: "kaa", sans-serif;
     font-size: 3.2em;
-    color: aliceblue; 
+    color: $crem; 
     padding-top: 1em; 
   }
 
@@ -37,14 +37,14 @@
         justify-content: center;
 
         h6 {
-          color: red;
+          color: $orange;
           font-weight: bold;
           font-size: larger;
         }
 
         #character-Avatar {
           border-radius: 50px;
-          border: 5px double #1C6EA4;
+          border: 5px double $red;
           width: 108px;
           height: 145px;
         }
@@ -63,17 +63,16 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    //background-color: #1F87FF;
     margin: 0 4em;
     border-radius: 10px;
 
     .filter {
       width: 100%;
-      color : whitesmoke;
+      color : $crem;
       a {
-        padding: 1em;
-        -webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 3px 5px rgba(0,0,0,0); 
-        box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 3px 5px rgba(0,0,0,0);
+        padding: 0.8em;
+        -webkit-box-shadow: inset -1px 3px 8px 5px $red, 2px 5px 16px 0px $dark-blue, 5px 5px 3px 5px rgba(0,0,0,0); 
+        box-shadow: inset -1px 3px 8px 5px $red, 2px 5px 16px 0px #0B325E, 5px 5px 3px 5px rgba(0,0,0,0);
         cursor: pointer;
       }
 

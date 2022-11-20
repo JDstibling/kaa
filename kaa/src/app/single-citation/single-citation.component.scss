@@ -1,13 +1,20 @@
+@import "src/variables.scss";
+
 .main {
     width: 20em;
+    //max-height: 12em;
+    //max-width: 18em;
     
     .citation-card {
-        margin: 2em;
+        margin: 1em;
         -webkit-box-shadow: 5px 4px 34px 8px rgba(255,64,64,0.53); 
         box-shadow: 5px 4px 34px 8px rgba(255,64,64,0.53);
+        background-color: $dark-grey;
+        color: $crem;
         .content {
             //display: flex;
-            background-color: red;
+            background-color: $dark-blue;
+            color: $blue;
     }
     }    
 }

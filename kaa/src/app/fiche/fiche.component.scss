@@ -1,3 +1,5 @@
+@import "src/variables.scss";
+
 main {
     display: flex;
     flex-direction: column;
@@ -17,12 +19,12 @@ main {
 
     #title {
         font-size: 4em;
-        color: white;
+        color: $crem;
         font-family: "medieval", sans-serif;
     }
 
     p {
-        color: white;
+        color: $crem;
         font-family: "medieval", sans-serif;
         width: 50%;
         margin: 0 5em 0 5em;
@@ -32,7 +34,7 @@ main {
 
     span {
         font-style: italic;
-        color: white;
+        color: $crem;
     }
     .focus {
         display: flex;
@@ -62,42 +64,48 @@ main {
         }
 
         .slides {
-            outline: 7px double #5d1751;
+            outline: 7px double $dark-grey;
             outline-offset: 0px;
             padding: 2em;
             background:rgba(170, 167, 167, 0.486);
             .slide {
                 margin: 0 0 2em 0;
-                
+                color: $crem;
                 h5 {
-                    color: white;
-                    font-size: 2.8em;
+                    font-size: 2em;
                     font-family: "medieval", sans-serif;
+                    color: $dark-blue;
                 }
                 span {
-                    color: white;
                     margin: 0 0 0 1em;
                     font-family: "medieval", sans-serif;
-                    font-size: .8em;
+                    color: $orange;
+                    //font-size: .8em;
                 }
                 a {
                     text-decoration: none;
                     text-decoration-line: underline;
-                    color: white;
                     font-size: .8em;
+                    color: $dark-blue;
                 }
 
-            }            
+            }
+            .num3 {
+                :hover{
+                    color: $red;
+                }
+            }         
         }
 
 
         #back {
             position: absolute;
-            color: rgb(221, 220, 220);
+            color: $orange;
             border: solid;
-            background: rgb(24, 23, 23);
+            background: $dark-blue;
             width: 8em;
             top: 24em;
         }
+
     }
 }
