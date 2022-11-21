@@ -1,6 +1,7 @@
 
 <div class="main">
-    <h1>Les meilleures citations du {{bookSelected}} </h1>
+  <h1>Les meilleures citations du {{bookSelected}} </h1>
+  <a mat-button routerLink="/citations" class="btn-secondary" style="display: block;">Choisir un autre livre</a>
     <div class="nav"> 
       <owl-carousel-o [options]="customOptions" class="nav-cards">
         <ng-container *ngFor="let card of characterListFiltered; let i = index">
@@ -15,26 +16,25 @@
         </ng-container>
       </owl-carousel-o>
     </div>
-    <a mat-button routerLink="/" class="btn-secondary" style="top:-2em; width:20%;">Retour</a>
     <div class="group" *ngIf="!filterOn">
       <app-single-citation 
       *ngFor="let citation of citationPerBook"
-        [citation]="citation.citation"
-        [episode]="citation.infos.episode"
-        [perso]="citation.infos.personnage"
+      [citation]="citation.citation"
+      [episode]="citation.infos.episode"
+      [perso]="citation.infos.personnage"
       ></app-single-citation>
     </div>
     <div class="group" *ngIf="filterOn">
-      <div class="filter" *ngIf="filterOn" (click)="filterOn = false">
+      <div class="filter" (click)="filterOn = false">
         <a>Filtre : {{character}}  - Cliquez pour annuler</a>
       </div>
       <app-single-citation  
       *ngFor="let citation of citationPerBookFiltered"
-        [citation]="citation.citation"
-        [episode]="citation.infos.episode"
+      [citation]="citation.citation"
+      [episode]="citation.infos.episode"
       ></app-single-citation>
     </div>
-</div>
+  </div>
 
 
 

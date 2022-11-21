@@ -53,7 +53,7 @@ export class CitationPerBookComponent implements OnInit {
   bookSelected!: string;
   characterList: any=[];
   characterListFiltered: any=[];
-  character: string = "Arthur";
+  character: string = "";
 
 
   constructor(private router: ActivatedRoute, private CitationService: CitationService) { }

@@ -51,6 +51,8 @@ export class CitationService{
   ]
 
   citations : citation[] = [];
+  filterCitations:any = [];
+  randomCitation = "";
 
   getCitations() {
      return Citations;
@@ -62,6 +64,19 @@ export class CitationService{
 
   getCitationByBook() {
     return this.citationByBook;
+  }
+
+  getRandomCitation(textSize:number, arrayCitation:any) {
+    //trier dans les citations, et supprimer celles qui ont plus de 50 caractères depuis un tableau de citation donné en paramètre
+    arrayCitation.forEach((element: { citation: any; }) => {
+      if (element.citation.length < textSize){
+        this.filterCitations.push(element.citation)
+      }
+      
+    });
+    const numRandom = Math.floor(Math.random() * this.filterCitations.length);
+    this.randomCitation = this.filterCitations[numRandom];
+    return this.randomCitation;
   }
 
 }

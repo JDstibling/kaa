@@ -14,28 +14,14 @@ export class HomeComponent implements OnInit{
   constructor(private _CitationService: CitationService, private Router: Router) { }
 
   citations:any = [];
-  randomCitation = "";
+  randomCitation:any = [];
   filterCitations:any = [];
   
   homeNav = homeNav;
   
   ngOnInit() {
     this.citations = this._CitationService.getCitations();
-    this.getRandomCitation();
-  }
-
-  getRandomCitation() {
-    //trier dans les citations, et supprimer celles qui ont plus de 50 caractères.
-    this.citations.forEach((element: { citation: { length: number; id: any; }; }) => {
-      
-      if (element.citation.length < 50){
-        this.filterCitations.push(element.citation)
-      }
-    });
-    const numRandom = Math.floor(Math.random() * this.filterCitations.length);
-    this.randomCitation = this.filterCitations[numRandom];
-    console.log(this.filterCitations.length);
-    
+    this.randomCitation = this._CitationService.getRandomCitation(100, this.citations);
   }
 
   redir(i:Number): void {

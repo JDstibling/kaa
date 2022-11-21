@@ -119,16 +119,16 @@ export class FicheComponent implements OnInit, AfterContentInit {
 
   getInfoPerPerso() {
     this.citation = this.CitationService.getCitations();
-    let arr: any[] = [];
+    let persoSelectedArray: any[] = [];
     this.citation.forEach((element: any) => {
       // compilation des répliques du personnage
       if(element.infos.personnage === this.persoSelected){
-        arr.push(element.citation)
+        persoSelectedArray.push(element.citation)
         this.totalRepliqueByActor ++;
       }
     });
     //récupération d'une réplique random du perso
-    this.randomReplique = arr[Math.floor(Math.random() * this.totalRepliqueByActor)] 
+    this.randomReplique = persoSelectedArray[Math.floor(Math.random() * this.totalRepliqueByActor)] 
     //récupération du nom de l'acteur
     this.actorSelected = this.casting[this.castingId].acteur;
   }
