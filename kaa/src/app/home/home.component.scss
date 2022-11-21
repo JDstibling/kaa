@@ -2,13 +2,13 @@
 @import "src/variables.scss";
 
 .home{
-    position: relative;
+    //position: relative;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: "kaa", sans-serif;
+    // font-family: "kaa", sans-serif;
     background: url(../../assets/images/fond/blue-wall-texture-slate-background.jpg);
     color: $crem;
     h1{
@@ -22,7 +22,7 @@
         margin: 1em 3em 0 3em;
         line-height: 1.1em;
         width: 50%;
-        font-family: sans-serif;
+        font-family: "viking";
     }
     .nav{
         width: 85%;
@@ -38,7 +38,7 @@
                 margin: 1em;
                 width: 60%;
             }
-            position: relative; 
+            //position: relative; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -80,7 +80,7 @@
         }
 
         .nav-item:hover{
-            position: relative;
+            //position: relative;
             box-shadow: 0 0 65px $crem inset, 0 0 20px #BEAE8C inset, 0 0 2px #816F47;
 
             @media screen and (min-width: 770px) {

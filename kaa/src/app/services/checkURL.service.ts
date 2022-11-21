@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { filter, map, Observable, Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -7,13 +8,14 @@ import { Subscription } from 'rxjs';
 })
 export class checkURLService{
     
-    subscriptionURL!: Subscription;
+      subscriptionURL!: Subscription;
 
   constructor() {
    }
 
   getCurrentURL() {
-     return  window.location.href;
+      return  window.location.href;
+    //return this.http.get(environment.api.equipments.list + filter).pipe(map((res: any) => res.data));
    }
 
    subscribe() {

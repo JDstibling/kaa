@@ -73,7 +73,6 @@ export class CitationPerBookComponent implements OnInit {
   
     //récupération des citations en fonction du book selectionné
     this.characterListFiltered = this.characterList.filter((a: String)=>a);
-    console.log(this.characterListFiltered);
   }
 
   showCitationPerBook() :void{
@@ -141,7 +140,6 @@ export class CitationPerBookComponent implements OnInit {
       }
 
     });
-    console.log(this.citationPerBookFiltered);
     
   }
 
