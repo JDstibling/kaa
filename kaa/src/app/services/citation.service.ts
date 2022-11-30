@@ -67,7 +67,7 @@ export class CitationService{
   }
 
   getRandomCitation(textSize:number, arrayCitation:any) {
-    //trier dans les citations, et supprimer celles qui ont plus de 50 caractères depuis un tableau de citation donné en paramètre
+    //trier dans les citations, et récupérer uniquement celles qui respecte le nombre de caractère max donnée en paramètres
     arrayCitation.forEach((element: { citation: any; }) => {
       if (element.citation.length < textSize){
         this.filterCitations.push(element.citation)

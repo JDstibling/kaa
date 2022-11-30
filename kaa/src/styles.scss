@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~hamburgers/_sass/hamburgers/hamburgers.scss';
+//@import '~hamburgers/_sass/hamburgers/hamburgers.scss';
 
 html, body { height: 100%; width: 100;}
 body { margin: 0; font-family: "medieval", sans-serif; }
@@ -7,7 +7,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import "./variables.scss";
-
+@import "src/fonts.scss";
 
 .btn {
     position: relative;
@@ -95,3 +95,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   
   
   }
+
+h1 {
+  font-family: "kaa", sans-serif !important;
+  font-size: 3.2em !important; 
+  color: $orange !important; 
+  padding-top: 3.5em !important; 
+  }
+

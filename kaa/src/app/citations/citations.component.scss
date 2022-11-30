@@ -1,5 +1,5 @@
-
 @import "src/fonts.scss";
+@import "src/variables.scss";
 
 .main {
     display: flex;
@@ -21,12 +21,12 @@
     background-size: cover;
     height: 100%;
 
-    h1 {
-        font-family: "kaa", sans-serif;
-        font-size: 3.2em;
-        color: aliceblue; 
-        padding-top: 5em;  
-    }
+    // h1 {
+    //     font-family: "kaa", sans-serif;
+    //     font-size: 3.2em;
+    //     color: $crem; 
+    //     padding-top: 5em;  
+    // }
 
     .list {
         display: flex;

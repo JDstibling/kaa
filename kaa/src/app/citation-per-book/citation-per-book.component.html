@@ -7,9 +7,9 @@
         <ng-container *ngFor="let card of characterListFiltered; let i = index">
           <ng-template carouselSlide>
             <div class="nav-card" (click)="showCitationPerCharacter(i)">
-              <h6 >
+              <figcaption>
                 {{ card }}
-              </h6>
+              </figcaption>
               <img id="character-Avatar" src="../../assets/images/persos/{{card}}.jpg" alt="card">
             </div>
           </ng-template>

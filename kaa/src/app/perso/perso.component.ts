@@ -56,7 +56,7 @@ export class PersoComponent implements OnInit {
     }else if (innerWidth > 1000 && innerWidth < 1200){
       this.maxItems = 12;
     }else if (innerWidth > 1200){
-      this.maxItems = 12;
+      this.maxItems = 18;
     }
   }
 

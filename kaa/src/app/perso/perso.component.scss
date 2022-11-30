@@ -28,7 +28,20 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        //width: 80%;
+        //width: 70%;
+        padding: 2em 0 2em 0;
+
+        // @media screen and (max-width:640px){
+        //     width: 100%;
+        // }
+
+        // @media screen and (min-width:640px){
+        //     max-width: 85%;
+        // }
+
+        // @media screen and (min-width:900px){
+        //     width: 70%;
+        // }
 
         :hover {
             .cards-perso {
@@ -38,23 +51,24 @@
                 -o-transform: scale(1.1);
                 -ms-transform: scale(1.1);
                 transform: scale(1.1);
+                border: solid $blue;
+                background: $dark-blue !important;
             }
         }
 
         .cards {  
-       
             .cards-perso {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 16em;
-                height: 9em;
+                width: 12em;
+                height: 8em;
                 -webkit-box-shadow: inset -1px 3px 8px 5px #4f83be, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0.56); 
                 box-shadow: inset -1px 3px 8px 5px #496381, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0.56);
-                margin: 1em;
+                margin: .2em;
                 background: $dark-grey;
                 h6 {
-                    font-size: 2em;
+                    font-size: 1.8em;
                     text-align: center;
                     font-family: "medieval", sans-serif;
                     line-height: 1em;
@@ -71,9 +85,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 2em;
-        //height: 4em;
-        //background-color: #496381;
+        font-size: 1.2em;
     }
 
     .pagination ::ng-deep .ngx-pagination .current {

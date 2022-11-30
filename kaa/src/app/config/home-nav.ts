@@ -10,14 +10,14 @@ export const homeNav: Array<homeNavInterface> = [
         description: 'citation ...',
     },
     {
-        name: 'réunion',
-        image: 'https://www.jokeme.fr/images/Karadoc.jpg',
-        description: 'réunion ...',
-    },
-    {
         name: 'quiz',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzoy-XoO-pXk6IPUBxtDOblT1fQR2tsE00qg&usqp=CAU',
         description: 'quiz ...',
+    },
+    {
+        name: 'FaQ',
+        image: 'https://www.jokeme.fr/images/Karadoc.jpg',
+        description: 'réunion ...',
     }
 ]
 

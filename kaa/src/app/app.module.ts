@@ -25,6 +25,7 @@ import { CitationPerBookComponent } from './citation-per-book/citation-per-book.
 import { SingleCitationComponent } from './single-citation/single-citation.component';
 
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     CitationsComponent,
     CitationPerBookComponent,
     SingleCitationComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,

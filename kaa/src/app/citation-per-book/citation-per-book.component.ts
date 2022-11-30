@@ -122,6 +122,8 @@ export class CitationPerBookComponent implements OnInit {
   }
 
   showCitationPerCharacter(item: any) {
+      //this.customOptions.autoplay = false;
+    //console.log(this.customOptions.autoplay);
     this.filterOn = true;
     this.showCitationPerBook();
     this.citationPerBookFiltered = [];
@@ -130,15 +132,10 @@ export class CitationPerBookComponent implements OnInit {
 
     this.citationPerBook.forEach((element: any) => {
       if (element.infos.personnage === this.character){
-        console.log(element.infos.personnage + " = " + this.character);
-        
         if (!this.citationPerBookFiltered.includes(element)){
-          
           this.citationPerBookFiltered.push(element);
-          
         }
       }
-
     });
     
   }

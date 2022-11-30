@@ -36,7 +36,7 @@
         align-items: center;
         justify-content: center;
 
-        h6 {
+        figcaption {
           color: $orange;
           font-weight: bold;
           font-size: larger;
@@ -61,10 +61,12 @@
 
   .group {
     display: flex;
-    justify-content: center;
+    //justify-content: center;
     flex-wrap: wrap;
-    margin: 0 4em;
+    align-content: flex-start;
+    //margin: 0 4em;
     border-radius: 10px;
+    height: 30em;
 
     .filter {
       width: 100%;

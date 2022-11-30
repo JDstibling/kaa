@@ -30,7 +30,10 @@ export class HomeComponent implements OnInit{
     }else if (i === 1){
       this.Router.navigate(['/citations']);
     }else if (i === 2){
+      this.Router.navigate(['#']);
     }else if (i === 3){
+      this.Router.navigate(['#']);
     }
   }
 }
+

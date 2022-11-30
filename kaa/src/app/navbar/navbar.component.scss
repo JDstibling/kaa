@@ -8,8 +8,18 @@ img {
   background-color: transparent;
   position: fixed;
   top: 0em;
-  
   cursor: pointer;
+
+}
+
+a {
+  
+  @media screen and (max-width: 800px) {
+    position: fixed;
+    width: 200px;
+    left: 50%; /* on positionne l'élément à la moitié de l'écran */
+    margin-left: -100px; /* on applique une marge négative de la moitié de la largeur de l'élément */
+   }
 }
 
 #item {

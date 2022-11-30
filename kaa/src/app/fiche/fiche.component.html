@@ -1,8 +1,8 @@
 <main>
     <h1 [@fadeText]="animationTiming[0]" id="title">{{persoSelected}}</h1>
-    <p *ngIf="randomReplique" [@fadeText]="animationTiming[1]">"{{randomReplique}}"</p>
-    <span *ngIf="randomReplique" [@fadeText]="animationTiming[1]">Saison: {{saison}}</span>
-    <span *ngIf="randomReplique" [@fadeText]="animationTiming[1]">Episode: {{episode}} </span>
+    <blockquote *ngIf="randomReplique" [@fadeText]="animationTiming[1]">"{{randomReplique}}"</blockquote>
+    <cite *ngIf="randomReplique" [@fadeText]="animationTiming[1]">Saison: {{saison}}</cite>
+    <cite *ngIf="randomReplique" [@fadeText]="animationTiming[1]">Episode: {{episode}} </cite>
     <div class="focus">
         <img class="face" src="{{image}}" alt="{{persoSelected}}">
         <div class="slides">
@@ -11,7 +11,6 @@
             <div [@fadeTextSlide]="animationTiming[2]" class="slide num3"><h5><span><a href="{{linkWiki}}" target="_blank">Voir sa biographie</a></span></h5></div>
             
         </div>
-        <!-- <a [@fadeTextSlide]="animationTiming[3]" mat-button routerLink="/perso" id="back">Retour</a> -->
     </div>
-    <a [@fadeTextSlide]="animationTiming[3]" mat-button routerLink="/perso" class="btn-primary">Retour</a>
+    <a mat-button routerLink="/perso" class="btn-secondary">Retour</a>
 </main>

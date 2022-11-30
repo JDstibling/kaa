@@ -4,6 +4,7 @@ import { CitationPerBookComponent } from './citation-per-book/citation-per-book.
 import { CitationsComponent } from './citations/citations.component';
 import { FicheComponent } from './fiche/fiche.component';
 import { HomeComponent } from './home/home.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 import { PersoComponent } from './perso/perso.component';
 
 const routes: Routes = [
@@ -12,8 +13,9 @@ const routes: Routes = [
   {path: 'perso/:id', component: FicheComponent},
   {path: 'citations', component: CitationsComponent},
   {path: 'citations/:id', component: CitationPerBookComponent},
+  {path: 'notFound', component: NotfoundComponent},
   {path: '', redirectTo:'home', pathMatch:'full'},
-  {path: '**', redirectTo:'home'},
+  {path: '**', redirectTo:'notFound'},
 ];
 
 

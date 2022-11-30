@@ -1,7 +1,8 @@
 <div class="main">
-    <div class="nav">
+    <h1>Les personnages de Kaamelott</h1>
+    <!-- <div class="nav">
         <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls> 
-    </div>
+    </div> -->
     <div class="list">
         <div class="cards" (click)="onViewFiche(item)" *ngFor="let item of casting | paginate: { 
             itemsPerPage:maxItems,

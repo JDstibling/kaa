@@ -15,7 +15,7 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover; 
-    height: 100vh;
+    min-height: 100%;
 
     #title {
         font-size: 4em;
@@ -23,16 +23,20 @@ main {
         font-family: "medieval", sans-serif;
     }
 
-    p {
+    blockquote {
         color: $crem;
         font-family: "medieval", sans-serif;
         width: 50%;
         margin: 0 5em 0 5em;
         font-size: 1.4em ;
         text-align: center;
+        @media screen and (max-width: 700px) {
+            font-size: 1em;
+            width: 100%;
+           }
     }
 
-    span {
+    cite {
         font-style: italic;
         color: $crem;
     }
@@ -41,8 +45,15 @@ main {
         position: relative;
         justify-content: center;
         align-items: center;
-        height: 50%;
-        width: 70%;
+        height: 20em;
+        //width: 70%;
+        //flex-wrap: wrap;
+        //top: 2em;
+
+        @media screen and (max-width: 800px) {
+            //flex-direction: column; 
+           }
+
 
         .face {
             -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(63,53,183,0); 
@@ -51,12 +62,18 @@ main {
             border-radius: 25% 10%;
             //animation
             animation-name: goLeft;
-            animation-duration: 3s;
+            animation-duration: 2s;
             animation-fill-mode:both;
             animation-direction: alternate;
-        }
 
-            $Leftvalue: -2em;
+            @media screen and (max-width: 800px) {
+                position: static;
+                width: 30%;
+                //margin: 2em 0 3em 0;
+               }
+        }
+        
+        $Leftvalue: -7em;
 
         @keyframes goLeft {
             0%    {left: 3em;}
@@ -68,6 +85,12 @@ main {
             outline-offset: 0px;
             padding: 2em;
             background:rgba(170, 167, 167, 0.486);
+            @media screen and (max-width: 800px) {
+                padding: 7px;
+                // height: 9em;
+                // width: 100%;
+                margin: 2em;
+               }
             .slide {
                 margin: 0 0 2em 0;
                 color: $crem;
@@ -75,6 +98,9 @@ main {
                     font-size: 2em;
                     font-family: "medieval", sans-serif;
                     color: $dark-blue;
+                    @media screen and (max-width: 800px) {
+                        font-size: 1em;
+                       }
                 }
                 span {
                     margin: 0 0 0 1em;

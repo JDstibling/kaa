@@ -2,21 +2,21 @@
 @import "src/variables.scss";
 
 .home{
-    //position: relative;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // font-family: "kaa", sans-serif;
     background: url(../../assets/images/fond/blue-wall-texture-slate-background.jpg);
     color: $crem;
+
     h1{
-        font-family: "kaa", sans-serif;
-        font-size: 3.2em;
+        @media screen and (max-width: 770px) {
+            display: none;
+        }
     }
 
-    p{
+    q{
         font-size: 2em;
         text-align: center;
         margin: 1em 3em 0 3em;
@@ -24,21 +24,29 @@
         width: 50%;
         font-family: "viking";
     }
+
+    hr{
+        color: $crem;
+        width: 50%;
+        border-top: 10px solid $blue;
+    }
+
     .nav{
         width: 85%;
         display: flex;
         justify-content:space-around;
         margin: 3em 0 0 0;
+        flex-wrap: wrap;
         color: $crem        ;
 
         .nav-item{
             @media screen and (max-width: 770px) {
-                height: 6.5em;
-                border: solid yellow;
-                margin: 1em;
-                width: 60%;
+                height: 3.5em;
+                //border: solid $orange;
+                margin: 0.2em;
+                width: 20%;
+                text-decoration:underline;
             }
-            //position: relative; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -54,6 +62,10 @@
                 font-size: 1.2em;
                 font-family: "kaa", sans-serif;
                 text-align: center;
+                @media screen and (max-width: 770px) {
+                    font-size: 0.7em;
+                    margin: auto;
+                }
             }
 
             .img0 , .img1, .img2, .img3{
@@ -80,17 +92,16 @@
         }
 
         .nav-item:hover{
-            //position: relative;
             box-shadow: 0 0 65px $crem inset, 0 0 20px #BEAE8C inset, 0 0 2px #816F47;
 
             @media screen and (min-width: 770px) {
              border-radius: 10%;   
-            .img0, .img1, .img2, .img3 {
-                animation-name: in;
-                animation-duration: .45s;
-                animation-fill-mode:both;
-                animation-direction: alternate;
-            }
+                .img0, .img1, .img2, .img3 {
+                    animation-name: in;
+                    animation-duration: .45s;
+                    animation-fill-mode:both;
+                    animation-direction: alternate;
+                }
             }
 
          }
