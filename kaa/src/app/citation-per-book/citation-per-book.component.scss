@@ -5,16 +5,8 @@
   flex-direction: column;
   text-align: center;
   background: url(../../assets/images/fond/blue-wall-texture-slate-background.jpg);
-  padding: 8em 0 0 0;
   margin: 0;
   min-height: 100vh;
-
-  h1 {
-    font-family: "kaa", sans-serif;
-    font-size: 3.2em;
-    color: $crem; 
-    padding-top: 1em; 
-  }
 
   .nav {
     display: flex;
@@ -40,6 +32,7 @@
           color: $orange;
           font-weight: bold;
           font-size: larger;
+          font-family: "medieval";
         }
 
         #character-Avatar {
@@ -52,22 +45,16 @@
     }
 
   }
-}
-
- .perso {
+  .perso {
     height: 80px;
   }
-
-
   .group {
     display: flex;
-    //justify-content: center;
     flex-wrap: wrap;
     align-content: flex-start;
-    //margin: 0 4em;
+    justify-content: center;
     border-radius: 10px;
-    height: 30em;
-
+  
     .filter {
       width: 100%;
       margin: 0 0 1em 0;
@@ -78,9 +65,17 @@
         box-shadow: inset -1px 3px 8px 5px $red, 2px 5px 16px 0px #0B325E, 5px 5px 3px 5px rgba(0,0,0,0);
         cursor: pointer;
       }
-
+  
     }
   }
+}
+
+
+
+
+// .fa fa-long-arrow-left{
+//   color: $red !important;
+// }
 
 
 

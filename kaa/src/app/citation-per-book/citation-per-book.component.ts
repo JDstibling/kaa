@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { CitationService } from '../services/citation.service';
-
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -18,17 +16,18 @@ export class CitationPerBookComponent implements OnInit {
     touchDrag: true,
     pullDrag: false,
     dots: false,
-    navSpeed: 1100,
-    autoplaySpeed: 800,
-    autoplayTimeout: 2000,
+    navSpeed: 800,
+    autoplaySpeed: 1300,
+    autoplayTimeout: 150,
     autoWidth: true,
     autoplay: true,
     autoplayHoverPause: true,
     autoplayMouseleaveTimeout: 100,
+    navText : ["<i class='fa fa-long-arrow-left'><</i>","<i class='fa fa-long-arrow-right'>></i>"],
     responsive: {
       0: {
         items: 1,
-      },
+      },  
       380: {
         items: 2,
       },
@@ -42,7 +41,7 @@ export class CitationPerBookComponent implements OnInit {
         items: 6,
       },
     },
-    nav: false,
+    nav: true,
   };
   
   filterOn: Boolean = false;

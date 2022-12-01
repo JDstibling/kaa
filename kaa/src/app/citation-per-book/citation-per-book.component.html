@@ -1,8 +1,8 @@
 
 <div class="main">
   <h1>Les meilleures citations du {{bookSelected}} </h1>
-  <a mat-button routerLink="/citations" class="btn-secondary" style="display: block;">Choisir un autre livre</a>
-    <div class="nav"> 
+  <div class="nav"> 
+      <a mat-button routerLink="/citations" class="btn-secondary">Choisir un autre livre</a>
       <owl-carousel-o [options]="customOptions" class="nav-cards">
         <ng-container *ngFor="let card of characterListFiltered; let i = index">
           <ng-template carouselSlide>
@@ -26,7 +26,7 @@
     </div>
     <div class="group" *ngIf="filterOn">
       <div class="filter" (click)="filterOn = false">
-        <a>Filtre : {{character}}  - Cliquez pour annuler</a>
+        <a class="btn-secondary">{{character}}</a>
       </div>
       <app-single-citation  
       *ngFor="let citation of citationPerBookFiltered"

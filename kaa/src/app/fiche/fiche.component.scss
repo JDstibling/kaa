@@ -16,12 +16,9 @@ main {
     background-position: center;
     background-size: cover; 
     min-height: 100%;
-
-    #title {
-        font-size: 4em;
-        color: $crem;
-        font-family: "medieval", sans-serif;
-    }
+    @media screen and (max-width: 700px) {
+        padding-top: 9em;
+       }
 
     blockquote {
         color: $crem;
@@ -32,7 +29,7 @@ main {
         text-align: center;
         @media screen and (max-width: 700px) {
             font-size: 1em;
-            width: 100%;
+            width: 95%;
            }
     }
 

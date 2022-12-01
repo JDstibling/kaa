@@ -1,7 +1,13 @@
 @import "src/fonts.scss";
 
 img {
-  width: 150px;
+  width: 130px;
+  @media screen and (max-width: 800px) {
+    position: fixed;
+    width: 100px;
+    left: 50%; /* on positionne l'élément à la moitié de l'écran */
+    margin-left: -50px; /* on applique une marge négative de la moitié de la largeur de l'élément */
+   }
 }
 
 #nav {
@@ -9,21 +15,9 @@ img {
   position: fixed;
   top: 0em;
   cursor: pointer;
-
 }
 
 a {
-  
-  @media screen and (max-width: 800px) {
-    position: fixed;
-    width: 200px;
-    left: 50%; /* on positionne l'élément à la moitié de l'écran */
-    margin-left: -100px; /* on applique une marge négative de la moitié de la largeur de l'élément */
-   }
-}
-
-#item {
-  //font-family: "medieval", sans-serif;
 }
 
   .spacer{

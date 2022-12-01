@@ -21,20 +21,12 @@
     background-size: cover;
     height: 100%;
 
-    // h1 {
-    //     font-family: "kaa", sans-serif;
-    //     font-size: 3.2em;
-    //     color: $crem; 
-    //     padding-top: 5em;  
-    // }
-
     .list {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        //width: 80%;
-        height: 80%;
+        height: 50%;
 
         :hover {
             .cards-perso {
@@ -54,26 +46,26 @@
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                width: 10em;
+                //width: 10em;
                 //height: 13em; // voir pour adapter en fonction de la largeur de la page
                 -webkit-box-shadow: inset -1px 3px 8px 5px #4f83be, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0.56); 
                 box-shadow: inset -1px 3px 8px 5px #496381, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0.56);
                 margin: 1em;
-                padding: 2em 0 0 0;
-                background: #0c0c0c9d;
+                //padding: 2em 0 0 0;
+                background: $dark-grey;
                 h6 {
                     font-size: 1.6em;
                     text-align: center;
                     font-family: "medieval", sans-serif;
-                    color: #FFFFFF;
-                    //background: #0c0c0c9d;
+                    color: $crem;
                     text-shadow: #474747 3px 5px 2px;
-                    margin: 0 1em; 
+                    //margin: 0 1em; 
+                    padding: 1em;
                 }
                 p {
                     text-align: center;
                     font-family: "medieval", sans-serif;
-                    color: #e43d3d;
+                    color: $red;
                     margin: 1em;
 
                 }

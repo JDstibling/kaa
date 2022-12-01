@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-//import { Observable } from 'rxjs';
-// import { Observable } from 'rxjs/internal/Observable';
 import {filter } from 'rxjs';
 
 
@@ -12,15 +10,6 @@ import {filter } from 'rxjs';
 })
 export class NavbarComponent {
 
-  isMobile: Boolean = false;
-
-  // @HostListener("window:resize", ["$event"])
-  // onResize(event: { target: { innerWidth: any; }; }) {
-  //   this.checkWidth(event.target.innerWidth);
-  // }
-
-
-  currentUrl!:string;
   displayNavBar:boolean = false;
 
   constructor(router: Router) {
@@ -33,9 +22,4 @@ export class NavbarComponent {
         }
     });
   }
-
-
-  ngOnInit(): void {      
-  }
-
 }
