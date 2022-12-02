@@ -4,9 +4,9 @@
         <div class="cards"  (click)="onViewCitationByBook(item)" *ngFor="let item of citationByBook ;let i = index;">
             <div class="cards-perso" >
                 <h6>{{item.title}}</h6>
-                <p>Citations disponibles : <span>{{item.citations}}</span></p>
+                <p id="info">Citations disponibles : <span>{{item.citations}}</span></p>
             </div>
         </div>
     </div>
-    <a mat-button routerLink="/" class="btn-secondary" style="top:-3em;">Retour</a>
+    <a mat-button routerLink="/" class="btn-secondary" style="top:0em;">Retour</a>
 </div>

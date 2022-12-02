@@ -12,33 +12,29 @@ export class CitationPerBookComponent implements OnInit {
 
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: true,  
-    touchDrag: true,
-    pullDrag: false,
     dots: false,
-    navSpeed: 800,
-    autoplaySpeed: 1300,
-    autoplayTimeout: 150,
-    autoWidth: true,
+    navSpeed: 1000,
+    autoplaySpeed: 2000,
     autoplay: true,
-    autoplayHoverPause: true,
-    autoplayMouseleaveTimeout: 100,
-    navText : ["<i class='fa fa-long-arrow-left'><</i>","<i class='fa fa-long-arrow-right'>></i>"],
+    navText : ["<i class='arrow left'><</i>","<i class='arrow right'>></i>"],
     responsive: {
       0: {
         items: 1,
       },  
-      380: {
+      300: {
         items: 2,
       },
-      575: {
+      400: {
         items: 3,
       },
-      876: {
-        items: 6,
+      700: {
+        items: 5,
       },
-      1176: {
-        items: 6,
+      1000: {
+        items: 7,
+      },
+      1300: {
+        items: 9,
       },
     },
     nav: true,

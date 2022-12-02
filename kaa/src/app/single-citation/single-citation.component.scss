@@ -2,8 +2,6 @@
 
 .main {
     width: 20em;
-    //max-height: 12em;
-    //max-width: 18em;
     
     .citation-card {
         margin: 1em;
@@ -11,8 +9,8 @@
         box-shadow: 5px 4px 34px 8px rgba(255,64,64,0.53);
         background-color: $dark-grey;
         color: $crem;
+        border-radius: 12px;
         .content {
-            //display: flex;
             background-color: $dark-blue;
             color: $blue;
     }

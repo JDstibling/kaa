@@ -3,12 +3,9 @@
 
 .main {
     display: flex;
-    // font-family: "medieval", sans-serif;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    // flex-wrap: wrap;
-    //border: solid red;
     background-image: linear-gradient(
         179.72deg,
         rgba(33, 37, 41, 0.8) 25.29%,
@@ -19,7 +16,10 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100%;
+    min-height: 100%;
+    @media screen and (max-width: 850px) {
+        padding-top: 5em;
+       }
 
     .list {
         display: flex;
@@ -27,6 +27,7 @@
         align-items: center;
         flex-wrap: wrap;
         height: 50%;
+        padding-bottom: 2em;
 
         :hover {
             .cards-perso {
@@ -46,28 +47,33 @@
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                //width: 10em;
-                //height: 13em; // voir pour adapter en fonction de la largeur de la page
+                width: 13em;
+                height: 13em; // voir pour adapter en fonction de la largeur de la page
                 -webkit-box-shadow: inset -1px 3px 8px 5px #4f83be, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0.56); 
                 box-shadow: inset -1px 3px 8px 5px #496381, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0.56);
-                margin: 1em;
+                margin: .8em;
                 //padding: 2em 0 0 0;
                 background: $dark-grey;
+                @media screen and (max-width: 850px) {
+                    width: 10em;
+                    height: 10em;
+                   }
                 h6 {
-                    font-size: 1.6em;
+                    font-size: 3em;
                     text-align: center;
-                    font-family: "medieval", sans-serif;
+                    font-family: "kaa", sans-serif;
                     color: $crem;
                     text-shadow: #474747 3px 5px 2px;
-                    //margin: 0 1em; 
-                    padding: 1em;
+                    margin-top: 1em; 
+                    @media screen and (max-width: 850px) {
+                        font-size: 1.5em;
+                       }
                 }
                 p {
                     text-align: center;
                     font-family: "medieval", sans-serif;
                     color: $red;
-                    margin: 1em;
-
+                    margin: .8em;
                 }
             }
         }
