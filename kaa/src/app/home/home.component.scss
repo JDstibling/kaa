@@ -37,7 +37,11 @@
         justify-content:space-around;
         margin: 3em 0 0 0;
         flex-wrap: wrap;
-        color: $crem        ;
+        color: $crem;
+        @media screen and (max-width: 500px) {
+            flex-direction: column;
+            align-items: center;
+        }
 
         .nav-item{
             @media screen and (max-width: 770px) {
@@ -59,11 +63,14 @@
              h6{
                 margin: 1em .7em .7em .7em;
                 font-size: 1.2em;
-                font-family: "kaa", sans-serif;
+                font-family: "medieval", sans-serif;
                 text-align: center;
+                color: $red;
+                text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
+
                 @media screen and (max-width: 770px) {
-                    font-size: 0.7em;
-                    margin: auto;
+                    font-size: 1em;
+                    margin: 0;
                 }
             }
 
@@ -91,7 +98,7 @@
         }
 
         .nav-item:hover{
-            box-shadow: 0 0 65px $crem inset, 0 0 20px #BEAE8C inset, 0 0 2px #816F47;
+            box-shadow: 0 0 15px $blue inset, 0 0 20px $dark-blue inset, 0 0 2px $dark-grey;
 
             @media screen and (min-width: 770px) {
              border-radius: 10%;   

@@ -5,7 +5,7 @@ export const homeNav: Array<homeNavInterface> = [
         description: 'personnage !!!...',
     },
     {
-        name: 'citation',
+        name: 'citations',
         image: 'http://www.onenagros.org/wordpress/wp-content/uploads/persos/DameS%C3%A9li.jpg',
         description: 'citation ...',
     },
