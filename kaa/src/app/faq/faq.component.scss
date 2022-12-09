@@ -1,0 +1,74 @@
+@import "src/fonts.scss";
+@import "src/variables.scss";
+
+.main{
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+    align-items: center;
+    //background: $dark-blue;
+    background: url(../../assets/images/fond/blue-wall-texture-slate-background.jpg);
+    min-height: 100%;
+    padding : .2em 0 .2em 0;
+
+    .group{
+        position: relative;
+        display: flex;
+        // justify-content: center;
+        // align-items: center;
+        //background: $blue;
+        height: 32em;
+        width: 60%;
+
+        .part{
+            position: relative;
+            //margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-end;
+            //background: blueviolet;
+        }
+        
+        .left {
+            width: 30%;
+            //background: palevioletred;
+
+            img {
+                width: 16em;
+                height: 16em;
+                border-radius: 50%;
+                -webkit-box-shadow: 3px 10px 30px -1px $crem; 
+                box-shadow: 3px 10px 30px -1px $crem;
+            }
+        }
+
+        .middle {
+            //background: forestgreen;
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+        }
+
+        .right{
+            align-items: flex-start;
+            //border: solid rgb(42, 135, 55);
+            left: 2%;
+
+        }
+
+        .e1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: solid 3px $red;
+            border-radius: 16px;
+            width: 60%;
+            height: 20%;
+            //margin: 1.3em;
+            text-align: center;
+            margin: 0;
+            color: $crem;
+        }
+    }
+}
