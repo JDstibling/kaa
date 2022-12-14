@@ -6,9 +6,11 @@ import { FicheComponent } from './fiche/fiche.component';
 import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { PersoComponent } from './perso/perso.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
+  {path: 'quiz', component: QuizComponent},
   {path: 'perso', component: PersoComponent},
   {path: 'perso/:id', component: FicheComponent},
   {path: 'citations', component: CitationsComponent},

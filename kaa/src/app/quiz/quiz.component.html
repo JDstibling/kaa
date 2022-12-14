@@ -1,0 +1,22 @@
+<main>
+    <div class="header">
+        <h1>Quizzzzzzzzzzzz Kaamelott</h1>
+        <p>On aurai pu vous proposer un cul de chouette mais pas de dès dispo ici ...</p>
+    </div>
+    <div class="nav">
+        <a class="btn-secondary" href="">Lancer le quiz</a>
+    </div>
+    <div class="window">
+        <!-- <img src="{{pictureAtRandomCitation}}" alt=""> -->
+        <div class="citation">
+            <h2>Qui à dit : </h2>
+            <p>{{quiz[0].citation}}</p>
+        </div>
+        <div class="who">
+            <img [ngStyle]="{'order': randomIndexNum0}"src={{quiz[0].noGoodPicture1}} alt="">
+            <img [ngStyle]="{'order': randomIndexNum1}"src={{quiz[0].noGoodPicture2}} alt="">
+            <img [ngStyle]="{'order': randomIndexNum2}"id="alImg" src={{quiz[0].goodPicture}} alt="">
+            <img [ngStyle]="{'order': randomIndexNum3}"src={{quiz[0].noGoodPicture3}} alt="">
+        </div>
+    </div>
+</main>

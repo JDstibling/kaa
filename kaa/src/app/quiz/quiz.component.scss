@@ -1,0 +1,59 @@
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    background: url(../../assets/images/fond/blue-wall-texture-slate-background.jpg);
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav {
+        //border: solid blue 3px;  
+    }
+
+    .window {
+        border: solid red 2px;
+        //background-color: rgba(0, 38, 255, 0.592);
+        height: 20em;
+        width: 60%; 
+        color: whitesmoke;
+
+        .citation {
+
+        }
+
+        .who {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            #alImg {
+                //order: 2;
+                //border: solid 8px;
+            }
+
+            img {
+                display: flex;
+                width: 10em;
+                height: 11em;
+                border-radius: 45%;
+                //order: 0;
+                :hover {
+                    transition: .15s;
+                    -moz-transform: scale(1.1);
+                    -webkit-transform: scale(1.1);
+                    -o-transform: scale(1.1);
+                    -ms-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
