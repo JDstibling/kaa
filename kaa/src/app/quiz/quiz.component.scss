@@ -34,6 +34,16 @@ main {
             justify-content: space-around;
             align-items: center;
 
+            :hover {
+                //border: solid orange 2px;
+                transition: .1s;
+                -moz-transform: scale(1.1);
+                -webkit-transform: scale(1.1);
+                -o-transform: scale(1.1);
+                -ms-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+
             #alImg {
                 //order: 2;
                 //border: solid 8px;
@@ -46,12 +56,6 @@ main {
                 border-radius: 45%;
                 //order: 0;
                 :hover {
-                    transition: .15s;
-                    -moz-transform: scale(1.1);
-                    -webkit-transform: scale(1.1);
-                    -o-transform: scale(1.1);
-                    -ms-transform: scale(1.1);
-                    transform: scale(1.1);
                 }
             }
         }

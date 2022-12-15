@@ -7,6 +7,78 @@ export const quiz: Array<quizInterface> = [
         noGoodPicture3: '',
         result: false
     },
+    {
+        citation: '',
+        goodPicture: '',
+        noGoodPicture1: '',
+        noGoodPicture2: '',
+        noGoodPicture3: '',
+        result: false
+    },
+    {
+        citation: '',
+        goodPicture: '',
+        noGoodPicture1: '',
+        noGoodPicture2: '',
+        noGoodPicture3: '',
+        result: false
+    },
+    {
+        citation: '',
+        goodPicture: '',
+        noGoodPicture1: '',
+        noGoodPicture2: '',
+        noGoodPicture3: '',
+        result: false
+    },
+    {
+        citation: '',
+        goodPicture: '',
+        noGoodPicture1: '',
+        noGoodPicture2: '',
+        noGoodPicture3: '',
+        result: false
+    },
+    {
+        citation: '',
+        goodPicture: '',
+        noGoodPicture1: '',
+        noGoodPicture2: '',
+        noGoodPicture3: '',
+        result: false
+    },
+    {
+        citation: '',
+        goodPicture: '',
+        noGoodPicture1: '',
+        noGoodPicture2: '',
+        noGoodPicture3: '',
+        result: false
+    },
+    {
+        citation: '',
+        goodPicture: '',
+        noGoodPicture1: '',
+        noGoodPicture2: '',
+        noGoodPicture3: '',
+        result: false
+    },
+    {
+        citation: '',
+        goodPicture: '',
+        noGoodPicture1: '',
+        noGoodPicture2: '',
+        noGoodPicture3: '',
+        result: false
+    },
+    {
+        citation: '',
+        goodPicture: '',
+        noGoodPicture1: '',
+        noGoodPicture2: '',
+        noGoodPicture3: '',
+        result: false
+    },
 
 
 ]
