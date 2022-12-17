@@ -14,9 +14,9 @@
             <p>{{quiz[stepQuiz].citation}}</p>
         </div>
         <div class="who">
-            <img (click)="game($event)" [ngStyle]="{'order': randomIndex[orderIndex]}"id="g" src={{quiz[stepQuiz].picture.goodPicture}} alt="">
-            <img (click)="game($event)" [ngStyle]="{'order': randomIndex[orderIndex+3]}"id="n1" src={{quiz[stepQuiz].picture.noGoodPicture1}} alt="">
-            <img (click)="game($event)" [ngStyle]="{'order': randomIndex[orderIndex+2]}"id="n2" src={{quiz[stepQuiz].picture.noGoodPicture2}} alt="">
+            <img (click)="game($event)" [ngStyle]="{'order': randomIndex[stepQuiz]}"id="g" src={{quiz[stepQuiz].picture.goodPicture}} alt="">
+            <img (click)="game($event)" [ngStyle]="{'order': randomIndex[stepQuiz+1]}"id="n1" src={{quiz[stepQuiz].picture.noGoodPicture1}} alt="">
+            <img (click)="game($event)" [ngStyle]="{'order': randomIndex[stepQuiz-1]}"id="n2" src={{quiz[stepQuiz].picture.noGoodPicture2}} alt="">
         </div>
     </div>
     <div>
