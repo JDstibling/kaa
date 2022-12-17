@@ -4,19 +4,22 @@
         <p>On aurai pu vous proposer un cul de chouette mais pas de dès dispo ici ...</p>
     </div>
     <div class="nav">
-        <a class="btn-secondary" href="">Lancer le quiz</a>
+        <a (click)="restartGame()" class="btn-secondary">Lancer le quiz</a>
     </div>
-    <div class="window">
+    <div class="window" [ngStyle]="{'display': endStatus}">
         <!-- <img src="{{pictureAtRandomCitation}}" alt=""> -->
+        <aside id="count">{{stepQuiz +1}}</aside><aside>/ 10</aside>
         <div class="citation">
             <h2>Qui à dit : </h2>
-            <p>{{quiz[0].citation}}</p>
+            <p>{{quiz[stepQuiz].citation}}</p>
         </div>
         <div class="who">
-            <img [ngStyle]="{'order': randomIndex[0]}"src={{quiz[0].noGoodPicture1}} alt="">
-            <img [ngStyle]="{'order': randomIndex[1]}"src={{quiz[0].noGoodPicture2}} alt="">
-            <img [ngStyle]="{'order': randomIndex[2]}"id="alImg" src={{quiz[0].goodPicture}} alt="">
-            <img [ngStyle]="{'order': randomIndex[3]}"src={{quiz[0].noGoodPicture3}} alt="">
+            <img (click)="game($event)" [ngStyle]="{'order': randomIndex[orderIndex]}"id="g" src={{quiz[stepQuiz].picture.goodPicture}} alt="">
+            <img (click)="game($event)" [ngStyle]="{'order': randomIndex[orderIndex+3]}"id="n1" src={{quiz[stepQuiz].picture.noGoodPicture1}} alt="">
+            <img (click)="game($event)" [ngStyle]="{'order': randomIndex[orderIndex+2]}"id="n2" src={{quiz[stepQuiz].picture.noGoodPicture2}} alt="">
         </div>
+    </div>
+    <div>
+        <h3>Quiz terminé !!!</h3>
     </div>
 </main>

@@ -1,93 +1,78 @@
 export const quiz: Array<quizInterface> = [
     {
         citation: '',
-        goodPicture: '',
-        noGoodPicture1: '',
-        noGoodPicture2: '',
-        noGoodPicture3: '',
-        result: false
+        picture: [],
+        result: false,
+        id :1
     },
     {
         citation: '',
-        goodPicture: '',
-        noGoodPicture1: '',
-        noGoodPicture2: '',
-        noGoodPicture3: '',
-        result: false
+        picture: [],
+        result: false,
+        id :2
     },
     {
         citation: '',
-        goodPicture: '',
-        noGoodPicture1: '',
-        noGoodPicture2: '',
-        noGoodPicture3: '',
-        result: false
+        picture: [],
+        result: false,
+        id :3
     },
     {
         citation: '',
-        goodPicture: '',
-        noGoodPicture1: '',
-        noGoodPicture2: '',
-        noGoodPicture3: '',
-        result: false
+        picture: [],
+        result: false,
+        id :4
     },
     {
         citation: '',
-        goodPicture: '',
-        noGoodPicture1: '',
-        noGoodPicture2: '',
-        noGoodPicture3: '',
-        result: false
+        picture: [],
+        result: false,
+        id :5
     },
     {
         citation: '',
-        goodPicture: '',
-        noGoodPicture1: '',
-        noGoodPicture2: '',
-        noGoodPicture3: '',
-        result: false
+        picture: [],
+        result: false,
+        id :6
     },
     {
         citation: '',
-        goodPicture: '',
-        noGoodPicture1: '',
-        noGoodPicture2: '',
-        noGoodPicture3: '',
-        result: false
+        picture: [],
+        result: false,
+        id :7
     },
     {
         citation: '',
-        goodPicture: '',
-        noGoodPicture1: '',
-        noGoodPicture2: '',
-        noGoodPicture3: '',
-        result: false
+        picture: [],
+        result: false,
+        id :8
     },
     {
         citation: '',
-        goodPicture: '',
-        noGoodPicture1: '',
-        noGoodPicture2: '',
-        noGoodPicture3: '',
-        result: false
+        picture: [],
+        result: false,
+        id :9
     },
     {
         citation: '',
-        goodPicture: '',
-        noGoodPicture1: '',
-        noGoodPicture2: '',
-        noGoodPicture3: '',
-        result: false
-    },
+        picture: [],
+        result: false,
+        id :10
+    }
+   
 
 
 ]
 
 export interface quizInterface {
     citation: string;
-    goodPicture: string;
-    noGoodPicture1: string;
-    noGoodPicture2: string;
-    noGoodPicture3: string;
+    picture: Array<pictureInterface> | any;
     result: boolean;
+    id: number
+}
+
+export interface pictureInterface {
+    goodPicture: string | any;
+    noGoodPicture1: string | any;
+    noGoodPicture2: string | any;
 }
