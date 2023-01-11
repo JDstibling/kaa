@@ -1,9 +1,13 @@
+@import "src/fonts.scss";
+@import "src/variables.scss";
+
 main {
-    height: 100vh;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    //justify-content: space-around;
     align-items: center;
+    font-family: "medieval";
 
     background: url(../../assets/images/fond/blue-wall-texture-slate-background.jpg);
 
@@ -12,6 +16,11 @@ main {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        p{
+            color: $crem;
+            font-family: "medieval";
+        }
     }
 
     .nav {
@@ -58,6 +67,34 @@ main {
                 :hover {
                 }
             }
+        }
+    }
+
+    .feedback {
+        display: flex;
+        justify-content:flex-start;
+        align-items: center;
+        //border: solid $orange 2px;
+        //background-color: $dark-grey;
+        //width: 40%; 
+        //height: 5em;
+        color: $blue;
+        margin-top: 3em;
+        padding-left: 1em;
+        p {
+            margin: 0 1em 1em 0;
+        }
+        .success {
+            color : pink;
+        }
+        td:first-child {
+            //background: red;
+            
+        }
+        td {
+            padding: 0 2em 0 2em;
+            text-align: center;
+            border: solid 1px;
         }
     }
 }
