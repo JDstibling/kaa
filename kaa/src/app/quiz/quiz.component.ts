@@ -1,9 +1,13 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { quiz } from '../config/quiz';
 
 import { CitationService } from '../services/citation.service';
+import { quizResult } from '../config/quizResult';
+import { ThemePalette } from '@angular/material/core';
+
 
 @Component({
   selector: 'app-quiz',
@@ -34,9 +38,14 @@ import { CitationService } from '../services/citation.service';
 })
 export class QuizComponent implements OnInit {
 
+  color : ThemePalette = 'primary' ;
+  mode : MatProgressSpinnerModule = 'déterminé' ;
+  value = 100 ;
   quizSelected: [] = [];
   pictureAtRandomCitation: string = "";
   quiz = quiz;
+  quizResult = quizResult;
+  memeSelect = "";
   quizPicture = [];
   casting: any = [];
   citation: ({ citation: string; infos: { acteur: string; personnage: string; auteur: string; saison: string; episode: string; }; id: number; } | { citation: string; infos: { auteur: string; acteur: string; personnage: null; saison: string; episode: string; }; id: number; } | { citation: string; infos: { auteur: string; acteur: string; personnage: string; saison: string; episode?: undefined; }; id: number; })[] = [];
@@ -47,7 +56,7 @@ export class QuizComponent implements OnInit {
   endStatus= 0;
   currentItem: number | undefined;
   idpersoAtRandomCitation!: number;
-  startGame = true;
+  startGame!: boolean;
   textButton = "Jouer";
   resultBox!: string[];
   randomPerso1: any;
@@ -55,8 +64,12 @@ export class QuizComponent implements OnInit {
   winCount = 0;
   loseCount = 0;
   state = "end";
+  feedBackDisplay = false;
+  accroche = "Une petite partie ?";
+  timeChrono = 20;
+  myInterval: any;
+  countPoint= 0;
   
-
   constructor(private CitationService: CitationService) { }
 
   ngOnInit(): void {
@@ -64,6 +77,22 @@ export class QuizComponent implements OnInit {
     this.casting = this.CitationService.getCasting();
     this.quizGenerate();
     this.resultBox = [];
+  }
+
+  chrono() {
+    //paramétrage du timer
+    this.timeChrono = 20;
+    this.value = 100;
+    this.myInterval = setInterval(() => {
+      this.timeChrono --;
+      this.value -=5;
+      if (this.timeChrono === 0){
+        //si timer end, simuler une mauvaise réponse
+        clearInterval(this.myInterval);
+        const simu = document.getElementById("n1");
+        simu?.click();
+      }
+    }, 1000)
   }
   
   quizGenerate() {
@@ -113,10 +142,7 @@ export class QuizComponent implements OnInit {
         }else {
           this.randomNumber.push(addNumberRandom);
         }
-
-        console.log(this.randomNumber);
-        
-
+      
       }
       
       // //récupération d'une image aléatoire non égale à la premiere  (mauvaise réponse)
@@ -138,7 +164,12 @@ export class QuizComponent implements OnInit {
   }
 
   restartGame(){
+    clearInterval(this.myInterval);
+    this.countPoint = 0;
+    this.chrono();
     this.state = "start";
+    this.accroche = "C'est plus facile à comprendre que le chante sloubi, alors essayez de deviner !"
+    this.feedBackDisplay = false;
     this.quizGenerate();
     this.resultBox = [];
     this.stepQuiz = 0;
@@ -147,19 +178,24 @@ export class QuizComponent implements OnInit {
     this.loseCount = 0;
     if(this.stepQuiz === 0 && this.endStatus === 0){
       this.endStatus = 1;
-      this.textButton = "Relancer le quiz"
+      this.textButton = "Relancer le quiz";
     }
   }
 
   game(event:any){
-
+    let currentTime = this.timeChrono;
+    clearInterval(this.myInterval);
+    this.chrono();
     this.state = "end";
     //récupère l'id de la question en cours
     let stringToConvert = document.getElementById("count")?.innerHTML;
     let numberValue = Number(stringToConvert);
     this.currentItem = numberValue;
-
+    
     if(event.target.id === "g"){
+      //récupérer le chrono au moment du clic si bonne réponse et attribuer les points correspondant
+      this.countPoint = this.countPoint + (currentTime / 0.025);
+      
       this.winCount ++;
       this.quiz[this.currentItem -1].result = true;
       let str = this.quiz[this.currentItem-1].picture.goodPicture
@@ -186,7 +222,10 @@ export class QuizComponent implements OnInit {
     setTimeout(() => {
       this.stepQuiz +=1;
       if(this.stepQuiz === 10){
-        this.textButton = "Lancer le quiz";
+        clearInterval(this.myInterval);
+        this.startGame = false;
+        this.textButton = "Réessayer";
+        this.feedBackDisplay = true;
         this.stepQuiz = 0;
         this.endStatus = 0;
         // compteur de bonne réponses
@@ -195,11 +234,24 @@ export class QuizComponent implements OnInit {
           if(element.result === true){
             countgoodAnswer ++;
           }
-          this.startGame = false;
         });
-        alert("vous avez un résultat de : " + countgoodAnswer)
+        if (countgoodAnswer <= 2){
+          this.memeSelect = this.quizResult[0].meme;
+          this.accroche = this.quizResult[0].text
+        }else if(countgoodAnswer >2 && countgoodAnswer <=5){
+          this.memeSelect = this.quizResult[1].meme;
+          this.accroche = this.quizResult[1].text
+        }else if(countgoodAnswer >5 && countgoodAnswer <=7 ){
+          this.memeSelect = this.quizResult[2].meme;
+          this.accroche = this.quizResult[2].text
+        }else if(countgoodAnswer >7 && countgoodAnswer <=9){
+          this.memeSelect = this.quizResult[3].meme;
+          this.accroche = this.quizResult[3].text
+        }else if(countgoodAnswer = 10){
+          this.memeSelect = this.quizResult[4].meme;
+          this.accroche = this.quizResult[4].text
+        }
       };
-      console.log("Delayed for 1 second.");
       this.state = "start";
     }, 1000)
 

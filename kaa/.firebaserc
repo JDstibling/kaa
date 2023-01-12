@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "kaaf-4438b": {
+      "hosting": {
+        "kaa": [
+          "kaaf-4438b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "kaaf-4438b"
+  }
+}

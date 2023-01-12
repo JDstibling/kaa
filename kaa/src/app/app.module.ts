@@ -27,6 +27,27 @@ import { SingleCitationComponent } from './single-citation/single-citation.compo
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { QuizComponent } from './quiz/quiz.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+
+import { AuthService } from "./services/auth.service";
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { provideMessaging,getMessaging } from '@angular/fire/messaging';
+import { providePerformance,getPerformance } from '@angular/fire/performance';
+import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire/compat';
+
 
 
 @NgModule({
@@ -41,8 +62,14 @@ import { QuizComponent } from './quiz/quiz.component';
     SingleCitationComponent,
     NotfoundComponent,
     QuizComponent,
+    DashboardComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
   ],
   imports: [
+    MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,
     NgxPaginationModule,
@@ -54,9 +81,22 @@ import { QuizComponent } from './quiz/quiz.component';
     HttpClientModule,
     FlexLayoutModule,
     MatCardModule,
-    CarouselModule
+    CarouselModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideAnalytics(() => getAnalytics()),
+    provideFirestore(() => getFirestore()),
+    provideFunctions(() => getFunctions()),
+    provideMessaging(() => getMessaging()),
+    providePerformance(() => getPerformance()),
+    provideRemoteConfig(() => getRemoteConfig()),
+    provideStorage(() => getStorage()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule,
+    
   ],
-  providers: [],
+  providers: [AuthService, ScreenTrackingService,UserTrackingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

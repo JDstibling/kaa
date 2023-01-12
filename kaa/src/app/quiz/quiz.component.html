@@ -1,15 +1,99 @@
 <main>
     <div class="header">
         <h1 >Quiz Kaamelott</h1>
-        <p>Tentez de deviner ... blablabla</p>
+        <!-- <mat-spinner></mat-spinner> -->
+
+        <div *ngIf="feedBackDisplay" style="margin-top: 3em;" class="meme">
+            <div class="meme">
+                <p>Resultat : {{winCount}}/10  <span style="color: white;">score :  {{countPoint}}</span></p>
+                <img  src="{{memeSelect}}" alt="gif résumant le résultat final">
+            </div>
+        </div>
+        <div  *ngIf="feedBackDisplay" class="feedback">
+            <!-- <p>Bonne réponses : {{ winCount }}</p>
+            <p>Mauvaise réponses : {{ loseCount }}</p> -->
+            <table>
+                <tr>
+                    <td>N°</td>
+                    <td>Citation</td>
+                    <td>Résultat</td>
+                    <td>Bonne réponse</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>{{quiz[0].citation}}</td>
+                    <td *ngIf="quiz[0].result ? true : false">Correct</td><td *ngIf="quiz[0].result ? false : true">Erreur</td>
+                    <td>{{quiz[0].persoAtRandomCitation}}</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>{{quiz[1].citation}}</td>
+                    <td *ngIf="quiz[1].result ? true : false">Correct</td><td *ngIf="quiz[1].result ? false : true">Erreur</td>
+                    <td>{{quiz[1].persoAtRandomCitation}}</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>{{quiz[2].citation}}</td>
+                    <td *ngIf="quiz[2].result ? true : false">Correct</td><td *ngIf="quiz[2].result ? false : true">Erreur</td>
+                    <td>{{quiz[2].persoAtRandomCitation}}</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>{{quiz[3].citation}}</td>
+                    <td *ngIf="quiz[3].result ? true : false">Correct</td><td *ngIf="quiz[3].result ? false : true">Erreur</td>
+                    <td>{{quiz[3].persoAtRandomCitation}}</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>{{quiz[4].citation}}</td>
+                    <td *ngIf="quiz[4].result ? true : false">Correct</td><td *ngIf="quiz[4].result ? false : true">Erreur</td>
+                    <td>{{quiz[4].persoAtRandomCitation}}</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>{{quiz[5].citation}}</td>
+                    <td *ngIf="quiz[5].result ? true : false">Correct</td><td *ngIf="quiz[5].result ? false : true">Erreur</td>
+                    <td>{{quiz[5].persoAtRandomCitation}}</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>{{quiz[6].citation}}</td>
+                    <td *ngIf="quiz[6].result ? true : false">Correct</td><td *ngIf="quiz[6].result ? false : true">Erreur</td>
+                    <td>{{quiz[6].persoAtRandomCitation}}</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>{{quiz[7].citation}}</td>
+                    <td *ngIf="quiz[7].result ? true : false">Correct</td><td *ngIf="quiz[7].result ? false : true">Erreur</td>
+                    <td>{{quiz[7].persoAtRandomCitation}}</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>{{quiz[8].citation}}</td>
+                    <td *ngIf="quiz[8].result ? true : false">Correct</td><td *ngIf="quiz[8].result ? false : true">Erreur</td>
+                    <td>{{quiz[8].persoAtRandomCitation}}</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>{{quiz[9].citation}}</td>
+                    <td *ngIf="quiz[9].result ? true : false">Correct</td><td *ngIf="quiz[9].result ? false : true">Erreur</td>
+                    <td>{{quiz[9].persoAtRandomCitation}}</td>
+                </tr>
+            </table>
+        </div>
+        <p>{{accroche}}</p>
     </div>
+    <img  *ngIf="!startGame" src="https://kaamelott-gifboard.fr/gifs/ca-nous-detendra.gif">
     <div class="nav">
         <a (click)="restartGame()" class="btn-secondary">{{ textButton }}</a>
     </div>
+    
+    <mat-progress-spinner  *ngIf="startGame" style="margin-top: 2em;" mode="determinate" strokeWidth=5  [value]="value">
+    </mat-progress-spinner>
+    <div *ngIf="startGame" [ngClass]="timeChrono < 10 ? 'redTimer' : 'whiteTimer'" style="display: flex;position:relative;font-size: 2.5em; top: -60px;">{{timeChrono}}</div>
     <div class="window" [ngStyle]="{'opacity': endStatus}">
-        <!-- <img src="{{pictureAtRandomCitation}}" alt=""> -->
-        <aside id="count">{{stepQuiz +1}}</aside><aside>/ 10</aside>
         <div class="citation">
+            <aside id="count">{{stepQuiz +1}}</aside><aside>/ 10</aside>
             <h2 >Qui à dit : </h2>
             <p [@openClose]="state">{{quiz[stepQuiz].citation}}</p>
         </div>
@@ -19,69 +103,4 @@
             <img (click)="game($event)" [ngStyle]="{'order': randomIndex[stepQuiz-1]}"id="n2" src={{quiz[stepQuiz].picture.noGoodPicture2}} alt="">
         </div>
     </div>
-    <div class="feedback">
-        <!-- <p>Bonne réponses : {{ winCount }}</p>
-        <p>Bonne réponses : {{ loseCount }}</p> -->
-        <!-- <p [class.success]="itemWinner" *ngFor="let item of resultBox">{{ item }}</p> -->
-        <!-- <table>
-            <tr>
-                <td>N°</td>
-                <td>Résultat</td>
-                <td>Bonne réponse</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td *ngIf="quiz[0].result ? true : false">Correct</td><td *ngIf="quiz[0].result ? false : true">Erreur</td>
-                <td>{{quiz[0].persoAtRandomCitation}}</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td *ngIf="quiz[1].result ? true : false">Correct</td><td *ngIf="quiz[1].result ? false : true">Erreur</td>
-                <td>{{quiz[1].persoAtRandomCitation}}</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td *ngIf="quiz[2].result ? true : false">Correct</td><td *ngIf="quiz[2].result ? false : true">Erreur</td>
-                <td>{{quiz[2].persoAtRandomCitation}}</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td *ngIf="quiz[3].result ? true : false">Correct</td><td *ngIf="quiz[3].result ? false : true">Erreur</td>
-                <td>{{quiz[3].persoAtRandomCitation}}</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td *ngIf="quiz[4].result ? true : false">Correct</td><td *ngIf="quiz[4].result ? false : true">Erreur</td>
-                <td>{{quiz[4].persoAtRandomCitation}}</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td *ngIf="quiz[5].result ? true : false">Correct</td><td *ngIf="quiz[5].result ? false : true">Erreur</td>
-                <td>{{quiz[5].persoAtRandomCitation}}</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td *ngIf="quiz[6].result ? true : false">Correct</td><td *ngIf="quiz[6].result ? false : true">Erreur</td>
-                <td>{{quiz[6].persoAtRandomCitation}}</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td *ngIf="quiz[7].result ? true : false">Correct</td><td *ngIf="quiz[7].result ? false : true">Erreur</td>
-                <td>{{quiz[7].persoAtRandomCitation}}</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td *ngIf="quiz[8].result ? true : false">Correct</td><td *ngIf="quiz[8].result ? false : true">Erreur</td>
-                <td>{{quiz[8].persoAtRandomCitation}}</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td *ngIf="quiz[9].result ? true : false">Correct</td><td *ngIf="quiz[9].result ? false : true">Erreur</td>
-                <td>{{quiz[9].persoAtRandomCitation}}</td>
-            </tr>
-        </table> -->
-    </div>
-    <!-- <div>
-        <h1 *ngIf="!startGame">Quiz terminé !!!</h1>
-    </div> -->
 </main>
