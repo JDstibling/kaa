@@ -1,13 +1,28 @@
 <main>
     <div class="header">
-        <h1 >Quiz Kaamelott</h1>
+        <h1 *ngIf="authService.userData as user">Quiz Kaamelott <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
         <!-- <mat-spinner></mat-spinner> -->
 
-        <div *ngIf="feedBackDisplay" style="margin-top: 3em;" class="meme">
-            <div class="meme">
+        <div *ngIf="feedBackDisplay" style="margin-top: 3em;" class="gifGroup">
+            <div class="resultBox">
                 <p>Resultat : {{winCount}}/10  <span style="color: white;">score :  {{countPoint}}</span></p>
-                <img  src="{{memeSelect}}" alt="gif résumant le résultat final">
+                <img src="{{gifSelect}}" alt="gif résumant le résultat final">
             </div>
+        </div>
+        <ul *ngFor="let item of AllScores | async">
+            <li>
+                {{item.Pseudo}}
+            </li>
+            <li>
+                {{item.Score}}
+            </li>
+            <li>
+                {{item.Date}}
+            </li>
+        </ul>
+        <p>{{accroche}}</p>
+        <div class="nav">
+            <a (click)="restartGame()" class="btn-secondary">{{ textButton }}</a>
         </div>
         <div  *ngIf="feedBackDisplay" class="feedback">
             <!-- <p>Bonne réponses : {{ winCount }}</p>
@@ -81,22 +96,20 @@
                 </tr>
             </table>
         </div>
-        <p>{{accroche}}</p>
     </div>
-    <img  *ngIf="!startGame" src="https://kaamelott-gifboard.fr/gifs/ca-nous-detendra.gif">
-    <div class="nav">
-        <a (click)="restartGame()" class="btn-secondary">{{ textButton }}</a>
-    </div>
-    
-    <mat-progress-spinner  *ngIf="startGame" style="margin-top: 2em;" mode="determinate" strokeWidth=5  [value]="value">
-    </mat-progress-spinner>
-    <div *ngIf="startGame" [ngClass]="timeChrono < 10 ? 'redTimer' : 'whiteTimer'" style="display: flex;position:relative;font-size: 2.5em; top: -60px;">{{timeChrono}}</div>
-    <div class="window" [ngStyle]="{'opacity': endStatus}">
+    <img  *ngIf="!feedBackDisplay && !startGame" src="https://kaamelott-gifboard.fr/gifs/ca-nous-detendra.gif">
+    <p *ngIf="startGame">Etape <span id="count">{{stepQuiz +1}}</span><span> sur 10</span></p>
+    <div class="centerBox" *ngIf="startGame">
         <div class="citation">
-            <aside id="count">{{stepQuiz +1}}</aside><aside>/ 10</aside>
-            <h2 >Qui à dit : </h2>
-            <p [@openClose]="state">{{quiz[stepQuiz].citation}}</p>
+            <p class="stepQuizCitation" [@appear]="state">{{quiz[stepQuiz].citation}}</p>
         </div>
+        <div *ngIf="startGame"class="spinnerChrono">
+            <mat-progress-spinner   [diameter]="110" style="margin-top: 2em;" mode="determinate" strokeWidth=12  [value]="value">
+            </mat-progress-spinner>
+            <div [ngClass]="timeChrono < 10 ? 'redTimer' : 'whiteTimer'" style="text-align:center;position:relative;font-size: 2.5em; top: -65px;"><span>{{timeChrono}}</span></div>
+        </div>
+    </div>
+    <div class="window" [ngStyle]="{'opacity': endStatus}">
         <div [@openClose]="state" class="who">
             <img (click)="game($event)" [ngStyle]="{'order': randomIndex[stepQuiz]}"id="g" src={{quiz[stepQuiz].picture.goodPicture}} alt="">
             <img (click)="game($event)" [ngStyle]="{'order': randomIndex[stepQuiz+1]}"id="n1" src={{quiz[stepQuiz].picture.noGoodPicture1}} alt="">

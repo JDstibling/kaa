@@ -50,6 +50,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,4 +101,7 @@ import { AngularFireModule } from '@angular/fire/compat';
   providers: [AuthService, ScreenTrackingService,UserTrackingService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+
+}

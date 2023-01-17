@@ -7,5 +7,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class DashboardComponent implements OnInit {
   constructor(public authService: AuthService) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //console.log(this.authService.userData.username);
+  }
 }

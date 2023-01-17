@@ -2,11 +2,21 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
+import { AuthService } from '../services/auth.service';
+import { scoreService } from '../services/score';
+
 import { quiz } from '../config/quiz';
 
 import { CitationService } from '../services/citation.service';
 import { quizResult } from '../config/quizResult';
 import { ThemePalette } from '@angular/material/core';
+
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+import { Item } from 'firebase/analytics';
+import { environment } from 'src/environments/environment';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
 
 @Component({
@@ -18,25 +28,59 @@ import { ThemePalette } from '@angular/material/core';
       state(
         'end',
         style({
+          transform: 'translateX(50px)',
           opacity: 0,
-          transform: 'translateX(10px)',
         })
       ),
       state(
         'start',
         style({
-          opacity: 1,
           transform: 'translateX(0px)',
+          opacity: 1,
         })
       ),
       transition('start => end', animate('.25s')),
       transition('end => start', animate('.25s')),
+    ]),
+    trigger('appear', [
+      state(
+        'end',
+        style({
+          transform: 'translateY(50px)',
+          opacity: 0,
+        })
+      ),
+      state(
+        'start',
+        style({
+          transform: 'translateY(0px)',
+          opacity: 1,
+        })
+      ),
+      transition('start => end', animate('.15s')),
+      transition('end => start', animate('.15s')),
     ]),
   ],
   encapsulation: ViewEncapsulation.None,
   
 })
 export class QuizComponent implements OnInit {
+
+  AllScores!: Observable<any[]>;
+
+//     // TODO: Replace the following with your app's Firebase project configuration
+// // See: https://firebase.google.com/docs/web/learn-more#config-object
+// firebaseConfig = environment.firebaseConfig
+
+// // Initialize Firebase
+// app = initializeApp(this.firebaseConfig);
+
+
+// // Initialize Cloud Firestore and get a reference to the service
+// db = getFirestore(this.app);
+
+
+
 
   color : ThemePalette = 'primary' ;
   mode : MatProgressSpinnerModule = 'déterminé' ;
@@ -45,7 +89,7 @@ export class QuizComponent implements OnInit {
   pictureAtRandomCitation: string = "";
   quiz = quiz;
   quizResult = quizResult;
-  memeSelect = "";
+  gifSelect = "";
   quizPicture = [];
   casting: any = [];
   citation: ({ citation: string; infos: { acteur: string; personnage: string; auteur: string; saison: string; episode: string; }; id: number; } | { citation: string; infos: { auteur: string; acteur: string; personnage: null; saison: string; episode: string; }; id: number; } | { citation: string; infos: { auteur: string; acteur: string; personnage: string; saison: string; episode?: undefined; }; id: number; })[] = [];
@@ -69,14 +113,24 @@ export class QuizComponent implements OnInit {
   timeChrono = 20;
   myInterval: any;
   countPoint= 0;
+  actualDate: any;
   
-  constructor(private CitationService: CitationService) { }
+  constructor(private CitationService: CitationService, public authService: AuthService, private ScoreService: scoreService, public firestore: AngularFirestore) { 
+    this.AllScores = this.firestore.collection('Scores').valueChanges();
+  }
 
   ngOnInit(): void {
     this.citation = this.CitationService.getCitations();
     this.casting = this.CitationService.getCasting();
     this.quizGenerate();
     this.resultBox = [];
+
+    //console.log(this.db);
+
+    //const db = getFirestore(initializeApp(environment.firebaseConfig));
+    
+    
+    
   }
 
   chrono() {
@@ -142,8 +196,12 @@ export class QuizComponent implements OnInit {
         }else {
           this.randomNumber.push(addNumberRandom);
         }
-      
       }
+      if(this.randomNumber[0] == this.randomNumber[1]){
+        this.randomNumber[0] += 2;
+      }
+
+
       
       // //récupération d'une image aléatoire non égale à la premiere  (mauvaise réponse)
       this.randomPerso1 = this.casting[this.randomNumber[0]].personnage;
@@ -164,6 +222,11 @@ export class QuizComponent implements OnInit {
   }
 
   restartGame(){
+    console.log(this.quiz);
+    console.log(this.authService.userData.multiFactor.user.displayName);
+    
+
+    
     clearInterval(this.myInterval);
     this.countPoint = 0;
     this.chrono();
@@ -183,9 +246,12 @@ export class QuizComponent implements OnInit {
   }
 
   game(event:any){
+    //console.log(this.stepQuiz);
     let currentTime = this.timeChrono;
     clearInterval(this.myInterval);
     this.chrono();
+
+
     this.state = "end";
     //récupère l'id de la question en cours
     let stringToConvert = document.getElementById("count")?.innerHTML;
@@ -195,7 +261,6 @@ export class QuizComponent implements OnInit {
     if(event.target.id === "g"){
       //récupérer le chrono au moment du clic si bonne réponse et attribuer les points correspondant
       this.countPoint = this.countPoint + (currentTime / 0.025);
-      
       this.winCount ++;
       this.quiz[this.currentItem -1].result = true;
       let str = this.quiz[this.currentItem-1].picture.goodPicture
@@ -222,33 +287,41 @@ export class QuizComponent implements OnInit {
     setTimeout(() => {
       this.stepQuiz +=1;
       if(this.stepQuiz === 10){
+        // une fois terminé, on stop le chrono
         clearInterval(this.myInterval);
+
+        this.actualDate = new Date().toLocaleDateString("fr");
+        this.addFirebase(this.authService.userData.multiFactor.user.displayName, this.countPoint,this.actualDate);
+        
         this.startGame = false;
         this.textButton = "Réessayer";
         this.feedBackDisplay = true;
         this.stepQuiz = 0;
         this.endStatus = 0;
+
         // compteur de bonne réponses
         let countgoodAnswer = 0;
+
         this.quiz.forEach(element => {
           if(element.result === true){
             countgoodAnswer ++;
           }
         });
+        // reaction en fonction du résultat du quiz
         if (countgoodAnswer <= 2){
-          this.memeSelect = this.quizResult[0].meme;
+          this.gifSelect = this.quizResult[0].gif;
           this.accroche = this.quizResult[0].text
         }else if(countgoodAnswer >2 && countgoodAnswer <=5){
-          this.memeSelect = this.quizResult[1].meme;
+          this.gifSelect = this.quizResult[1].gif;
           this.accroche = this.quizResult[1].text
         }else if(countgoodAnswer >5 && countgoodAnswer <=7 ){
-          this.memeSelect = this.quizResult[2].meme;
+          this.gifSelect = this.quizResult[2].gif;
           this.accroche = this.quizResult[2].text
         }else if(countgoodAnswer >7 && countgoodAnswer <=9){
-          this.memeSelect = this.quizResult[3].meme;
+          this.gifSelect = this.quizResult[3].gif;
           this.accroche = this.quizResult[3].text
         }else if(countgoodAnswer = 10){
-          this.memeSelect = this.quizResult[4].meme;
+          this.gifSelect = this.quizResult[4].gif;
           this.accroche = this.quizResult[4].text
         }
       };
@@ -256,5 +329,15 @@ export class QuizComponent implements OnInit {
     }, 1000)
 
     // à la fin du jeu (prévoir ensuite une méthode end game !)
+    //test enregistrement des data du joueur :
+
+  }
+
+  addFirebase(pseudo: string, score: number, date: Date) {
+    this.firestore.collection('Scores').add({
+      Pseudo: pseudo,
+      Score: score,
+      Date: date
+    })
   }
 }
