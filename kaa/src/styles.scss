@@ -8,6 +8,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import "./variables.scss";
 @import "src/fonts.scss";
+//@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+//@import 'material-icons/iconfont/material-icons.css';
+
+@import '~material-icons/iconfont/material-icons.css';
+
 
 .btn {
     position: relative;
@@ -50,7 +55,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 
 h1 {
-  font-family: "kaa", sans-serif !important;
+  font-family: "kaa", sans-serif;  // revoir
   text-align: center !important;
   color: $orange !important;
   margin-top: 3em; 
@@ -68,5 +73,12 @@ h1 {
   }
   
 }
+
+mat-icon {
+  font-family: 'Material Icons';  
+}
+
+
+
 
 

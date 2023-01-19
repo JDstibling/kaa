@@ -2,21 +2,36 @@ import { Injectable, NgZone } from '@angular/core';
 import { User } from '../services/user';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import {
-  AngularFirestore,
-  AngularFirestoreDocument,
-} from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+// import firebaseui from 'firebaseui';
+// import firebase from 'firebase/compat';
+
+// new version
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  authState,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  UserInfo,
+  UserCredential,
+} from '@angular/fire/auth';
+import { concatMap, from, Observable, of, switchMap } from 'rxjs';
+
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+
   userData: any; // Save logged in user data
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone, // NgZone service to remove outside scope warning,
+    private auth: Auth                                                           // de la new version
   ) {
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
@@ -46,9 +61,9 @@ export class AuthService {
       .catch((error) => {
         window.alert(error.message);
       });
-  }
-  // Sign up with email/password
-  SignUp(email: string, password: string) {
+    }
+    // Sign up with email/password
+    SignUp(email: string, password: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -60,29 +75,29 @@ export class AuthService {
       .catch((error) => {
         window.alert(error.message);
       });
-  }
-  // Send email verfificaiton when new user sign up
+    }
+    // Send email verfificaiton when new user sign up
   SendVerificationMail() {
     return this.afAuth.currentUser
-      .then((u: any) => u.sendEmailVerification())
-      .then(() => {
-        this.router.navigate(['verify-email-address']);
-      });
+    .then((u: any) => u.sendEmailVerification())
+    .then(() => {
+      this.router.navigate(['verify-email-address']);
+    });
   }
   // Reset Forggot password
   ForgotPassword(passwordResetEmail: string) {
     return this.afAuth
-      .sendPasswordResetEmail(passwordResetEmail)
-      .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
-      })
-      .catch((error) => {
-        window.alert(error);
+    .sendPasswordResetEmail(passwordResetEmail)
+    .then(() => {
+      window.alert('Password reset email sent, check your inbox.');
+    })
+    .catch((error) => {
+      window.alert(error);
       });
-  }
-  // Returns true when user is looged in and email is verified
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user')!);
+    }
+    // Returns true when user is looged in and email is verified
+    get isLoggedIn(): boolean {
+      const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null && user.emailVerified !== false ? true : false;
   }
   // Sign in with Google
@@ -94,14 +109,14 @@ export class AuthService {
   // Auth logic to run auth providers
   AuthLogin(provider: any) {
     return this.afAuth
-      .signInWithPopup(provider)
-      .then((result) => {
-        this.router.navigate(['dashboard']);
-        this.SetUserData(result.user);
-      })
-      .catch((error) => {
-        window.alert(error);
-      });
+    .signInWithPopup(provider)
+    .then((result) => {
+      this.router.navigate(['dashboard']);
+      this.SetUserData(result.user);
+    })
+    .catch((error) => {
+      window.alert(error);
+    });
   }
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
@@ -109,23 +124,54 @@ export class AuthService {
   SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
-    );
-    const userData: User = {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-    };
-    return userRef.set(userData, {
-      merge: true,
-    });
-  }
-  // Sign out
-  SignOut() {
-    return this.afAuth.signOut().then(() => {
+      );
+      const userData: User = {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        emailVerified: user.emailVerified,
+      };
+      return userRef.set(userData, {
+        merge: true,
+      });
+    }
+    // Sign out
+    async SignOut() {
+      await this.afAuth.signOut();
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
-    });
   }
+
+
+  // new method
+
+  currentUser$ = authState(this.auth);
+
+  //constructor(private auth: Auth) {}
+
+  signUp(email: string, password: string): Observable<UserCredential> {
+    return from(createUserWithEmailAndPassword(this.auth, email, password));
+  }
+
+  login(email: string, password: string): Observable<any> {
+    return from(signInWithEmailAndPassword(this.auth, email, password));
+  }
+
+  // updateProfile(profileData: Partial<UserInfo>): Observable<any> {
+  //   const user = this.auth.currentUser;
+  //   return of(user).pipe(
+  //     concatMap((user) => {
+  //       if (!user) throw new Error('Not authenticated');
+
+  //       return updateProfile(user, profileData);
+  //     })
+  //   );
+  // }
+
+  logout(): Observable<any> {
+    return from(this.auth.signOut());
+  }
+
+
 }

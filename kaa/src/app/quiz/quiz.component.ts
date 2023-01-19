@@ -1,22 +1,15 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ThemePalette } from '@angular/material/core';
+import { Observable } from 'rxjs';
 
 import { AuthService } from '../services/auth.service';
-import { scoreService } from '../services/score';
+import { ScoreService } from '../services/score.service';
+import { CitationService } from '../services/citation.service';
 
 import { quiz } from '../config/quiz';
-
-import { CitationService } from '../services/citation.service';
 import { quizResult } from '../config/quizResult';
-import { ThemePalette } from '@angular/material/core';
-
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
-import { Item } from 'firebase/analytics';
-import { environment } from 'src/environments/environment';
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
 
 
 @Component({
@@ -68,20 +61,6 @@ export class QuizComponent implements OnInit {
 
   AllScores!: Observable<any[]>;
 
-//     // TODO: Replace the following with your app's Firebase project configuration
-// // See: https://firebase.google.com/docs/web/learn-more#config-object
-// firebaseConfig = environment.firebaseConfig
-
-// // Initialize Firebase
-// app = initializeApp(this.firebaseConfig);
-
-
-// // Initialize Cloud Firestore and get a reference to the service
-// db = getFirestore(this.app);
-
-
-
-
   color : ThemePalette = 'primary' ;
   mode : MatProgressSpinnerModule = 'déterminé' ;
   value = 100 ;
@@ -114,9 +93,10 @@ export class QuizComponent implements OnInit {
   myInterval: any;
   countPoint= 0;
   actualDate: any;
+  allscore: any
   
-  constructor(private CitationService: CitationService, public authService: AuthService, private ScoreService: scoreService, public firestore: AngularFirestore) { 
-    this.AllScores = this.firestore.collection('Scores').valueChanges();
+  constructor(private CitationService: CitationService, public authService: AuthService, public ScoreService: ScoreService) { 
+    this.AllScores = this.ScoreService.getAllScore();
   }
 
   ngOnInit(): void {
@@ -124,13 +104,6 @@ export class QuizComponent implements OnInit {
     this.casting = this.CitationService.getCasting();
     this.quizGenerate();
     this.resultBox = [];
-
-    //console.log(this.db);
-
-    //const db = getFirestore(initializeApp(environment.firebaseConfig));
-    
-    
-    
   }
 
   chrono() {
@@ -246,11 +219,9 @@ export class QuizComponent implements OnInit {
   }
 
   game(event:any){
-    //console.log(this.stepQuiz);
     let currentTime = this.timeChrono;
     clearInterval(this.myInterval);
     this.chrono();
-
 
     this.state = "end";
     //récupère l'id de la question en cours
@@ -260,7 +231,7 @@ export class QuizComponent implements OnInit {
     
     if(event.target.id === "g"){
       //récupérer le chrono au moment du clic si bonne réponse et attribuer les points correspondant
-      this.countPoint = this.countPoint + (currentTime / 0.025);
+      this.countPoint = this.countPoint + (currentTime);
       this.winCount ++;
       this.quiz[this.currentItem -1].result = true;
       let str = this.quiz[this.currentItem-1].picture.goodPicture
@@ -290,8 +261,9 @@ export class QuizComponent implements OnInit {
         // une fois terminé, on stop le chrono
         clearInterval(this.myInterval);
 
+        //enregistrement des data du joueur
         this.actualDate = new Date().toLocaleDateString("fr");
-        this.addFirebase(this.authService.userData.multiFactor.user.displayName, this.countPoint,this.actualDate);
+        this.ScoreService.addFirebase(this.authService.userData.multiFactor.user.displayName, this.countPoint,this.actualDate);
         
         this.startGame = false;
         this.textButton = "Réessayer";
@@ -327,17 +299,6 @@ export class QuizComponent implements OnInit {
       };
       this.state = "start";
     }, 1000)
-
-    // à la fin du jeu (prévoir ensuite une méthode end game !)
-    //test enregistrement des data du joueur :
-
   }
 
-  addFirebase(pseudo: string, score: number, date: Date) {
-    this.firestore.collection('Scores').add({
-      Pseudo: pseudo,
-      Score: score,
-      Date: date
-    })
-  }
 }

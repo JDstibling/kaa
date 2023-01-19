@@ -1,26 +1,23 @@
-<div class="displayTable main">
-    <div class="displayTableCell">
-      <div class="authBlock">
-        <h3>Se connecter</h3>
+<!-- <div id="container">
+    <div id="login_form">
+      <div id="form_header">
+        <h1>Se connecter</h1>
+        <i id="mode_icon" class="fa-solid fa-moon"></i>
+      </div>
+      <div id="social_midia">
+        <img src="https://img.icons8.com/office/160/null/facebook-new.png" alt="Facebook Logo"/>
+        <img (click)="authService.GoogleAuth()" src="https://img.icons8.com/officel/160/null/google-logo.png"alt="Google Logo"/>
+        <img src="https://img.icons8.com/stickers/200/null/github.png"alt="Github Logo"/>
+      </div>
+      <div id="inputs">
         <div class="formGroup">
           <input type="text" class="formControl" placeholder="Adresse mail" #userName required>
         </div>
         <div class="formGroup">
           <input type="password" class="formControl" placeholder="Mot de passe  " #userPassword required>
         </div>
-        <!-- Calling SignIn Api from AuthService -->
         <div class="formGroup">
-          <input type="button" class="btn-secondary" value="Suivant" (click)="authService.SignIn(userName.value, userPassword.value)">
-        </div>
-        <div class="formGroup">
-          <span class="or"><span class="orInner">Ou</span></span>
-        </div>
-        <!-- Calling GoogleAuth Api from AuthService -->
-        <div class="formGroup">
-          <button type="button" class="btn-secondary" (click)="authService.GoogleAuth()">
-            <i class="fab fa-google-plus-g"></i>
-            Se connecter via Google
-          </button>
+          <input type="button" value="Suivant" (click)="authService.SignIn(userName.value, userPassword.value)">
         </div>
         <div class="forgotPassword">
           <span routerLink="/forgot-password">Mot de passe oublié ?</span>
@@ -30,5 +27,29 @@
         <span>Pas de compte ? <span class="redirect" routerLink="/register-user"> Créez le ici</span></span>
       </div>
     </div>
-  </div>
-  
+  </div> -->
+
+  <!-- <div class="form-container mat-elevation-z5">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <mat-form-field>
+        <input matInput placeholder="Email address" formControlName="email" />
+        <mat-error *ngIf="email?.errors?.['required']">
+          Email address is required
+        </mat-error>
+        <mat-error *ngIf="email?.errors?.['email']">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" formControlName="password" />
+        <mat-error *ngIf="password?.errors?.['required']">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+      <div class="center margin-top">
+          <button type="submit" mat-raised-button color="primary">Login</button>
+      </div>
+      <span class="center margin-top">New to our platform? <a class="sign-up-link" routerLink="/sign-up">Sign up!</a></span>
+    </form>
+  </div> -->

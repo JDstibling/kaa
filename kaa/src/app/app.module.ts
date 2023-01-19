@@ -15,6 +15,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FicheComponent } from './fiche/fiche.component';
@@ -48,6 +51,8 @@ import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -65,13 +70,16 @@ import { AngularFireModule } from '@angular/fire/compat';
     NotfoundComponent,
     QuizComponent,
     DashboardComponent,
-    SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
   ],
   imports: [
     MatProgressSpinnerModule,
+    ReactiveFormsModule,        // a retirer si bug
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
     BrowserModule,
     AppRoutingModule,
     NgxPaginationModule,
@@ -96,6 +104,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     provideStorage(() => getStorage()),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
+    
     
   ],
   providers: [AuthService, ScreenTrackingService,UserTrackingService],

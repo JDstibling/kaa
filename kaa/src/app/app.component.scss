@@ -1,6 +1,13 @@
 @import "src/fonts.scss";
 @import "src/variables.scss";
 
+
 body {
     font-family: "medieval", sans-serif;
 }
+
+mat-toolbar {
+    justify-content: space-between;
+}
+
+
