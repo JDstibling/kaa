@@ -73,6 +73,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
+    SignInComponent
   ],
   imports: [
     MatProgressSpinnerModule,
