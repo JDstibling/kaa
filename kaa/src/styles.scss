@@ -70,9 +70,33 @@ h1 {
   
 }
 
-mat-icon {
-  font-family: 'Material Icons';  
+.form-container {
+  display: block;
+  max-width: 300px;
+  margin: auto;
+  background: $dark-grey;
+  padding: 48px;
+  border-radius: 16px;
+  
+  mat-form-field {
+      width: 100%;
+  }
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.margin-top {
+  margin-top: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
 
 
 

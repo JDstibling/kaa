@@ -60,6 +60,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
+    SignInComponent,
     HomeComponent,
     PersoComponent,
     NavbarComponent,
@@ -73,7 +74,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    SignInComponent
+    
   ],
   imports: [
     MatProgressSpinnerModule,

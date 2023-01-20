@@ -1,10 +1,11 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="secondary">
     Sign Up flow with firebase
-    <button mat-button>
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">test home</mat-icon>
-
-
+    <button mat-button routerLink="sign-in">
+        <mat-icon>login</mat-icon>
+        Login
     </button>
 </mat-toolbar>
 <!-- <app-navbar></app-navbar> -->
-<router-outlet></router-outlet>
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
