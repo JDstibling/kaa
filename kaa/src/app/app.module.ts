@@ -52,6 +52,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     MatProgressSpinnerModule,
+    HotToastModule.forRoot(),
     ReactiveFormsModule,        // a retirer si bug
     MatInputModule,
     MatFormFieldModule,

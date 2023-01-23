@@ -6,7 +6,7 @@ import { AuthService } from "../../services/auth.service";
 // new version
 // import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms'
 // import { Router } from '@angular/router';
-//import { HotToastService } from '@ngneat/hot-toast';
+import { HotToastService } from '@ngneat/hot-toast';
 // import { from } from 'rxjs';
 
 @Component({
@@ -29,12 +29,12 @@ export class SignInComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    private router: Router,
+    private router: Router,private toast: HotToastService,
     ) { }
 
   // constructor(
   //   private authService: AuthService,
-  //   private toast: HotToastService,
+  //   
   //   private router: Router,
   //   private fb: NonNullableFormBuilder,
   // ) {}
@@ -52,16 +52,37 @@ export class SignInComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
+  // submit() {
+  //   const { email, password } = this.loginForm.value;
+
+  //   if (!this.loginForm.valid || !email || !password) {
+  //     return;
+  //   }
+    
+  //   this.authService.login(email, password).subscribe(() =>{
+  //     this.router.navigate(['/dashboard']);
+  //   })
+  // }
+
   submit() {
     const { email, password } = this.loginForm.value;
 
     if (!this.loginForm.valid || !email || !password) {
       return;
     }
-    
-    this.authService.login(email, password).subscribe(() =>{
-      this.router.navigate(['/dashboard']);
-    })
+
+    this.authService
+      .login(email, password)
+      .pipe(
+        this.toast.observe({
+          success: 'Logged in successfully',
+          loading: 'Logging in...',
+          error: ({ message }) => `There was an error: ${message} `,
+        })
+      )
+      .subscribe(() => {
+        this.router.navigate(['/home']);
+      });
   }
 
 }
