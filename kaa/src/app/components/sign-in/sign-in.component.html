@@ -55,26 +55,28 @@
   </div> -->
 
 
-  <div class="form-container mat-elevation-z5">
-    <h2 style="color:white;">Login</h2>
-    <form [formGroup]="loginForm" style="color:white;" (ngSubmit)="submit()">
-      <mat-form-field>
-        <input matInput placeholder="Adresse mail" formControlName="email">
-        <mat-error *ngIf="email?.errors?.['required']">
-          Merci d'entrer un format d'email correct
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Mot de passe" formControlName="password" type="password">
-        <mat-error *ngIf="password?.errors?.['required']">
-          Mot de passe nécessaire
-        </mat-error>
-      </mat-form-field>
-      <div class="center margin-top">
-        <button mat-raised-button color="primary" type="submit">
-          Suivant
-        </button>
-      </div>
-      <span class="center margin-top">Nouveau sur le site? <a class="sing-up-link" routerLink="/register-user">Inscrivez vous!</a></span>
-    </form>
+  <div class="main">
+    <div class="form-container mat-elevation-z5">
+      <h2 style="color:white;">Login</h2>
+      <form [formGroup]="loginForm" style="color:white;" (ngSubmit)="submit()">
+        <mat-form-field>
+          <input matInput placeholder="Adresse mail" formControlName="email">
+          <mat-error *ngIf="email?.errors?.['required']">
+            Merci d'entrer un format d'email correct
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Mot de passe" formControlName="password" type="password">
+          <mat-error *ngIf="password?.errors?.['required']">
+            Mot de passe nécessaire
+          </mat-error>
+        </mat-form-field>
+        <div class="center margin-top">
+          <button mat-raised-button color="primary" type="submit">
+            Suivant
+          </button>
+        </div>
+        <span class="center margin-top">Nouveau sur le site? <a class="sing-up-link" routerLink="/register-user">Inscrivez vous!</a></span>
+      </form>
+    </div>
   </div>

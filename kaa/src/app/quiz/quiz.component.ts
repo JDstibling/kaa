@@ -10,6 +10,7 @@ import { CitationService } from '../services/citation.service';
 
 import { quiz } from '../config/quiz';
 import { quizResult } from '../config/quizResult';
+import { UsersService } from '../services/users.service';
 
 
 @Component({
@@ -60,7 +61,7 @@ import { quizResult } from '../config/quizResult';
 export class QuizComponent implements OnInit {
 
   AllScores!: Observable<any[]>;
-
+  user = this.authService.currentUser$;
   color : ThemePalette = 'primary' ;
   mode : MatProgressSpinnerModule = 'déterminé' ;
   value = 100 ;
@@ -93,9 +94,9 @@ export class QuizComponent implements OnInit {
   myInterval: any;
   countPoint= 0;
   actualDate: any;
-  allscore: any
+  allscore = [];
   
-  constructor(private CitationService: CitationService, public authService: AuthService, public ScoreService: ScoreService) { 
+  constructor(public usersService: UsersService, private CitationService: CitationService, public authService: AuthService, public ScoreService: ScoreService) { 
     this.AllScores = this.ScoreService.getAllScore();
   }
 
@@ -195,11 +196,7 @@ export class QuizComponent implements OnInit {
   }
 
   restartGame(){
-    console.log(this.quiz);
-    //console.log(this.authService.userData.multiFactor.user.displayName);
-    
 
-    
     clearInterval(this.myInterval);
     this.countPoint = 0;
     this.chrono();
@@ -263,7 +260,10 @@ export class QuizComponent implements OnInit {
 
         //enregistrement des data du joueur
         this.actualDate = new Date().toLocaleDateString("fr");
-        //this.ScoreService.addFirebase(this.authService.userData.multiFactor.user.displayName, this.countPoint,this.actualDate);
+        this.usersService.currentUserProfile$.subscribe((el) => {
+          const currentPlayer = el?.displayName;
+          this.ScoreService.addFirebase(currentPlayer, this.countPoint,this.actualDate);
+        })
         
         this.startGame = false;
         this.textButton = "Réessayer";

@@ -42,6 +42,7 @@ export class CitationsComponent implements OnInit {
 
   onViewCitationByBook(item: any) :void{
     // redirection
+    //if (item.id > this.citationService.getCasting)
     this.Router.navigate(['citations/', item.id]);
   }
 

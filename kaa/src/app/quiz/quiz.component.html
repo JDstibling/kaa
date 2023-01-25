@@ -1,7 +1,6 @@
 <main>
     <div class="header">
-        <!-- <h1 *ngIf="authService.userData as user">Quiz Kaamelott</h1> -->
-        <!-- <mat-spinner></mat-spinner> -->
+        <h1>Quiz Kaamelott</h1>
 
         <div *ngIf="feedBackDisplay" style="margin-top: 3em;" class="gifGroup">
             <div class="resultBox">
@@ -9,7 +8,7 @@
                 <img src="{{gifSelect}}" alt="gif résumant le résultat final">
             </div>
         </div>
-        <ul *ngFor="let item of AllScores | async">
+        <!-- <ul *ngFor="let item of AllScores | async">
             <li>
                 {{item.Pseudo}}
             </li>
@@ -19,7 +18,7 @@
             <li>
                 {{item.Date}}
             </li>
-        </ul>
+        </ul> -->
         <p>{{accroche}}</p>
         <div class="nav">
             <a (click)="restartGame()" class="btn-secondary">{{ textButton }}</a>

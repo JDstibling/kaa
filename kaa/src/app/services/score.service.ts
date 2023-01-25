@@ -15,7 +15,7 @@ export class ScoreService {
     this.AllScores = this.firestore.collection('Scores').valueChanges();
   }
 
-  addFirebase(pseudo: string, score: number, date: Date) {
+  addFirebase(pseudo: string | any, score: number, date: Date) {
 
     // preparation data
     this.score[0].Pseudo = pseudo;

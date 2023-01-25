@@ -12,11 +12,13 @@ body {
     // min-height: 100%;
     // height: 100%;
     height: 100vh;
+
 }
 
 mat-toolbar {
     justify-content: space-between;
     color: $crem;
+    position: fixed;
 
     a {
         text-decoration: none;

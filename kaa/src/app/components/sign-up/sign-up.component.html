@@ -1,48 +1,50 @@
-<div class="form-container mat-elevation-z5">
-  <h2>Enregistrement</h2>
-  <form [formGroup]="signUpForm" (ngSubmit)="submit()">
-    <mat-form-field>
-      <input matInput placeholder="Name" formControlName="name" />
-      <mat-error *ngIf="name?.errors?.['required']">
-        Nom ou pseudo nécessaire
+<div class="main">
+  <div class="form-container mat-elevation-z5">
+    <h2>Enregistrement</h2>
+    <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name" />
+        <mat-error *ngIf="name?.errors?.['required']">
+          Nom ou pseudo nécessaire
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email address" formControlName="email" />
+        <mat-error *ngIf="email?.errors?.['required']">
+          Une adresse email est nécessaire pour poursuivre
+        </mat-error>
+        <mat-error *ngIf="email?.errors?.['email']">
+          L'adresse email n'est pas conforme
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <mat-error *ngIf="password?.errors?.['required']">
+          Mot de passe requis
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="Confirm Password"
+          formControlName="confirmPassword"
+        />
+        <mat-error *ngIf="confirmPassword?.errors?.['required']">
+          Un mot de passe est nécessaire
+        </mat-error>
+      </mat-form-field>
+      <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
+          Les mots de passes ne correspondent pas
       </mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Email address" formControlName="email" />
-      <mat-error *ngIf="email?.errors?.['required']">
-        Une adresse email est nécessaire pour poursuivre
-      </mat-error>
-      <mat-error *ngIf="email?.errors?.['email']">
-        L'adresse email n'est pas conforme
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <input
-        matInput
-        type="password"
-        placeholder="Password"
-        formControlName="password"
-      />
-      <mat-error *ngIf="password?.errors?.['required']">
-        Mot de passe requis
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <input
-        matInput
-        type="password"
-        placeholder="Confirm Password"
-        formControlName="confirmPassword"
-      />
-      <mat-error *ngIf="confirmPassword?.errors?.['required']">
-        Un mot de passe est nécessaire
-      </mat-error>
-    </mat-form-field>
-    <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
-        Les mots de passes ne correspondent pas
-    </mat-error>
-    <div class="center margin-top">
-      <button type="submit" mat-raised-button color="primary">Poursuivre!</button>
-    </div>
-  </form>
+      <div class="center margin-top">
+        <button type="submit" mat-raised-button color="primary">Poursuivre!</button>
+      </div>
+    </form>
+  </div>
 </div>

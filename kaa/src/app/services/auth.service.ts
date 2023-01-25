@@ -43,7 +43,7 @@ export class AuthService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
-        console.log(this.userData._delegate.auth.currentUser);
+        //console.log(this.userData._delegate.auth.currentUser);
         
       } else {
         localStorage.setItem('user', 'null');
