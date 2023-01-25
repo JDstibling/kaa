@@ -1,37 +1,17 @@
-<!-- <mat-toolbar id="nav" color="blue-grey" *ngIf="displayNavBar">
-    <span>KAaMELOTt WiKi</span>
-    <div class="spacer"></div>
-    <div class="items" *ngIf="!isMobile">
-      <a mat-button routerLink="/home" id="item">Accueil</a>
-      <a mat-button routerLink="/perso" id="item">Personnages</a>
-      <a mat-button routerLink="#" id="item">Citations</a>
-      <a mat-button routerLink="#" id="item">Réunion</a>
-      <a mat-button routerLink="#" id="item">Concours</a>      
-    </div>
-    <button class="hamburger" type ="button"> 
-      <span class="hamburger-box"> 
-        <span class="hamburger-inner"></span> 
-      </span> 
-    </button>
+<header><a routerLink="/home" ><img *ngIf="displayNavBar" src="../../assets/images/logo/logo_kaa_z.png" id="nav" alt="logo_kaa"></a></header>
 
-   </mat-toolbar> -->
+    <!-- <mat-toolbar color="primary">
+  <a routerLink="#" mat-button>Menu Item 1</a> <a routerLink="#" mat-button>Menu Item 2</a>
+  <a routerLink="#" mat-button>Menu Item 3</a> <a routerLink="#" mat-button>Menu Item 4</a>
+</mat-toolbar> -->
 
-   <!-- <mat-toolbar color="primary">
-  <span>Responsive Navigation</span> <span class="example-spacer"></span>
-  <a href="#" mat-button>Menu Item 1</a> <a href="#" mat-button>Menu Item 2</a>
-  <a href="#" mat-button>Menu Item 3</a> <a href="#" mat-button>Menu Item 4</a>
-  <a href="#" mat-button>Menu Item 5</a> <a href="#" mat-button>Menu Item 6</a>
-</mat-toolbar>
-
-<mat-sidenav-container fxFlexFill class="example-container">
+<!-- <mat-sidenav-container fxFlexFill class="example-container">
   <mat-sidenav fxLayout="column" mode="side" opened="false">
     <div fxLayout="column">
       <a href="#" mat-button>Menu Item 1</a>
       <a href="#" mat-button>Menu Item 2</a>
       <a href="#" mat-button>Menu Item 3</a>
       <a href="#" mat-button>Menu Item 4</a>
-      <a href="#" mat-button>Menu Item 5</a>
-      <a href="#" mat-button>Menu Item 6</a>
     </div>
   </mat-sidenav>
   <mat-sidenav-content fxFlexFill> Main content</mat-sidenav-content>

@@ -1,41 +1,12 @@
 <div class="main">
-    <h1>Citation par livre</h1>
+    <h1>Les meilleures citation par livre</h1>
     <div class="list">
         <div class="cards"  (click)="onViewCitationByBook(item)" *ngFor="let item of citationByBook ;let i = index;">
             <div class="cards-perso" >
                 <h6>{{item.title}}</h6>
-                <p>Citations disponibles : <span>{{item.citations}}</span></p>
+                <p id="info">Citations disponibles : <span>{{item.citations}}</span></p>
             </div>
         </div>
-        <!-- <div class="cards">
-            <div class="cards-perso">
-                <h6>Livre 2</h6>
-                <p>Citations disponibles : <span>6</span></p>
-            </div>
-        </div>
-        <div class="cards">
-            <div class="cards-perso">
-                <h6>Livre 3</h6>
-                <p>Citations disponibles : <span>6</span></p>
-            </div>
-        </div>
-        <div class="cards">
-            <div class="cards-perso">
-                <h6>Livre 4</h6>
-                <p>Citations disponibles : <span>6</span></p>
-            </div>
-        </div>
-        <div class="cards">
-            <div class="cards-perso">
-                <h6>Livre 5</h6>
-                <p>Citations disponibles : <span>6</span></p>
-            </div>
-        </div>
-        <div class="cards">
-            <div class="cards-perso">
-                <h6>Livre 6</h6>
-                <p>Citations disponibles : <span>6</span></p>
-            </div>
-        </div> -->
     </div>
+    <a mat-button routerLink="/" class="btn-secondary" style="top:0em;">Retour</a>
 </div>

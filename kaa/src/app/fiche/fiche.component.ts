@@ -68,8 +68,8 @@ export class FicheComponent implements OnInit, AfterContentInit {
     this.animationTiming = [false, false, false, false, false];
 
     // pour récupérer le paramètre id de l'url, 2 solutions. 
-    // soit via une souscription : 
 
+    // soit via une souscription : 
     //  this.routeSub = this.router.params.subscribe(params => {
     //    this.castingId = params['id'];
     //  });
@@ -85,26 +85,19 @@ export class FicheComponent implements OnInit, AfterContentInit {
     this.findInfoCitation();
   }
 
-  // ngOnDestroy(): void {
-  //   //this.animationTiming = [];
-  //   //this.routeSub.unsubscribe();   // dans le cas d'une souscription
-  // }
-
   ngAfterContentInit(): void {
     this.onAppear();
   }
 
   getImgPerso() {
     this.casting = this.CitationService.getCasting();
-    //console.log(this.casting);
-    
     this.image = '../../assets/images/persos/' + this.casting[this.castingId].personnage + '.jpg';
     this.persoSelected = this.casting[this.castingId].personnage;
   }
 
   onAppear() {
     setTimeout(() => {
-      this.animationTiming[0] = true;
+      this.animationTiming[0] = true; 
       setTimeout(() => {
         this.animationTiming[1] = true;
         setTimeout(() => {
@@ -126,16 +119,16 @@ export class FicheComponent implements OnInit, AfterContentInit {
 
   getInfoPerPerso() {
     this.citation = this.CitationService.getCitations();
-    let arr: any[] = [];
+    let persoSelectedArray: any[] = [];
     this.citation.forEach((element: any) => {
       // compilation des répliques du personnage
       if(element.infos.personnage === this.persoSelected){
-        arr.push(element.citation)
+        persoSelectedArray.push(element.citation)
         this.totalRepliqueByActor ++;
       }
     });
     //récupération d'une réplique random du perso
-    this.randomReplique = arr[Math.floor(Math.random() * this.totalRepliqueByActor)] 
+    this.randomReplique = persoSelectedArray[Math.floor(Math.random() * this.totalRepliqueByActor)] 
     //récupération du nom de l'acteur
     this.actorSelected = this.casting[this.castingId].acteur;
   }

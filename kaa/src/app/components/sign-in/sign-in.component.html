@@ -1,0 +1,82 @@
+<!-- <div id="container">
+    <div id="login_form">
+      <div id="form_header">
+        <h1>Se connecter</h1>
+        <i id="mode_icon" class="fa-solid fa-moon"></i>
+      </div>
+      <div id="social_midia">
+        <img src="https://img.icons8.com/office/160/null/facebook-new.png" alt="Facebook Logo"/>
+        <img (click)="authService.GoogleAuth()" src="https://img.icons8.com/officel/160/null/google-logo.png"alt="Google Logo"/>
+        <img src="https://img.icons8.com/stickers/200/null/github.png"alt="Github Logo"/>
+      </div>
+      <div id="inputs">
+        <div class="formGroup">
+          <input type="text" class="formControl" placeholder="Adresse mail" #userName required>
+        </div>
+        <div class="formGroup">
+          <input type="password" class="formControl" placeholder="Mot de passe  " #userPassword required>
+        </div>
+        <div class="formGroup">
+          <input type="button" value="Suivant" (click)="authService.SignIn(userName.value, userPassword.value)">
+        </div>
+        <div class="forgotPassword">
+          <span routerLink="/forgot-password">Mot de passe oublié ?</span>
+        </div>
+      </div>
+      <div class="redirectToLogin">
+        <span>Pas de compte ? <span class="redirect" routerLink="/register-user"> Créez le ici</span></span>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <div class="form-container mat-elevation-z5">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <mat-form-field>
+        <input matInput placeholder="Email address" formControlName="email" />
+        <mat-error *ngIf="email?.errors?.['required']">
+          Email address is required
+        </mat-error>
+        <mat-error *ngIf="email?.errors?.['email']">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" formControlName="password" />
+        <mat-error *ngIf="password?.errors?.['required']">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+      <div class="center margin-top">
+          <button type="submit" mat-raised-button color="primary">Login</button>
+      </div>
+      <span class="center margin-top">New to our platform? <a class="sign-up-link" routerLink="/sign-up">Sign up!</a></span>
+    </form>
+  </div> -->
+
+
+  <div class="main">
+    <div class="form-container mat-elevation-z5">
+      <h2 style="color:white;">Login</h2>
+      <form [formGroup]="loginForm" style="color:white;" (ngSubmit)="submit()">
+        <mat-form-field>
+          <input matInput placeholder="Adresse mail" formControlName="email">
+          <mat-error *ngIf="email?.errors?.['required']">
+            Merci d'entrer un format d'email correct
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Mot de passe" formControlName="password" type="password">
+          <mat-error *ngIf="password?.errors?.['required']">
+            Mot de passe nécessaire
+          </mat-error>
+        </mat-form-field>
+        <div class="center margin-top">
+          <button mat-raised-button color="primary" type="submit">
+            Suivant
+          </button>
+        </div>
+        <span class="center margin-top">Nouveau sur le site? <a class="sing-up-link" routerLink="/register-user">Inscrivez vous!</a></span>
+      </form>
+    </div>
+  </div>

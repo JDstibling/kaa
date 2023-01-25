@@ -1,0 +1,30 @@
+@import "src/variables.scss";
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $blue;
+    height: 100vh;
+    min-height: 100%;
+    padding: 5em 5em 0 5em;
+
+    h1 {
+        width: 100%;
+        text-align: center !important;
+    }
+
+    h2 {
+        font-family: "medieval";
+        font-size: 2em;
+        text-align: center;
+    }
+    img {
+        -webkit-box-shadow: inset -1px 3px 8px 5px #4f83be, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0.56); 
+        box-shadow: inset -1px 3px 8px 5px #496381, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0.56);
+        border-radius: 12px;
+        margin: 3em 0 3em 0;
+
+    }
+}

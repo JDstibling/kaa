@@ -14,36 +14,26 @@ export class HomeComponent implements OnInit{
   constructor(private _CitationService: CitationService, private Router: Router) { }
 
   citations:any = [];
-  randomCitation = "";
+  randomCitation:any = [];
+  filterCitations:any = [];
   
   homeNav = homeNav;
   
   ngOnInit() {
     this.citations = this._CitationService.getCitations();
-    this.getRandomCitation();
+    this.randomCitation = this._CitationService.getRandomCitation(100, this.citations);
   }
 
-  getRandomCitation() {
-    const numRandom = Math.floor(Math.random() * this.citations.length);
-    this.randomCitation = this.citations[numRandom].citation;
-  }
-
-  redir(i:any): void {
-    //console.log(i);
+  redir(i:Number): void {
     if (i === 0){
       this.Router.navigate(['/perso'])
     }else if (i === 1){
       this.Router.navigate(['/citations']);
     }else if (i === 2){
-     //console.log('réunion');
+      this.Router.navigate(['/quiz']);
     }else if (i === 3){
-      //console.log('concours');
-      
+      this.Router.navigate(['#']);
     }
-    
   }
-
-  
-
-
 }
+

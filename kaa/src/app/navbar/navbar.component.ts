@@ -1,7 +1,7 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-// import { Observable } from 'rxjs';
-// import { environment } from '../../environments/environment';
-// import { checkURLService } from '../services/checkURL.service';
+import { Component, HostListener } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import {filter } from 'rxjs';
+
 
 @Component({
   selector: 'app-navbar',
@@ -10,55 +10,22 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class NavbarComponent {
 
-  isMobile: Boolean = false;
+  displayNavBar:boolean = false;
 
-  @HostListener("window:resize", ["$event"])
-  onResize(event: { target: { innerWidth: any; }; }) {
-    this.checkWidth(event.target.innerWidth);
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: { target: { scrollingElement: { scrollTop: any; }; }; }) {
+    const scrollTop = event.target.scrollingElement.scrollTop;
+     this.displayNavBar = scrollTop < 50 ? true : false
   }
 
-
-  checkWidth(innerWidth: any) {
-    
+  constructor(router: Router) {
+    router.events.pipe(filter((event: any) => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        if(event.url == '/home' || event.url == '/dashboard'){
+          this.displayNavBar = false;
+        }else {
+          this.displayNavBar = true;
+        }
+    });
   }
-
-  //currentUrl!:string;
-  displayNavBar:boolean = true;
-
-
-  // constructor(private checkURLService: checkURLService) {
-  //   this.displayNavbar();
-  //   //console.log(this.checkURLService);
-    
-  // }
-
-  // ngOnInit(): void {      
-  //   // si la route est sur la home, masquer la navbar
-  //   this.checkCurrentUrl();
-    
-  // }
-
-  // ngAfterContentInit(): void {
-  //   this.checkCurrentUrl();
-  // }
-
-  // checkCurrentUrl(): Observable<any> | string {
-  //   // if(this.currentUrl == environment.API_URL + 'home'){
-  //   //   this.displayNavBar = false;
-  //   // }else {
-  //   //   this.displayNavBar = true;
-  //   // }
-  //   let currentUrl = window.location.href
-  //   return currentUrl;
-  // }
-
-  // displayNavbar() {
-  //   let test = this.checkURLService.getCurrentURL();
-  //   //console.log(test);
-    
-    
-  // }
-
-  
-
 }

@@ -1,0 +1,169 @@
+@import "src/fonts.scss";
+@import "src/variables.scss";
+
+main {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    //justify-content: space-around;
+    align-items: center;
+    font-family: "medieval";
+    color: $crem;
+    padding: 5em 5em 0 5em;
+    background: url(../../assets/images/fond/blue-wall-texture-slate-background.jpg);
+    
+    img {
+        width: 480px;
+    }
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .gifGroup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 2em;
+
+            .resulBox {
+
+                p{
+                    color: $crem;
+                    font-family: "medieval";
+                }
+            }
+        }
+        
+        p{
+            color: $crem;
+            font-family: "medieval";
+            font-size: 135%;
+        }
+    }
+
+    .nav {
+        //border: solid blue 3px;  
+        margin: 1em 0 1em 0;
+    }
+
+    .centerBox {
+        display: flex;
+        justify-content:space-around;
+        align-items: center;
+        flex-direction: row;
+        //border: solid white 2px;
+        width: 80%;
+        margin: 2em 0 1em 0;
+
+
+        
+        .citation {
+            text-align: center;
+            font-size: 1.25em;
+            width: 70%;
+            color: $crem;
+            //border: solid red 1px;
+
+            .stepQuizCitation {
+                background: $dark-blue  ;
+                padding: 1em;
+                color: $crem;
+                -webkit-box-shadow: inset -1px 3px 8px 5px $blue, 2px 5px 16px 0px #0B325E, -50px -50px 0px -29px rgba(0,0,0,0); 
+                box-shadow: inset -1px 3px 8px 5px $blue, 2px 5px 16px 0px #0B325E, -50px -50px 0px -29px rgba(0,0,0,0);
+                border: 5px solid #1C6EA4;
+                border-radius: 20px 20px 20px 20px;
+                font-size: 1.2em;
+
+                
+            }
+        }
+
+        .spinnerChrono {
+
+        }
+    }
+
+
+
+    .window {
+        //border: solid red 2px;
+        //background-color: rgba(0, 38, 255, 0.592);
+        //height: 20em;
+        width: 60%; 
+        color: whitesmoke;
+
+
+        .who {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            :hover {
+                //border: solid orange 2px;
+                transition: .1s;
+                -moz-transform: scale(1.1);
+                -webkit-transform: scale(1.1);
+                -o-transform: scale(1.1);
+                -ms-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+
+            img {
+                display: flex;
+                width: 10em;
+                height: 11em;
+                border-radius: 45%;
+                -webkit-box-shadow: #FFF 0 -1px 4px, $orange 0 -2px 10px, 5px 5px 15px 5px rgba(255,118,44,0); 
+                box-shadow: #FFF 0 -1px 4px, $orange 0 -2px 10px, 5px 5px 15px 5px rgba(255,118,44,0);
+                //order: 0;
+                :hover {
+                }
+            }
+        }
+    }
+
+    .feedback {
+        display: flex;
+        justify-content:flex-start;
+        align-items: center;
+        background-color: $blue;
+        border: solid  4px $orange;
+        width: 60%; 
+        color: $dark-blue;
+        margin-top: 3em;
+        padding-left: 1em;
+        p {
+            margin: 0 1em 1em 0;
+        }
+        .success {
+            color : pink;
+        }
+        td:first-child {
+            //background: red;
+            
+        }
+        td {
+            padding: 0 2em 0 2em;
+            text-align: center;
+            border: solid 1px;
+        }
+    }
+
+    .redTimer {
+        color: red;
+    }
+
+    .whiteTimer {
+        color: white;
+    }
+
+    .mat-progress-spinner circle, .mat-spinner circle {
+        stroke: $orange;
+        }
+
+
+        
+}

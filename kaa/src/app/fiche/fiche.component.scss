@@ -1,3 +1,5 @@
+@import "src/variables.scss";
+
 main {
     display: flex;
     flex-direction: column;
@@ -13,52 +15,62 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover; 
-    height: 100vh;
+    min-height: 100%;
+    @media screen and (max-width: 700px) {
+        padding-top: 9em;
+       }
 
-    #title {
-        font-size: 4em;
-        color: white;
-        font-family: "medieval", sans-serif;
-    }
-
-    p {
-        color: white;
+    blockquote {
+        color: $crem;
         font-family: "medieval", sans-serif;
         width: 50%;
         margin: 0 5em 0 5em;
         font-size: 1.4em ;
         text-align: center;
+        @media screen and (max-width: 700px) {
+            font-size: 1em;
+            width: 95%;
+           }
     }
 
-    span {
+    cite {
         font-style: italic;
-        color: white;
+        color: $crem;
     }
     .focus {
         display: flex;
         position: relative;
         justify-content: center;
         align-items: center;
-        //background: cornflowerblue;
-        height: 50%;
-        width: 70%;
-        //border: solid;
+        height: 20em;
+        //width: 70%;
+        //flex-wrap: wrap;
+        //top: 2em;
+
+        @media screen and (max-width: 800px) {
+            //flex-direction: column; 
+           }
+
 
         .face {
-            //border: solid 2px grey;
             -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(63,53,183,0); 
             box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(63,53,183,0);
             position: relative;
             border-radius: 25% 10%;
-            //left: -8em;
-            //anim
+            //animation
             animation-name: goLeft;
-            animation-duration: 3s;
+            animation-duration: 2s;
             animation-fill-mode:both;
             animation-direction: alternate;
-        }
 
-            $Leftvalue: -2em;
+            @media screen and (max-width: 800px) {
+                position: static;
+                width: 30%;
+                //margin: 2em 0 3em 0;
+               }
+        }
+        
+        $Leftvalue: -7em;
 
         @keyframes goLeft {
             0%    {left: 3em;}
@@ -66,44 +78,57 @@ main {
         }
 
         .slides {
-            //border: solid;
-            outline: 7px double #A49EA3;
+            outline: 7px double $dark-grey;
             outline-offset: 0px;
             padding: 2em;
-            //width: 100%;
             background:rgba(170, 167, 167, 0.486);
+            @media screen and (max-width: 800px) {
+                padding: 7px;
+                // height: 9em;
+                // width: 100%;
+                margin: 2em;
+               }
             .slide {
                 margin: 0 0 2em 0;
-                
+                color: $crem;
                 h5 {
-                    color: white;
-                    font-size: 2.8em;
+                    font-size: 2em;
                     font-family: "medieval", sans-serif;
+                    color: $dark-blue;
+                    @media screen and (max-width: 800px) {
+                        font-size: 1em;
+                       }
                 }
                 span {
-                    color: white;
                     margin: 0 0 0 1em;
                     font-family: "medieval", sans-serif;
-                    font-size: .8em;
+                    color: $orange;
+                    //font-size: .8em;
                 }
                 a {
                     text-decoration: none;
                     text-decoration-line: underline;
-                    color: white;
                     font-size: .8em;
+                    color: $dark-blue;
                 }
 
-            }            
+            }
+            .num3 {
+                :hover{
+                    color: $red;
+                }
+            }         
         }
 
 
         #back {
             position: absolute;
-            color: rgb(221, 220, 220);
+            color: $orange;
             border: solid;
-            background: rgb(24, 23, 23);
+            background: $dark-blue;
             width: 8em;
             top: 24em;
         }
+
     }
 }

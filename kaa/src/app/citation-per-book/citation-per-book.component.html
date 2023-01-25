@@ -1,2 +1,41 @@
 
-<h2>test!</h2>
+<div class="main">
+  <h1>Les meilleures citations du {{bookSelected}} </h1>
+  <div class="nav"> 
+      <a mat-button routerLink="/citations" class="btn-secondary">Choisir un autre livre</a>
+      <owl-carousel-o [options]="customOptions" class="nav-cards">
+        <ng-container *ngFor="let card of characterListFiltered; let i = index">
+          <ng-template carouselSlide>
+            <div class="nav-card" (click)="showCitationPerCharacter(i)">
+              <figcaption>
+                {{ card }}
+              </figcaption>
+              <img id="character-Avatar" src="../../assets/images/persos/{{card}}.jpg" alt="card">
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+    <div class="group" *ngIf="!filterOn">
+      <app-single-citation 
+      *ngFor="let citation of citationPerBook"
+      [citation]="citation.citation"
+      [episode]="citation.infos.episode"
+      [perso]="citation.infos.personnage"
+      ></app-single-citation>
+    </div>
+    <div class="group" *ngIf="filterOn">
+      <div class="filter" (click)="filterOn = false">
+        <a class="btn-secondary">{{character}}</a>
+      </div>
+      <app-single-citation  
+      *ngFor="let citation of citationPerBookFiltered"
+      [citation]="citation.citation"
+      [episode]="citation.infos.episode"
+      ></app-single-citation>
+    </div>
+  </div>
+
+
+
+  

@@ -1,49 +1,59 @@
 @import "src/fonts.scss";
+@import "src/variables.scss";
 
 .home{
-    position: relative;
-    height: 100vh;
+    //height: 5em;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: "kaa", sans-serif;
     background: url(../../assets/images/fond/blue-wall-texture-slate-background.jpg);
-    color: aliceblue;
-    .title{
-        text-align: center;
-        padding: 2em;
-        
+    color: $crem;
+    padding: 5em 5em 0 5em;
 
-        h1{
-            font-family: "kaa", sans-serif;
-            font-size: 3.2em;
+    h1{
+        @media screen and (max-width: 770px) {
+            display: none;
         }
-
-        p{
-            font-size: 2.1em;
-            //font-family: "medieval", sans-serif;
-            margin: 2em 3em 0 3em;
-            line-height: 1.5em;
-        }
-
     }
+
+    q{
+        font-size: 2em;
+        text-align: center;
+        margin: 1em 3em 0 3em;
+        line-height: 1.1em;
+        width: 50%;
+        font-family: "viking";
+    }
+
+    hr{
+        color: $crem;
+        width: 50%;
+        border-top: 10px solid $blue;
+    }
+
     .nav{
         width: 85%;
+        height: 25em;
         display: flex;
         justify-content:space-around;
-        margin: 3em 0 0 0;
-        color: aliceblue;
-        //height: 15em;
+        //margin: 3em 0 0 0;
+        flex-wrap: wrap;
+        color: $crem;
+        @media screen and (max-width: 500px) {
+            //flex-direction: column;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
         .nav-item{
             @media screen and (max-width: 770px) {
-                height: 6.5em;
-                border: solid yellow;
-                margin: 1em;
-                width: 60%;
+                height: 3.5em;  
+                margin: 0.2em;
+                width: 20%;
+                text-decoration:underline;
             }
-            position: relative; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -57,8 +67,15 @@
              h6{
                 margin: 1em .7em .7em .7em;
                 font-size: 1.2em;
-                font-family: "kaa", sans-serif;
+                font-family: "medieval", sans-serif;
                 text-align: center;
+                color: $red;
+                text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
+
+                @media screen and (max-width: 770px) {
+                    font-size: 1em;
+                    margin: 0;
+                }
             }
 
             .img0 , .img1, .img2, .img3{
@@ -85,17 +102,16 @@
         }
 
         .nav-item:hover{
-            position: relative;
-            box-shadow: 0 0 65px aliceblue inset, 0 0 20px #BEAE8C inset, 0 0 2px #816F47;
+            box-shadow: 0 0 15px $blue inset, 0 0 20px $dark-blue inset, 0 0 2px $dark-grey;
 
             @media screen and (min-width: 770px) {
              border-radius: 10%;   
-            .img0, .img1, .img2, .img3 {
-                animation-name: in;
-                animation-duration: .45s;
-                animation-fill-mode:both;
-                animation-direction: alternate;
-            }
+                .img0, .img1, .img2, .img3 {
+                    animation-name: in;
+                    animation-duration: .45s;
+                    animation-fill-mode:both;
+                    animation-direction: alternate;
+                }
             }
 
          }

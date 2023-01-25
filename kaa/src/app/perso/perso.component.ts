@@ -16,9 +16,6 @@ export class PersoComponent implements OnInit {
     this.checkWidth(event.target.innerWidth);
   }
 
-
-
-
   constructor(private _CitationService: CitationService, private Router: Router) { }
 
   public citations: any = [];
@@ -26,33 +23,40 @@ export class PersoComponent implements OnInit {
 
   totalLength:any;
   page:number = 1;
-  maxItems:number = 18;
+  maxItems:number = 1;
 
   
   ngOnInit(): void {
     this.checkWidth(window.innerWidth);
     this.citations = this._CitationService.getCitations();
-    //console.log(this.citations);
-    
     this.casting = this._CitationService.getCasting();
-    //console.log(this.casting);
     this.totalLength = this.casting.length;
-    //console.log(this.totalLength);
-    
   }
 
+  // checkWidth(innerWidth: any) {
+  //   if (innerWidth <= 625) {
+  //     this.maxItems = 2;
+  //   }else if (innerWidth > 625 && innerWidth < 900){
+  //     this.maxItems = 4;
+  //   }else if (innerWidth > 900 && innerWidth < 1000){
+  //     this.maxItems = 6;
+  //   }else if (innerWidth > 1000 && innerWidth < 1200){
+  //     this.maxItems = 9;
+  //   }else if (innerWidth > 1200){
+  //     this.maxItems = 12;
+  //   }
+  // }
   checkWidth(innerWidth: any) {
-    //console.log(innerWidth);
     if (innerWidth <= 625) {
-      this.maxItems = 2;
-    }else if (innerWidth > 625 && innerWidth < 900){
-      this.maxItems = 4;
-    }else if (innerWidth > 900 && innerWidth < 1000){
-      this.maxItems = 6;
-    }else if (innerWidth > 1000 && innerWidth < 1200){
-      this.maxItems = 9;
-    }else if (innerWidth > 1200){
       this.maxItems = 12;
+    }else if (innerWidth > 625 && innerWidth < 900){
+      this.maxItems = 12;
+    }else if (innerWidth > 900 && innerWidth < 1000){
+      this.maxItems = 12;
+    }else if (innerWidth > 1000 && innerWidth < 1200){
+      this.maxItems = 12;
+    }else if (innerWidth > 1200){
+      this.maxItems = 18;
     }
   }
 
@@ -60,7 +64,5 @@ export class PersoComponent implements OnInit {
     // redirection
     this.Router.navigate(['/perso',item.id]);
   }
-
-  
 }
   
