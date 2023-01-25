@@ -97,7 +97,7 @@ export class FicheComponent implements OnInit, AfterContentInit {
 
   onAppear() {
     setTimeout(() => {
-      this.animationTiming[0] = true;
+      this.animationTiming[0] = true; 
       setTimeout(() => {
         this.animationTiming[1] = true;
         setTimeout(() => {

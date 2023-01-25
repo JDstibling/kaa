@@ -9,6 +9,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import "./variables.scss";
 @import "src/fonts.scss";
 
+
 .btn {
     position: relative;
     padding: 0.7em 3em 0.7em 3em;
@@ -50,13 +51,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 
 h1 {
-  font-family: "kaa", sans-serif !important;
+  font-family: "kaa", sans-serif !important;  // revoir
   text-align: center !important;
   color: $orange !important;
-  margin-top: 3em; 
+  font-size: 2em!important;
+  //margin-top: 3em; 
   @media screen and (min-width: 850px) {
     font-size: 3.2em !important; 
-    margin-top: 2em !important;
+    margin-top: 1em !important;
    }
   }
 
@@ -68,5 +70,37 @@ h1 {
   }
   
 }
+
+.form-container {
+  display: block;
+  max-width: 300px;
+  margin: auto;
+  background: $dark-grey;
+  padding: 48px;
+  border-radius: 16px;
+  color: $crem;
+  
+  mat-form-field {
+      width: 100%;
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.margin-top {
+  margin-top: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+
+
+
 
 

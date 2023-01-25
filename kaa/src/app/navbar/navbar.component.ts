@@ -21,7 +21,7 @@ export class NavbarComponent {
   constructor(router: Router) {
     router.events.pipe(filter((event: any) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        if(event.url == '/home' || event.url == '/'){
+        if(event.url == '/home' || event.url == '/dashboard'){
           this.displayNavBar = false;
         }else {
           this.displayNavBar = true;
