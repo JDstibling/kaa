@@ -29,19 +29,12 @@ export class SignInComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    private router: Router,private toast: HotToastService,
+    private router: Router,
+    private toast: HotToastService,
     ) { }
 
-  // constructor(
-  //   private authService: AuthService,
-  //   
-  //   private router: Router,
-  //   private fb: NonNullableFormBuilder,
-  // ) {}
 
   ngOnInit(): void {
-    // this.descriptionForm = new FormGroup({
-    //   code: new FormControl('')
   }
 
   get email() {
@@ -51,18 +44,6 @@ export class SignInComponent implements OnInit {
   get password() {
     return this.loginForm.get('password');
   }
-
-  // submit() {
-  //   const { email, password } = this.loginForm.value;
-
-  //   if (!this.loginForm.valid || !email || !password) {
-  //     return;
-  //   }
-    
-  //   this.authService.login(email, password).subscribe(() =>{
-  //     this.router.navigate(['/dashboard']);
-  //   })
-  // }
 
   submit() {
     const { email, password } = this.loginForm.value;
@@ -75,9 +56,9 @@ export class SignInComponent implements OnInit {
       .login(email, password)
       .pipe(
         this.toast.observe({
-          success: 'Logged in successfully',
-          loading: 'Logging in...',
-          error: ({ message }) => `There was an error: ${message} `,
+          success: 'Connecté',
+          loading: 'Connexion en cours ...',
+          error: ({ message }) => `Erreur de connexion ${message} `,
         })
       )
       .subscribe(() => {

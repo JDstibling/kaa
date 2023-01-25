@@ -6,8 +6,13 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+
+  user$ = this.authService.currentUser$;
+  
   constructor(public authService: AuthService) {}
+
+
   ngOnInit(): void {
-    //console.log(this.authService.userData.username);
+    
   }
 }

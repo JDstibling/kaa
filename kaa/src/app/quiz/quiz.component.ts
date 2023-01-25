@@ -196,7 +196,7 @@ export class QuizComponent implements OnInit {
 
   restartGame(){
     console.log(this.quiz);
-    console.log(this.authService.userData.multiFactor.user.displayName);
+    //console.log(this.authService.userData.multiFactor.user.displayName);
     
 
     
@@ -263,7 +263,7 @@ export class QuizComponent implements OnInit {
 
         //enregistrement des data du joueur
         this.actualDate = new Date().toLocaleDateString("fr");
-        this.ScoreService.addFirebase(this.authService.userData.multiFactor.user.displayName, this.countPoint,this.actualDate);
+        //this.ScoreService.addFirebase(this.authService.userData.multiFactor.user.displayName, this.countPoint,this.actualDate);
         
         this.startGame = false;
         this.textButton = "Réessayer";
