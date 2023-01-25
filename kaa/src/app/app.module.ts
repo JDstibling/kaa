@@ -18,6 +18,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FicheComponent } from './fiche/fiche.component';
@@ -75,6 +76,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
   ],
   imports: [
     MatProgressSpinnerModule,
+    MatMenuModule,
     HotToastModule.forRoot(),
     ReactiveFormsModule,        // a retirer si bug
     MatInputModule,

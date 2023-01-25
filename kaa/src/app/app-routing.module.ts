@@ -14,27 +14,103 @@ import { PersoComponent } from './perso/perso.component';
 import { QuizComponent } from './quiz/quiz.component';
 
 // route guard
-import { AuthGuard } from './guard/auth.guard';
+//import { AuthGuard } from './guard/auth.guard';   voir a supp
+import {
+  canActivate,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo,
+} from '@angular/fire/auth-guard';
+
+const redirectToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectToHome = () => redirectLoggedInTo(['login']);
+
+// const routes: Routes = [
+//   {path: 'home', component: HomeComponent, ...canActivate(redirectToLogin)},
+//   {path: 'quiz', component: QuizComponent, ...canActivate(redirectToLogin)},
+//   {path: 'perso', component: PersoComponent, ...canActivate(redirectToLogin)},
+//   {path: 'perso/:id', component: FicheComponent, ...canActivate(redirectToLogin)},
+//   {path: 'citations', component: CitationsComponent, ...canActivate(redirectToLogin)},
+//   {path: 'citations/:id', component: CitationPerBookComponent, ...canActivate(redirectToLogin)},
+//   {path: 'notFound', component: NotfoundComponent},
+
+//   {path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+//   {path: 'sign-in', component: SignInComponent , ...canActivate(redirectToHome)},
+//   {path: 'register-user', component: SignUpComponent, ...canActivate(redirectToHome)},
+//   {path: 'dashboard', component: DashboardComponent, ...canActivate(redirectToHome) },
+//   {path: 'forgot-password', component: ForgotPasswordComponent },
+//   {path: 'verify-email-address', component: VerifyEmailComponent },
+
+
+//    //{path: '', redirectTo:'home', pathMatch:'full', ...canActivate(redirectToHome)},
+//    //{path: '**', redirectTo:'notFound'},
+// ];
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'quiz', component: QuizComponent},
-  {path: 'perso', component: PersoComponent},
-  {path: 'perso/:id', component: FicheComponent},
-  {path: 'citations', component: CitationsComponent},
-  {path: 'citations/:id', component: CitationPerBookComponent},
-  {path: 'notFound', component: NotfoundComponent},
-
-  {path: '', redirectTo: '/sign-in', pathMatch: 'full' },
-  {path: 'sign-in', component: SignInComponent },
-  {path: 'register-user', component: SignUpComponent },
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  {path: 'forgot-password', component: ForgotPasswordComponent },
-  {path: 'verify-email-address', component: VerifyEmailComponent },
-
-
-  // {path: '', redirectTo:'home', pathMatch:'full'},
-  // {path: '**', redirectTo:'notFound'},
+  {
+    path: '',
+    pathMatch: 'full',
+    component: HomeComponent,
+  },
+  {
+    path: 'login',
+    component: SignInComponent,
+    ...canActivate(redirectToHome),
+  },
+  {
+    path: 'register-user',
+    component: SignUpComponent,
+    ...canActivate(redirectToHome),
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    ...canActivate(redirectToLogin),
+  },
+  {
+    path: 'profile',
+    component: DashboardComponent,
+    ...canActivate(redirectToLogin),
+  },
+  {
+    path: 'quiz',
+    component: QuizComponent,
+    ...canActivate(redirectToLogin),
+  },
+  {
+    path: 'perso',
+    component: PersoComponent,
+    ...canActivate(redirectToLogin),
+  },
+  {
+    path: 'perso/:id',
+    component: FicheComponent,
+    ...canActivate(redirectToLogin),
+  },
+  {
+    path: 'citations',
+    component: CitationsComponent,
+    ...canActivate(redirectToLogin),
+  },
+  {
+    path: 'citations/:id',
+    component: CitationPerBookComponent,
+    ...canActivate(redirectToLogin),
+  },
+  {
+    path: 'profile',
+    component: DashboardComponent,
+    ...canActivate(redirectToLogin),
+  },
+  {
+    path: 'notFound',
+    component: NotfoundComponent,
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo:'notFound'
+  },
+  
 ];
 
 

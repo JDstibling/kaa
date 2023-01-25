@@ -1,22 +1,38 @@
+
 <mat-toolbar color="secondary">
-    Sign Up flow with firebase
-
-    <ng-container *ngIf="auth.currentUser$ | async as user; else loginButton">
-        <button mat-button>
-            <mat-icon>account_circle</mat-icon>
-            {{user.displayName}}
-            <mat-icon>expand_more</mat-icon>
-        </button>
+     <a routerLink="home">KaaF</a>
+    <ng-container *ngIf="user$ | async as user; else loginButton">
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <!-- <img
+          width="30"
+          height="30"
+          class="profile-image-toolbar"
+          [src]="user.photoURL ?? 'assets/images/image-placeholder.png'"
+        /> -->
+        {{ user.displayName }}
+        <mat-icon>expand_more</mat-icon>
+      </button>
     </ng-container>
-    <ng-template #loginButton>
-        <button mat-button routerLink="sign-in" (click)="logout()">
-            <mat-icon>logout</mat-icon>
-            Se déconnecter
-        </button>
-    </ng-template>
 
-</mat-toolbar>
-<!-- <app-navbar></app-navbar> -->
-<div class="content">
+    <ng-template #loginButton>
+      <button mat-button routerLink="login">
+        <mat-icon>login</mat-icon>
+        Connexion
+      </button>
+    </ng-template>
+  </mat-toolbar>
+  
+  <div class="content">
     <router-outlet></router-outlet>
-</div>
+  </div>
+  
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item routerLink="/profile">
+      <mat-icon>account_circle</mat-icon>
+      Mon profil
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Se déconnecter
+    </button>
+  </mat-menu>
