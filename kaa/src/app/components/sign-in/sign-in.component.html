@@ -1,7 +1,7 @@
 
   <div class="main">
     <div class="form-container mat-elevation-z5">
-      <h2 style="color:white;">Login</h2>
+      <h2 style="color:white;">Connexion</h2>
       <form [formGroup]="loginForm" style="color:white;" (ngSubmit)="submit()">
         <mat-form-field>
           <input matInput placeholder="Adresse mail" formControlName="email">
@@ -16,9 +16,12 @@
           </mat-error>
         </mat-form-field>
         <div class="center margin-top">
-          <button mat-raised-button color="primary" type="submit">
+          <button mat-raised-button type="submit">
             Suivant
           </button>
+        </div>
+        <div class="formGroup">
+          <img src="./assets/images/logo/signInGoogleBlue.png" (click)="authService.GoogleAuth()">
         </div>
         <div class="form-footer">
           <span class="center margin-top"><a class="sing-up-link" routerLink="/forgot-password">Mot de passe oublié</a></span>

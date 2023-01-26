@@ -1,12 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
-  import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-// import firebaseui from 'firebaseui';
-// import firebase from 'firebase/compat';
 
-// new version
 import {
   Auth,
   signInWithEmailAndPassword,
@@ -15,8 +11,11 @@ import {
   updateProfile,
   UserInfo,
   UserCredential,
+  GoogleAuthProvider,
 } from '@angular/fire/auth';
-import { concatMap, from, Observable, of, switchMap } from 'rxjs';
+import { from, Observable} from 'rxjs';
+import { HotToastService } from '@ngneat/hot-toast';
+import firebase from 'firebase/compat';
 
 
 @Injectable({
@@ -30,11 +29,13 @@ export class AuthService {
   userData: any; // Save logged in user data
 
   constructor(
+    private toast: HotToastService,
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning,
-    private auth: Auth                                                           // de la new version
+    private auth: Auth,                                                          // de la new version
+
   ) {
     // /* Saving user data in localstorage when 
     // logged in and setting up null when logged out */
@@ -71,12 +72,31 @@ export class AuthService {
   ForgotPassword(passwordResetEmail: string) {
     return this.afAuth
     .sendPasswordResetEmail(passwordResetEmail)
+
     .then(() => {
-      window.alert('Veuillez consulter votre boite mail');
+      this.toast.success('Email envoyé, consultez votre boite ;)');
     })
-    .catch((error) => {
-      window.alert('Adresse mail inconnu');
+    .catch(() => {
+      this.toast.error('Adresse mail lié à aucun compte !');
       });
-    }
+  }
+
+  // Sign in with Google
+  GoogleAuth() {
+    return this.AuthLogin(new GoogleAuthProvider());
+  }
+
+  AuthLogin(provider: firebase.auth.AuthProvider | GoogleAuthProvider) {
+    return this.afAuth
+      .signInWithPopup(provider)
+      .then((result) => {
+        this.toast.success('Connexion à votre compte Google réussi !');
+        this.router.navigate(['/home']);
+      })
+      .catch((error) => {
+        this.toast.error('Connexion échoué! Erreur : ' + error);
+      });
+  }
+
 
 }

@@ -3,12 +3,12 @@
      <a routerLink="home">KaaF</a>
     <ng-container *ngIf="user$ | async as user; else loginButton">
       <button mat-button [matMenuTriggerFor]="userMenu">
-        <!-- <img
+        <img
           width="30"
           height="30"
           class="profile-image-toolbar"
-          [src]="user.photoURL ?? '../assets/images/persos.Gauvain.jpg'"
-        /> -->
+          [src]="user.photoURL ?? './assets/images/logo/signInGoogle.png'"
+        />
         {{ user.displayName }}
         <mat-icon>expand_more</mat-icon>
       </button>
