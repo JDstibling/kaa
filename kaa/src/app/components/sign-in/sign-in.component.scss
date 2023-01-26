@@ -9,4 +9,10 @@
         font-size: 1.2rem;
         margin-left: 8px;
     }
+    .form-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 }

@@ -102,6 +102,10 @@ const routes: Routes = [
     ...canActivate(redirectToLogin),
   },
   {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
+  },
+  {
     path: 'notFound',
     component: NotfoundComponent,
   },

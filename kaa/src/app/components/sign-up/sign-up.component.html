@@ -3,13 +3,13 @@
     <h2>Enregistrement</h2>
     <form [formGroup]="signUpForm" (ngSubmit)="submit()">
       <mat-form-field>
-        <input matInput placeholder="Name" formControlName="name" />
+        <input matInput placeholder="Nom ou Pseudo" formControlName="name" />
         <mat-error *ngIf="name?.errors?.['required']">
           Nom ou pseudo nécessaire
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Email address" formControlName="email" />
+        <input matInput placeholder="Adresse email" formControlName="email" />
         <mat-error *ngIf="email?.errors?.['required']">
           Une adresse email est nécessaire pour poursuivre
         </mat-error>
@@ -21,7 +21,7 @@
         <input
           matInput
           type="password"
-          placeholder="Password"
+          placeholder="Mot de passe"
           formControlName="password"
         />
         <mat-error *ngIf="password?.errors?.['required']">
@@ -32,7 +32,7 @@
         <input
           matInput
           type="password"
-          placeholder="Confirm Password"
+          placeholder="Confirmation du mot de passe"
           formControlName="confirmPassword"
         />
         <mat-error *ngIf="confirmPassword?.errors?.['required']">
