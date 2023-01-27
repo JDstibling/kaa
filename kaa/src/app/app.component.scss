@@ -25,6 +25,20 @@ mat-toolbar {
         color: $orange;
         font-family: "medieval";
     }
+
+    img {
+        border-radius: 15%;
+    }
+
+    ng-container {
+        mat-button {
+            background: pink;
+        }
+    }
+
+
+
+
 }
 
 

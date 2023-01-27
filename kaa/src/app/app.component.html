@@ -4,10 +4,9 @@
     <ng-container *ngIf="user$ | async as user; else loginButton">
       <button mat-button [matMenuTriggerFor]="userMenu">
         <img
-          width="30"
-          height="30"
-          class="profile-image-toolbar"
-          [src]="user.photoURL ?? './assets/images/logo/signInGoogle.png'"
+          width="35"
+          height="35"
+          [src]="user.photoURL ?? './assets/images/icon/iconUser2.png'"
         />
         {{ user.displayName }}
         <mat-icon>expand_more</mat-icon>
