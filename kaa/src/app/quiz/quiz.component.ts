@@ -98,6 +98,8 @@ export class QuizComponent implements OnInit {
   
   constructor(public usersService: UsersService, private CitationService: CitationService, public authService: AuthService, public ScoreService: ScoreService) { 
     this.AllScores = this.ScoreService.getAllScore();
+    //console.log(this.allscore);
+    
   }
 
   ngOnInit(): void {
@@ -263,6 +265,8 @@ export class QuizComponent implements OnInit {
         this.usersService.currentUserProfile$.subscribe((el) => {
           const currentPlayer = el?.displayName;
           this.ScoreService.addFirebase(currentPlayer, this.countPoint,this.actualDate);
+          //console.log(this.allscore);
+          
         })
         
         this.startGame = false;

@@ -1,6 +1,6 @@
 
 <mat-toolbar color="secondary">
-     <a routerLink="home">KaaF</a>
+     <a routerLink="home"><img src="../assets/images/logo/logo_only.png" width="50px"></a>
     <ng-container *ngIf="user$ | async as user; else loginButton">
       <button mat-button [matMenuTriggerFor]="userMenu">
         <img

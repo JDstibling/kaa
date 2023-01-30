@@ -8,6 +8,8 @@ import { AuthService } from '../../services/auth.service';
 export class DashboardComponent implements OnInit {
 
   user$ = this.authService.currentUser$;
+
+  iconDefault = "../../../assets/images/icon/iconUser2.png";
   
   constructor(public authService: AuthService) {}
 

@@ -15,6 +15,33 @@ main {
     img {
         width: 480px;
     }
+
+    .classement {
+        
+        background: $blue;
+        width: 45%;
+
+        table {
+            border: double;
+            padding: 1.2em;
+            text-align: center;
+            width: 100%;
+
+            #title{
+                background: $dark-blue;
+                color: $crem;
+                text-transform: uppercase;
+                text-decoration: dotted;
+                font-weight: bold;
+            }
+
+            td {
+                border: solid 1px;
+                padding: 16px;
+            }
+        }
+    }
+
     .header {
         display: flex;
         flex-direction: column;

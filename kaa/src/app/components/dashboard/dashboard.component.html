@@ -1,3 +1,47 @@
-<div class="main">
-    <h1 *ngIf="user$ | async as user">Bienvenue sur votre profil {{user.displayName}}</h1>
+<div class="main" *ngIf="user$ | async as user">
+    <header>
+        <hr />
+        <h1 >Bienvenue sur votre profil {{user.displayName | titlecase}}</h1>
+        <hr />
+    </header>
+    <div class="center profil">
+        <ng-container>
+            <mat-card mat-elevation-z5>
+                <mat-card-header>
+                    <mat-card-title>
+                        <img
+                        mat-card-avatar
+                        *ngIf="user.photoURL != 'photoURL'"
+                        [src]="user.photoURL"
+                        />
+                        <img
+                        mat-card-avatar
+                        *ngIf="user.photoURL == 'photoURL'"
+                        [src]="'../../../assets/images/icon/iconUser2.png'"
+                        />
+                        Mon profil 
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <hr />
+                    <mat-card-subtitle>
+                        Détail du profil 
+                    </mat-card-subtitle>
+                    <p>Pseudo : <span>{{user.displayName | titlecase}}</span></p>
+                    <p>Email : <span>{{user.email}}</span></p>
+                    <!-- <p>Inscit le : <span>date blabla</span></p> -->
+                </mat-card-content>
+                <mat-card-content>
+                    <hr />
+                    <mat-card-subtitle>
+                        Mes stats au quiz Kaameloot
+                    </mat-card-subtitle>
+                    <p>Meilleur score : <span>560</span></p>
+                    <p>Réalisé le : <span>12/12/2022</span></p>
+                    <p>Classé à la position <span>5</span> dans le classement générale.</p>
+                </mat-card-content>
+            </mat-card>
+        </ng-container>
+    </div>
 </div>
+

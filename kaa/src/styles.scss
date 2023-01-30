@@ -54,11 +54,10 @@ h1 {
   font-family: "kaa", sans-serif !important;  // revoir
   text-align: center !important;
   color: $orange !important;
-  font-size: 2em!important;
-  //margin-top: 3em; 
+  margin-top: 1em !important;
+
   @media screen and (min-width: 850px) {
     font-size: 3.2em !important; 
-    margin-top: 1em !important;
    }
   }
 

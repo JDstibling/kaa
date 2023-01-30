@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+//import { limit, orderBy, query } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { score } from '../config/score';
 
@@ -12,8 +13,19 @@ export class ScoreService {
   score = score;
 
   constructor(public firestore: AngularFirestore) { 
-    this.AllScores = this.firestore.collection('Scores').valueChanges();
-  }
+      this.AllScores = this.firestore
+      .collection('Scores', ref => ref.orderBy('Score', 'desc'))
+      .valueChanges();
+
+      // this.AllScores = this.firestore
+      // .collection('Scores')
+      // .valueChanges();
+
+      //const data=  this.AllScores.where('score').orderBy('score').get(); 
+      //console.log(this.AllScores);
+      
+      
+    }
 
   addFirebase(pseudo: string | any, score: number, date: Date) {
 
